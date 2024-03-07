@@ -1,0 +1,142 @@
+#contactus
+{
+    margin: 0rem 67rem 0rem 0rem;
+}
+.text
+{
+    font-size: 20px;
+    width: 30rem;
+    height: 13rem;
+    margin: 5rem 0rem 0rem 5rem;
+    border-radius: 10px;
+    background-color: rgb(242, 244, 242);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.text h1
+{
+    font-size: 80px;
+    padding: 0;
+    margin: 0;
+    color: rgba(107, 218, 138, 0.898);
+}
+.text h2
+{
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+}
+.imgtext
+{
+    display: grid;
+    grid-template-columns: 50rem 35rem;
+    margin: 5rem 0rem 0rem 5rem;
+}
+.img
+{
+    width: 40rem;
+}
+.text2
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slidesimg
+{
+    width: 40rem;
+    height: 25rem;
+    border-radius: 15px;
+}
+.carousel0
+{
+    border-radius: 15px;
+}
+.containerA0
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.subheading1
+{
+    margin-top: 6rem;
+    padding: 4.5rem;
+}
+.subheading1 h1
+{
+    font-size: 80px;
+}
+.subheading1 h2
+{
+    font-size: 60px;
+    color: rgba(107, 218, 138, 0.898);
+}
+.containerA
+{
+    display: grid;
+    grid-template-rows: 40rem 30rem;
+    padding: 3.5rem;
+}
+.containerA1
+{
+    border-radius: 15px;
+    margin: 1.5rem;
+    background-color: rgb(242, 244, 242);
+    box-shadow: 2px 2px 2px .5px;
+    display: grid;
+    grid-template-columns: 50rem auto;
+    background: url('assets/labour\ img7.jpg') no-repeat center/cover;
+}
+.textA1
+{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    justify-content: center;
+    align-items: center;
+}
+.textbox
+{
+    width: 20rem;
+    height: 15rem;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.776);
+    margin: 1rem;
+    padding: 10px;
+}
+.textbox h1
+{
+    color: rgba(107, 218, 138, 0.898);
+}
+.textbox p
+{
+    padding-top: 1rem;
+}
+.containerA2
+{
+    border-radius: 15px;
+    margin: 1.5rem;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.containerA2-1
+{
+    border-radius: 15px;
+    margin-right: 1.5rem;
+    background-color: rgb(242, 244, 242);
+    box-shadow: 2px 2px 2px .5px;
+}
+.containerA2-2
+{
+    border-radius: 15px;
+    margin-left: 1.5rem;
+    background-color: rgb(242, 244, 242);
+    box-shadow: 2px 2px 2px .5px;
+}
+.containerA :hover
+{
+    transition: all .7s;
+    transform: scale(1.03);
+}
