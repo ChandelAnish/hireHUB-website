@@ -1,12 +1,42 @@
 #contactus
 {
-    margin: 0rem 67rem 0rem 0rem;
+    margin: 0rem 65rem 0rem 0rem;
+}
+.mainheading
+{
+    display: grid;
+    grid-template-columns: 50rem auto;
+    /* text-align: center; */
+    /* justify-content: center; */
+    margin: 4rem 0rem 12rem 0rem;
+}
+.maintext2
+{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 2rem 0rem 0rem 0rem;
+}
+.maintext2 h1
+{
+    font-size: 60px;
+}
+.maintext2 h2
+{
+    color: rgba(107, 218, 138, 0.898);
+    font-size: 80px;
+}
+.maintext2 i
+{
+    font-size: 80px;
+    width: 7rem;
+    margin-left: 10px;
 }
 .text
 {
     font-size: 20px;
-    width: 30rem;
-    height: 13rem;
+    width: 35rem;
+    height: 15rem;
     margin: 5rem 0rem 0rem 5rem;
     border-radius: 10px;
     background-color: rgb(242, 244, 242);
@@ -21,6 +51,10 @@
     padding: 0;
     margin: 0;
     color: rgba(107, 218, 138, 0.898);
+}
+.text h1 i
+{
+    margin-right: 2rem;
 }
 .text h2
 {
@@ -164,4 +198,130 @@
 {
     transition: all .7s;
     transform: scale(1.03);
+}
+
+/* for containerB */
+.containerB0
+{
+    display: flex;
+    flex-direction: column;
+}
+.headingB0
+{
+    margin-top: .5rem;
+    padding: 4.5rem;
+    margin-bottom: 4rem;
+}
+.headingB0 h1
+{
+    font-size: 60px;
+}
+.headingB0 h2
+{
+    font-size: 70px;
+    color: rgba(107, 218, 138, 0.898);
+}
+.containerB1
+{
+    display: grid;
+    border-radius: 15px;
+    margin: 1.5rem;
+    background-color: rgb(242, 244, 242);
+    box-shadow: 2px 2px 2px .5px;
+    display: grid;
+    grid-template-columns: 50rem auto;
+    background: url('assets/labour\ img9.png') no-repeat right/contain rgb(207, 243, 239);
+    /* padding: 1rem; */
+    margin: 0rem 5rem 0rem 5rem;
+}
+.containerB1-1
+{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    justify-content: center;
+    align-items: center;
+}
+.containerB1-1 .textbox
+{
+    background-color: rgba(255, 255, 255, 0.554);
+}
+.containerB0  .containerB1:hover
+{
+    transition: all .7s;
+    transform: scale(1.03);
+}
+.containerB1 :hover
+{
+    transition: all .7s;
+    transform: scale(1.03);
+}
+/* contact us */
+.facebook img
+{
+    width: 4rem;
+    margin: 5rem;
+}
+.linkedin img
+{
+    width: 6rem;
+}
+.insta img
+{
+    width: 6rem;
+}
+.twitter img
+{
+    width: 5rem;
+}
+.contactme0
+{
+    display: grid;
+    grid-template-columns: 35rem 35rem auto;
+    margin: 10rem 0rem 0rem 0rem;
+    background-color: rgb(242, 244, 242);
+    border-radius: 10px;
+}
+.about
+{
+    padding: 2rem;
+}
+.terms
+{
+    padding: 2rem;
+}
+.terms h3 ul
+{
+    list-style-type: none;
+}
+.links
+{
+    padding: 2rem;
+}
+.contactme
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 10rem;
+}
+.linkedin :hover
+{
+    transform: scale(1.07);
+    transition: all .5s;
+}
+.facebook :hover
+{
+    transform: scale(1.07);
+    transition: all .5s;
+}
+.insta :hover
+{
+    transform: scale(1.07);
+    transition: all .5s;
+}
+.twitter :hover
+{
+    transform: scale(1.07);
+    transition: all .5s;
 }
