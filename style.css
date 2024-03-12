@@ -258,36 +258,60 @@
 /* contact us */
 .facebook img
 {
-    width: 4rem;
-    margin: 5rem;
+    width: 3rem;
+    /* margin: 5rem; */
 }
 .linkedin img
 {
-    width: 6rem;
+    width: 3.5rem;
+    margin-bottom: 8px;
 }
 .insta img
 {
-    width: 6rem;
+    width: 4.6rem;
 }
 .twitter img
 {
-    width: 5rem;
+    width: 4rem;
 }
 .contactme0
 {
     display: grid;
     grid-template-columns: 35rem 35rem auto;
     margin: 10rem 0rem 0rem 0rem;
-    background-color: rgb(242, 244, 242);
+    background-color: rgba(185, 244, 202, 0.898);
     border-radius: 10px;
+    /* align-items: center;
+    justify-content: center; */
+    padding-top: 3rem;
+}
+.contactbox
+{
+    background-color: rgba(255, 255, 255, 0.598);
+    margin: 1rem;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 0.5px;
+}
+.contactme0 :hover
+{
+    transition: all .7s;
+    transform: scale(1.03);
 }
 .about
 {
     padding: 2rem;
 }
+.about h2
+{
+    margin: 0rem 0rem 3rem 0rem;
+}
 .terms
 {
     padding: 2rem;
+}
+.terms h2
+{
+    margin: 0rem 0rem 3rem 0rem;
 }
 .terms h3 ul
 {
@@ -296,6 +320,14 @@
 .links
 {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.links h2
+{
+    margin: 0rem 0rem 3rem 0rem;
 }
 .contactme
 {
@@ -303,7 +335,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 10rem;
+    height: 15rem;
 }
 .linkedin :hover
 {
