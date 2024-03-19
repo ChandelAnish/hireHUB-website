@@ -279,11 +279,12 @@
     display: grid;
     grid-template-columns: 35rem 35rem auto;
     margin: 10rem 0rem 0rem 0rem;
-    background-color: rgba(185, 244, 202, 0.898);
+    background-color: rgba(193, 239, 206, 0.898);
     border-radius: 10px;
     /* align-items: center;
     justify-content: center; */
     padding-top: 3rem;
+    padding-bottom: 5rem;
 }
 .contactbox
 {
@@ -356,4 +357,11 @@
 {
     transform: scale(1.07);
     transition: all .5s;
+}
+.contactme0 footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
 }
