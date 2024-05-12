@@ -164,7 +164,7 @@
     box-shadow: 2px 2px 2px .5px;
     display: grid;
     grid-template-columns: 27rem auto;
-    background: url('/assets/labour\ img8.jpeg') no-repeat bottom/contain;
+    background: url('assets/labour\ img8.jpeg') no-repeat bottom/contain;
     background-size: 27rem;
 }
 .subheading2
@@ -186,7 +186,7 @@
     margin-left: 1.5rem;
     background-color: rgb(242, 244, 242);
     box-shadow: 2px 2px 2px .5px;
-    background: url('/assets/join_us-removebg-preview.png') no-repeat top/contain;
+    background: url('assets/join_us-removebg-preview.png') no-repeat top/contain;
     background-size: 21
     rem;
 }

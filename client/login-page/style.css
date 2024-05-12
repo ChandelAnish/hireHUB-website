@@ -1,0 +1,133 @@
+.maincontainer{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 100vh;
+    background-color: rgb(243, 243, 243);
+    flex-direction: column;
+    padding: 2rem;
+}
+.headinglogin
+{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    width: 70rem;
+    align-items: center;
+    justify-content: center;
+}
+.heading
+{
+    width: 36rem;
+    height: 34rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    /* background-color: rgb(143, 181, 161); */
+    box-shadow: 2px 2px 2px;
+    background: url('../assets/img.jpg') no-repeat center/cover rgb(255, 255, 255);
+}
+/* .heading h1
+{
+    font-size: 65px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin: 60px 0px 90px 0px;
+}
+.heading h4
+{
+    color: rgb(224, 243, 230);
+    width: 30rem;
+} */
+
+
+.container {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    width: 30rem;
+    height: 36rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input0{
+    width: 17rem;
+    height: 45px;
+    border-radius: 10px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+    padding-left: 10px;
+    outline: none;
+    border: none;
+}
+.input
+{
+    outline: none;
+    border: none;
+    width: 253px;
+    height: 35px;
+    padding-left: 5px;
+    margin: 5px;
+    background-color: rgb(245, 245, 245);
+}
+.btn
+{
+    background-color: rgb(63, 234, 111);
+    color: white;
+    width: 17rem;
+    height: 45px;
+    border-radius: 10px;
+    margin: 5px;
+}
+.warning
+{
+    /* border: 2px solid black; */
+    width: 17rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+
+.container1 {
+    width: 27rem;
+    height: 280px;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(143, 181, 161); */
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 2px;
+}
+.container2 {
+    width: 27rem;
+    height: 245px;
+    border-radius: 20px;
+    background-color: rgb(143, 181, 161);
+    box-shadow: 2px 2px 2px;
+}
+.curveborder
+{
+    border-radius: 20px;
+
+}
+.carouselimg
+{
+    border-radius: 20px;
+    width: 27rem;
+    height: 245px;
+}
