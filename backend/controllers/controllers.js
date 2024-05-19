@@ -1,13 +1,14 @@
-const connectDB=require("../connectionDB/connectionDB")
+const connectDB = require("../connectionDB/connectionDB")
+const { sendmail } = require("../smtp/smtp")
 
-const testing =(req,res)=>{
+const testing = (req, res) => {
     res.send('test successfull again')
 }
 
 
 //login
 
-const login=(req, res) => {
+const login = (req, res) => {
     console.log(req.body)
     if (!req.body.username || !req.body.password) {
         return res.status(401).json({ login: false, msg: 'enter all credentials' })
@@ -41,7 +42,7 @@ const login=(req, res) => {
     })
 }
 
-const signup=(req, res) => {
+const signup = (req, res) => {
     // console.log(req.body)
     const { username, email, password, confirmpassword, usertype } = req.body;
     //check for all credintials
@@ -84,7 +85,10 @@ const signup=(req, res) => {
                         }
                         else {
                             console.log(row);
-                            return res.status(200).json({ signup: true, msg: "signed up successfully" })
+                            return res.status(200).json({
+                                signup: true, msg: "signed up successfully",
+                                userdetails: { username, email, password, usertype }
+                            })
                         }
                     })
                 }
@@ -93,4 +97,22 @@ const signup=(req, res) => {
     })
 }
 
-module.exports={testing,login,signup};
+let otp;
+const otpverification = async(req, res) => {
+    if (req.body.email) {
+        try {
+            otp=await sendmail(req.body.email);
+            return res.status(200).json({ msg: "OTP sent" });
+        } catch (error) {
+            return res.status(500).json({ msg: "OTP sent faliure" });
+        }
+    }
+    if (otp !== req.body.userotp) {
+        return res.status(200).json({ success:false, msg: "otp not verified" });
+    }
+    else {
+        return res.status(200).json({ success:true, msg: "otp verified" });
+    }
+}
+
+module.exports = { testing, login, signup, otpverification };

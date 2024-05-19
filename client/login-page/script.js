@@ -39,7 +39,7 @@ form.addEventListener('submit',async(e)=>{
         {
             return warning.innerHTML=response.msg;
         }
-        window.location.href='/mainpage'
+        return window.open("../main-page/index.html","_parent");
 })
 
 const signup=async(formdata)=>{

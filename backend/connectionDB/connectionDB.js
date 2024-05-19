@@ -1,9 +1,9 @@
 const mysql=require('mysql2')
 const userdetail={
-    user:'root',
-    host:'localhost',
-    password:'235689',
-    database:'userdetails'
+    user:process.env.USER,
+    host:process.env.HOST,
+    password:process.env.PASSWORD,
+    database:process.env.DATABASE
 }
 const connectDB=mysql.createConnection(userdetail)
 
