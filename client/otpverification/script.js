@@ -35,7 +35,7 @@ async function verifyotp(userotp) {
     console.log(data)
     document.getElementById('warning').innerHTML = data.msg;
     if (data.success) {
-        return window.open("../main-page/index.html","_parent");
+        return window.open("../login-page/index.html","_parent");
     }
 }
 

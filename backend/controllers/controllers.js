@@ -22,14 +22,18 @@ const login = (req, res) => {
                 return res.status(200).json({ login: false, msg: 'not found' })
             }
             else {
-                connectDB.query('select password,usertype from userdetails.userinfo where username=?', [req.body.username], (err, row) => {
+                connectDB.query('select * from userdetails.userinfo where username=?', [req.body.username], (err, row) => {
                     if (err) {
                         console.log(err);
                     }
                     else {
-                        if (row[0].password == req.body.password && row[0].usertype == req.body.usertype) {
+                        if (row[0].password == req.body.password) {
                             // res.sendFile(path.resolve(__dirname,'./public/main-page/index1.html'))
-                            return res.status(200).json({ login: true, msg: 'login successful' })
+                            return res.status(200).json({ 
+                                login: true, 
+                                userdetails:{...row[0]}, 
+                                msg: 'login successful' 
+                            })
                             // return res.status(200).redirect('./main-page/index1.html')
                         }
                         else {

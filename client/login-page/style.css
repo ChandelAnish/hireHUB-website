@@ -93,6 +93,7 @@
 {
     /* border: 2px solid black; */
     width: 17rem;
+    height: 22px;
     border-radius: 10px;
     display: flex;
     align-items: center;

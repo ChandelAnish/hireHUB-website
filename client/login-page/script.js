@@ -1,22 +1,21 @@
-const slidebutton=document.querySelector("#slidebutton");
-function changeSlide()
-{
-    setInterval(()=>{
+const slidebutton = document.querySelector("#slidebutton");
+function changeSlide() {
+    setInterval(() => {
         slidebutton.click();
-    },3000)
+    }, 3000)
 }
 changeSlide();
 
-const warning=document.querySelector(".warning")
+const warning = document.querySelector(".warning")
 
-const form=document.getElementById('form')
-form.addEventListener('submit',async(e)=>{
+const form = document.getElementById('form')
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const username=form.elements.username.value;
-    const password=form.elements.password.value;
-    const usertype=form.elements.usertype.value;
-    
-    const formdata={username,password,usertype};
+    const username = form.elements.username.value;
+    const password = form.elements.password.value;
+    // const usertype=form.elements.usertype.value;
+
+    const formdata = { username, password };
     // try
     // {
     //     let response=await signup(formdata);//must use await since fetch is used in a the signup function
@@ -33,22 +32,31 @@ form.addEventListener('submit',async(e)=>{
     //     window.location.href='/index1.html'
     // }
 
-        let response=await signup(formdata);//must use await since fetch is used in a the signup function
-        response=await response.json();
-        if(!response.login)
-        {
-            return warning.innerHTML=response.msg;
-        }
-        return window.open("../main-page/index.html","_parent");
+    let response = await signup(formdata);//must use await since fetch is used in a the signup function
+    response = await response.json();
+    if (!response.login) {
+        return warning.innerHTML = response.msg;
+    }
+    // console.log(response.userdetails.usertype)
+    sessionStorage.setItem('userdetails', JSON.stringify(response.userdetails));
+    if (response.userdetails.usertype === 'recruiter') {
+        return window.open("../main-page/recruiter/index.html", "_parent");
+    }
+    else if (response.userdetails.usertype === 'labour') {
+        return window.open("../main-page/labour/index.html", "_parent");
+    }
+    if (response.userdetails.usertype === 'admin') {
+        return window.open("../main-page/admin/index.html", "_parent");
+    }
 })
 
-const signup=async(formdata)=>{
-    const response=fetch('http://localhost:5000/login',{
-        method:'post',
-        headers:{
-            'content-type':'application/json'
+const signup = async (formdata) => {
+    const response = fetch('http://localhost:5000/login', {
+        method: 'post',
+        headers: {
+            'content-type': 'application/json'
         },
-        body:JSON.stringify(formdata)
+        body: JSON.stringify(formdata)
     })
     // const data =(await response).json();
     // return data;
