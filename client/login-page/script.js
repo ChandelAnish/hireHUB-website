@@ -45,7 +45,7 @@ form.addEventListener('submit', async (e) => {
     else if (response.userdetails.usertype === 'labour') {
         return window.open("../main-page/labour/index.html", "_parent");
     }
-    if (response.userdetails.usertype === 'admin') {
+    else if (response.userdetails.usertype === 'admin') {
         return window.open("../main-page/admin/index.html", "_parent");
     }
 })
