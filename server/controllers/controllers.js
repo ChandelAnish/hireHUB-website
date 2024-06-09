@@ -1,5 +1,7 @@
 const connectDB = require("../connectionDB/connectionDB")
 const { sendmail } = require("../smtp/smtp")
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient();
 
 const testing = (req, res) => {
     res.send('test successfull again')
@@ -13,7 +15,7 @@ const login = (req, res) => {
     if (!req.body.username || !req.body.password) {
         return res.status(401).json({ login: false, msg: 'enter all credentials' })
     }
-    connectDB.query('select * from userdetails.userinfo where username=?', [req.body.username], (err, row) => {
+    connectDB.query('select * from hirehub_db.userinfo where username=?', [req.body.username], (err, row) => {
         if (err) {
             console.log(err);
         }
@@ -22,17 +24,17 @@ const login = (req, res) => {
                 return res.status(200).json({ login: false, msg: 'not found' })
             }
             else {
-                connectDB.query('select * from userdetails.userinfo where username=?', [req.body.username], (err, row) => {
+                connectDB.query('select * from hirehub_db.userinfo where username=?', [req.body.username], (err, row) => {
                     if (err) {
                         console.log(err);
                     }
                     else {
                         if (row[0].password == req.body.password) {
                             // res.sendFile(path.resolve(__dirname,'./public/main-page/index1.html'))
-                            return res.status(200).json({ 
-                                login: true, 
-                                userdetails:{...row[0]}, 
-                                msg: 'login successful' 
+                            return res.status(200).json({
+                                login: true,
+                                userdetails: { ...row[0] },
+                                msg: 'login successful'
                             })
                             // return res.status(200).redirect('./main-page/index1.html')
                         }
@@ -46,6 +48,7 @@ const login = (req, res) => {
     })
 }
 
+//signup
 const signup = (req, res) => {
     // console.log(req.body)
     const { username, email, password, confirmpassword, usertype } = req.body;
@@ -62,7 +65,7 @@ const signup = (req, res) => {
 
 
     //check for already registered email
-    connectDB.query('select * from userdetails.userinfo where email=?', [email], (err, row) => {
+    connectDB.query('select * from hirehub_db.userinfo where email=?', [email], (err, row) => {
         if (err) {
             console.log(err);
         }
@@ -73,7 +76,7 @@ const signup = (req, res) => {
 
 
         //check for username already exists
-        connectDB.query('select * from userdetails.userinfo where username=?', [username], (err, row) => {
+        connectDB.query('select * from hirehub_db.userinfo where username=?', [username], (err, row) => {
             if (err) {
                 console.log(err);
             }
@@ -101,22 +104,41 @@ const signup = (req, res) => {
     })
 }
 
+//otp verification
 let otp;
-const otpverification = async(req, res) => {
+const otpverification = async (req, res) => {
     if (req.body.email) {
         try {
-            otp=await sendmail(req.body.email);
+            otp = await sendmail(req.body.email);
             return res.status(200).json({ msg: "OTP sent" });
         } catch (error) {
             return res.status(500).json({ msg: "OTP sent faliure" });
         }
     }
     if (otp !== req.body.userotp) {
-        return res.status(200).json({ success:false, msg: "otp not verified" });
+        return res.status(200).json({ success: false, msg: "otp not verified" });
     }
     else {
-        return res.status(200).json({ success:true, msg: "otp verified" });
+        return res.status(200).json({ success: true, msg: "otp verified" });
     }
 }
 
-module.exports = { testing, login, signup, otpverification };
+//post-jobs
+const postjob = async (req, res) => {
+    const newjob = await prisma.job_post.create({ data: req.body });
+    res.status(200).json(newjob)
+}
+
+//get-jobs
+const getjobs = async (req, res) => {
+    const jobs = await prisma.job_post.findMany();
+    res.status(200).json(jobs)
+}
+
+//get-jobs
+const getsinglejobs = async (req, res) => {
+    const singlejobs = await prisma.job_post.findUnique({where :{id:req.params.id}});
+    res.status(200).json(singlejobs)
+}
+
+module.exports = { testing, login, signup, otpverification, postjob,getjobs,getsinglejobs };

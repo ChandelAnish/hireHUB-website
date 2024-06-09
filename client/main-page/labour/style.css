@@ -52,7 +52,7 @@ body
     margin-top: 3rem;
     border-radius: 10px;
     display: grid;
-    grid-template-columns: repeat(3,23rem);
+    grid-template-columns: repeat(2,23rem) 240px 100px;
     align-items: center;
     justify-content: center;
 }
@@ -66,13 +66,17 @@ input,button
     width: 30px;
     margin: 2px;
 }
-#btn
+.botton
 {
     width: 215px;
     height: 45px;
     border-radius: 10px;
     background-color: rgb(40, 185, 81);
     color: white;
+}
+.botton:active
+{
+    background-color: rgb(36, 161, 71);
 }
 #flexSwitchCheckChecked:checked
 {

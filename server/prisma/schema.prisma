@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model userinfo {
+  username String     @id
+  email    String
+  password String
+  usertype String
+  job_post job_post[]
+
+  @@map("userinfo")
+}
+
+model job_post {
+  id       String   @id @default(uuid())
+  joblogo  String
+  jobtitle String
+  jobtype  String
+  company  String
+  state    String
+  posttime DateTime @default(now())
+  user     String
+  postedby userinfo @relation(fields: [user], references: [username])
+}
