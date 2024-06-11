@@ -99,3 +99,11 @@ addEventListener("load", async () => {
         enableLight()
     }
 })
+
+
+//userprofile
+
+const userProfile = () => {
+    const userdetails = JSON.parse(sessionStorage.getItem("userdetails"))
+    console.log(userdetails)
+}
