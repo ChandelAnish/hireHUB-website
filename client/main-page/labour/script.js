@@ -65,12 +65,12 @@ const createjobcards = (jobs) => {
         jobCard.innerHTML =
             `<div class="joblogo"><img src="../../assets/plumber-logo.png" alt=""></div>
         <div class="time">
-            <h3>${item.posttime}</h3>
-            <h3>${item.jobtype}</h3>
+            <h3 style="font-weight: 500;">${item.posttime}</h3>
+            <h3 style="font-weight: 500;">${item.jobtype}</h3>
         </div>
-        <h2 class="jobtitle">${item.jobtitle}</h2>
-        <h3 class="company">${item.company}</h3>
-        <h4 class="state">${item.state}</h4>`;
+        <h2 class="jobtitle" style="font-size: 35px; font-weight: 700; margin-bottom:10px;">${item.jobtitle}</h2>
+        <h3 class="company" style="font-weight: 500;">${item.company}</h3>
+        <h4 class="state" style="font-weight: 600;">${item.state}</h4>`;
 
         jobcontainer.appendChild(jobCard);
     });
