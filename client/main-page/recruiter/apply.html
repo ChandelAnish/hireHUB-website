@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Application Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ea;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #d9f7e8;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+    input, select {
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>HireHUB Job Application Form</h1>
+    <form id="jobApplicationForm" action="http://localhost:3000/apply" method="POST">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label for="work_specification">Work Specification:</label>
+        <select id="work_specification" name="work_specification" required>
+            <option value="">Select</option>
+            <option value="Construction Worker">Construction Worker</option>
+            <option value="Electrician">Electrician</option>
+            <option value="Plumber">Plumber</option>
+            <option value="Gardener">Gardener</option>
+            <option value="Designer">Designer</option>
+            <option value="Painter">Painter</option>
+            <option value="Other">Other</option>
+        </select>
+        
+        <label for="price_range">Price Range:</label>
+        <input type="number" id="price_range" name="price_range" min="0" required>
+        
+        <label for="number_of_workers">Number of Workers:</label>
+        <input type="number" id="number_of_workers" name="number_of_workers" min="1" required>
+        
+        <label for="number_of_days">Number of Days:</label>
+        <input type="number" id="number_of_days" name="number_of_days" min="1" required>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+    document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // You can add code here to handle form submission, like sending data to a server
+        // For this example, let's just log the form data
+        const formData = new FormData(this);
+        for (const [name, value] of formData.entries()) {
+            console.log(`${name}: ${value}`);
+        }
+        alert('Form submitted successfully!'); // You can replace this with your desired action
+    });
+</script>
+
+</body>
+</html>
