@@ -18,6 +18,7 @@ const postAvailability = async () => {
     closeModel.click();
 }
 
+//post Availability
 const post_Availability = async (postAvailabilityObject) => {
     const response = await fetch(`${BASE_URL}/post-Availability`,{
         method: 'POST',
@@ -28,4 +29,13 @@ const post_Availability = async (postAvailabilityObject) => {
     })
     const data = await response.json();
     return data;
+}
+
+
+// get Availability
+const get_Availability = async () => {
+    const user = JSON.parse(sessionStorage.getItem('userdetails')).username;
+    const response = await fetch(`${BASE_URL}/post-Availability/${user}`)
+    const data = await response.json();
+    console.log(data);
 }

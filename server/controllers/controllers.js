@@ -137,7 +137,7 @@ const getjobs = async (req, res) => {
 
 //get-jobs
 const getsinglejobs = async (req, res) => {
-    const singlejobs = await prisma.job_post.findUnique({where :{id:req.params.id}});
+    const singlejobs = await prisma.job_post.findUnique({ where: { id: req.params.id } });
     res.status(200).json(singlejobs)
 }
 
@@ -147,4 +147,12 @@ const postAvailability = async (req, res) => {
     res.status(200).json(availability)
 }
 
-module.exports = { testing, login, signup, otpverification, postjob,getjobs,getsinglejobs,postAvailability };
+//get Availability
+const getAvailability = async (req, res) => {
+    const availability = await prisma.post_availability.findMany({
+        where: { user: req.params.user}
+    });
+    res.status(200).json(availability)
+}
+
+module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability ,getAvailability};
