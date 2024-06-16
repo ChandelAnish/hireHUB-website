@@ -73,6 +73,9 @@ const createjobcards = (jobs) => {
         <h4 class="state" style="font-weight: 600;">${item.state}</h4>`;
 
         jobcontainer.appendChild(jobCard);
+        jobCard.addEventListener('click',()=>{
+            window.open('./job-details/index.html','_parent')
+        })
     });
     //if dark mode already enabled
     if (darkbtn.checked) {
