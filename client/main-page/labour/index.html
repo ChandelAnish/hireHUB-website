@@ -70,10 +70,11 @@
             </div>
             <div id="location" style="display: flex;">
                 <img class="logo" src="../../assets/icons-location.png" alt="" style="width: 36px;">
-                <input type="text" placeholder="filter by location" id="locationfilter" class="focus:outline-none">
+                <input type="text" placeholder="filter by location" id="locationfilter">
             </div>
             <button class="botton" id="btn">search</button>
-            <button class="botton" style="background-color: rgb(121, 228, 0); width: 90px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">available</button>
+            <button class="botton" style="background-color: rgb(121, 228, 0); width: 90px;" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">available</button>
         </nav>
 
 
@@ -83,7 +84,7 @@
     </div>
     <!-- navbar end-->
 
-    
+
     <!-- post available Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -95,43 +96,88 @@
                 </div>
                 <div class="modal-body">
 
-                    <div class="mb-3">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-                    </div>
+                    <form id="postAvailabilityForm">
+                        <!-- name -->
+                        <div class="mb-3">
+                            <label for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                            <input type="text" id="name"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required  name="name"/>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
-                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required />
-                    </div> 
+                        <!-- state -->
+                        <div class="mb-3">
+                            <label for="state"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State</label>
+                            <input type="text" id="state"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required  name="state"/>
+                        </div>
 
-                    <label for="job" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
-                    <select class="form-select mb-3" aria-label="Default select example" id="job">
-                        <option selected>Construction Worker</option>
-                        <option value="1">plumber</option>
-                        <option value="2">carpenter</option>
-                        <option value="3">electrician</option>
-                    </select>
+                        <!-- email -->
+                        <div class="mb-3">
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
+                                address</label>
+                            <input type="email" id="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="john.doe@company.com" required name="email"/>
+                        </div>
 
-                    <div>
-                        <label for="min_pay" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">min pay (in ₹)</label>
-                        <input type="number" id="min_pay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
-                    </div>
+                        <!-- select btn -->
+                        <label for="job" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work
+                            Specification</label>
+                        <select class="form-select mb-3" aria-label="Default select example" id="job" name="job">
+                            <option selected value="Construction Worker">Construction Worker</option>
+                            <option value="plumber">plumber</option>
+                            <option value="carpenter">carpenter</option>
+                            <option value="electrician">electrician</option>
+                        </select>
 
-                    <div class="mb-3">
-                        <label for="years" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">years of experience</label>
-                        <input type="text" id="years" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
-                    </div>
+                        <!-- select part time -->
+                        <select class="form-select mb-3" aria-label="Default select example" id="jobtype" name="jobtype">
+                            <option selected value="Full time">Full time</option>
+                            <option value="Part time">Part time</option>
+                        </select>
 
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Skills</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
+                        <!-- min pay -->
+                        <div class="mb-3">
+                            <label for="min_pay"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">min
+                                pay (in ₹)</label>
+                            <input type="number" id="min_pay"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="" required name="min_pay"/>
+                        </div>
 
+                        <!-- years of experience -->
+                        <div class="mb-3">
+                            <label for="years"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">years of
+                                experience</label>
+                            <input type="number" id="years"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required name="experienceYrs"/>
+                        </div>
+
+                        <!-- skills -->
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Skills</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="skills"></textarea>
+                        </div>
+
+                    </form>
                 </div>
+                <!-- close btn -->
                 <div class="modal-footer">
-                    <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Close</button>
-                    <button type="button" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Post Availability</button>
+                    <button type="button"
+                        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" data-bs-dismiss="modal" aria-label="Close" id="closeModelBtn">Close</button>
+
+                    <!-- post btn -->
+                    <button type="button"
+                        class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="postAvailability()">Post
+                        Availability</button>
                 </div>
             </div>
         </div>
@@ -148,6 +194,7 @@
 
 
     <!-- drawer component -->
+
     <div id="drawer-navigation"
         class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-64 dark:bg-gray-800"
         tabindex="-1" aria-labelledby="drawer-navigation-label">
@@ -237,7 +284,7 @@
                             <path
                                 d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                         </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">My Jobs</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">My Availability</span>
                     </a>
                 </li>
                 <li>
@@ -258,6 +305,7 @@
         </div>
     </div>
 
+    <!-- drawer component end -->
 
 
 
@@ -303,6 +351,7 @@
     <script src="filter.js"></script>
     <script src="script.js"></script>
     <script src="sideDrawer.js"></script>
+    <script src="postAvailability.js"></script>
 </body>
 
 </html>

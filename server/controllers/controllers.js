@@ -141,4 +141,10 @@ const getsinglejobs = async (req, res) => {
     res.status(200).json(singlejobs)
 }
 
-module.exports = { testing, login, signup, otpverification, postjob,getjobs,getsinglejobs };
+//post Availability
+const postAvailability = async (req, res) => {
+    const availability = await prisma.post_availability.create({ data: req.body });
+    res.status(200).json(availability)
+}
+
+module.exports = { testing, login, signup, otpverification, postjob,getjobs,getsinglejobs,postAvailability };

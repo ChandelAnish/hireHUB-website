@@ -2,8 +2,8 @@
 
 const userProfile = () => {
     const userdetails = JSON.parse(sessionStorage.getItem("userdetails"))
-    console.log(userdetails)
-    console.log(userdetails.username)
+    // console.log(userdetails)
+    // console.log(userdetails.username)
     const userProfileContent = document.getElementById('userProfileContent')
     userProfileContent.innerHTML=
     `<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
