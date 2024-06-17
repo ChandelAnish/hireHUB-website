@@ -129,13 +129,40 @@ const postjob = async (req, res) => {
     res.status(200).json(newjob)
 }
 
+// const postjob = async (req, res) => {
+//     const { joblogo, jobtitle, jobtype, tasks, company, salary, location, skills, jobdescription, state, user } = req.body;
+
+//     try {
+//         const newjob = await prisma.job_post.create({
+//             data: {
+//                 joblogo: joblogo,
+//                 jobtitle: jobtitle,
+//                 jobtype: jobtype,
+//                 tasks:tasks,
+//                 company: company,
+//                 salary: salary,
+//                 location: location,
+//                 skills: skills,
+//                 jobdescription: jobdescription,
+//                 state: state,
+//                 user: user
+//             }
+//         });
+
+//         res.status(201).json(newjob);
+//     } catch (error) {
+//         res.status(400).json({ error: error.message });
+//     }
+// };
+
+
 //get-jobs
 const getjobs = async (req, res) => {
     const jobs = await prisma.job_post.findMany();
     res.status(200).json(jobs)
 }
 
-//get-jobs
+//get-single-job
 const getsinglejobs = async (req, res) => {
     const singlejobs = await prisma.job_post.findUnique({ where: { id: req.params.id } });
     res.status(200).json(singlejobs)

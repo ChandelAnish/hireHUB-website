@@ -75,6 +75,7 @@ const createjobcards = (jobs) => {
         jobcontainer.appendChild(jobCard);
         jobCard.addEventListener('click',()=>{
             window.open('./job-details/index.html','_parent')
+            sessionStorage.setItem('job_id',item.id)
         })
     });
     //if dark mode already enabled

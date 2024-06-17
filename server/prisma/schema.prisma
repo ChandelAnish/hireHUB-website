@@ -8,39 +8,44 @@ datasource db {
 }
 
 model userinfo {
-  username String     @id
-  email    String
-  password String
-  usertype String
-  job_post job_post[] @relation("job_Post")
+  username          String              @id
+  email             String
+  password          String
+  usertype          String
+  job_post          job_post[]          @relation("job_Post")
   post_availability post_availability[] @relation("post_availability")
 
   @@map("userinfo")
 }
 
 model job_post {
-  id       String   @id @default(uuid())
-  joblogo  String
-  jobtitle String
-  jobtype  String
-  company  String
-  state    String
-  posttime DateTime @default(now())
-  user     String
-  postedby userinfo @relation("job_Post",fields: [user], references: [username],onDelete: Cascade)
+  id             String   @id @default(uuid())
+  joblogo        String
+  jobtitle       String
+  jobtype        String
+  jobdescription String
+  tasks           Json
+  salary         String
+  company        String
+  location       String
+  state          String
+  skills         String
+  posttime       DateTime @default(now())
+  user           String
+  postedby       userinfo @relation("job_Post", fields: [user], references: [username], onDelete: Cascade)
 }
 
 model post_availability {
-  id       String   @id @default(uuid())
-  name String
-  email String
-  job String
-  jobtype  String
-  min_pay String
-  state    String
+  id            String   @id @default(uuid())
+  name          String
+  email         String
+  job           String
+  jobtype       String
+  min_pay       String
+  state         String
   experienceYrs String
-  skills String
-  posttime DateTime @default(now())
-  postedby userinfo @relation("post_availability",fields: [user], references: [username],onDelete: Cascade)
-  user     String
+  skills        String
+  posttime      DateTime @default(now())
+  postedby      userinfo @relation("post_availability", fields: [user], references: [username], onDelete: Cascade)
+  user          String
 }
