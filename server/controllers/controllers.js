@@ -129,33 +129,6 @@ const postjob = async (req, res) => {
     res.status(200).json(newjob)
 }
 
-// const postjob = async (req, res) => {
-//     const { joblogo, jobtitle, jobtype, tasks, company, salary, location, skills, jobdescription, state, user } = req.body;
-
-//     try {
-//         const newjob = await prisma.job_post.create({
-//             data: {
-//                 joblogo: joblogo,
-//                 jobtitle: jobtitle,
-//                 jobtype: jobtype,
-//                 tasks:tasks,
-//                 company: company,
-//                 salary: salary,
-//                 location: location,
-//                 skills: skills,
-//                 jobdescription: jobdescription,
-//                 state: state,
-//                 user: user
-//             }
-//         });
-
-//         res.status(201).json(newjob);
-//     } catch (error) {
-//         res.status(400).json({ error: error.message });
-//     }
-// };
-
-
 //get-jobs
 const getjobs = async (req, res) => {
     const jobs = await prisma.job_post.findMany();
@@ -177,9 +150,29 @@ const postAvailability = async (req, res) => {
 //get Availability
 const getAvailability = async (req, res) => {
     const availability = await prisma.post_availability.findMany({
-        where: { user: req.params.user}
+        where: { user: req.params.user }
     });
     res.status(200).json(availability)
 }
 
-module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability ,getAvailability};
+//post Application
+const postJobApplication = async (req, res) => {
+    const data = await prisma.applications.findUnique({
+        where: {
+            jobid_applicant: {
+                jobid: req.body.jobid,
+                applicant: req.body.applicant
+            }
+        }
+    });
+    if (data) {
+        res.status(409).json({ msg: "job already applied" })
+        return;
+    }
+    else {
+        const application = await prisma.applications.create({ data: req.body });
+        res.status(200).json(application)
+    }
+}
+
+module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication };

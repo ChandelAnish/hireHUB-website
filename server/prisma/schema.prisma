@@ -14,25 +14,27 @@ model userinfo {
   usertype          String
   job_post          job_post[]          @relation("job_Post")
   post_availability post_availability[] @relation("post_availability")
+  applications      applications[]      @relation("user_Applications")
 
   @@map("userinfo")
 }
 
 model job_post {
-  id             String   @id @default(uuid())
+  id             String         @id @default(uuid())
   joblogo        String
   jobtitle       String
   jobtype        String
   jobdescription String
-  tasks           Json
+  tasks          Json
   salary         String
   company        String
   location       String
   state          String
   skills         String
-  posttime       DateTime @default(now())
+  posttime       DateTime       @default(now())
   user           String
-  postedby       userinfo @relation("job_Post", fields: [user], references: [username], onDelete: Cascade)
+  postedby       userinfo       @relation("job_Post", fields: [user], references: [username], onDelete: Cascade)
+  applications   applications[] @relation("job_Applications")
 }
 
 model post_availability {
@@ -48,4 +50,15 @@ model post_availability {
   posttime      DateTime @default(now())
   postedby      userinfo @relation("post_availability", fields: [user], references: [username], onDelete: Cascade)
   user          String
+}
+
+model applications {
+  id        String   @id @default(uuid())
+  jobid     String
+  job       job_post @relation("job_Applications", fields: [jobid], references: [id], onDelete: Cascade)
+  applicant String
+  appliedby userinfo @relation("user_Applications", fields: [applicant], references: [username], onDelete: Cascade)
+  approved  String @default("pending") 
+
+  @@unique([jobid, applicant])
 }

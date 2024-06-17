@@ -48,25 +48,44 @@ addEventListener('load', async () => {
     const job_id = sessionStorage.getItem('job_id')
     const singlejob = await getSingleJobs(job_id)
     // console.log(singlejob)
-    jobtitle.innerHTML=singlejob.jobtitle
-    joblocation.innerHTML=`at ${singlejob.location}, ${singlejob.state}`
-    jobdescription.innerHTML=singlejob.jobdescription
-    state.innerHTML=singlejob.state
-    salary.innerHTML=`Salary : ₹ ${singlejob.salary}`
-    jobtype.innerHTML=singlejob.jobtype
+    jobtitle.innerHTML = singlejob.jobtitle
+    joblocation.innerHTML = `at ${singlejob.location}, ${singlejob.state}`
+    jobdescription.innerHTML = singlejob.jobdescription
+    state.innerHTML = singlejob.state
+    salary.innerHTML = `Salary : ₹ ${singlejob.salary}`
+    jobtype.innerHTML = singlejob.jobtype
 
 
-    singlejob.tasks.map((item)=>{
-        tasklist.innerHTML+=`<li class="m-2" style="color: #666;">${item}</li>`
+    singlejob.tasks.map((item) => {
+        tasklist.innerHTML += `<li class="m-2" style="color: #666;">${item}</li>`
     })
 
-    roleinfo.children[0].innerHTML=`${singlejob.jobtitle} (${singlejob.jobtype})`
-    roleinfo.children[1].innerHTML=`${singlejob.location}, ${singlejob.state}`
-    roleinfo.children[2].innerHTML=`₹ ${singlejob.salary} + Benefits`
-    roleinfo.children[3].innerHTML=singlejob.jobdescription
+    roleinfo.children[0].innerHTML = `${singlejob.jobtitle} (${singlejob.jobtype})`
+    roleinfo.children[1].innerHTML = `${singlejob.location}, ${singlejob.state}`
+    roleinfo.children[2].innerHTML = `₹ ${singlejob.salary} + Benefits`
+    roleinfo.children[3].innerHTML = singlejob.jobdescription
 
     const skillsArray = singlejob.skills.split(" ");
-    skillsArray.map((item)=>{
-        skills.innerHTML+=`<span>${item}</span>`
+    skillsArray.map((item) => {
+        skills.innerHTML += `<span>${item}</span>`
     })
 })
+
+const applyjob = async() => {
+    const job_id = sessionStorage.getItem('job_id')
+    const username = JSON.parse(sessionStorage.getItem('userdetails')).username
+    // console.log(job_id)
+    // console.log(username)
+    const response = await fetch(`${BASE_URL}/job-application`,{
+        method:"POST",
+        headers:{
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            jobid: job_id,
+            applicant: username
+        })
+    })
+    const data = await response.json()
+    console.log(data)
+}
