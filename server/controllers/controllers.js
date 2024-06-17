@@ -155,6 +155,23 @@ const getAvailability = async (req, res) => {
     res.status(200).json(availability)
 }
 
+//update Availability
+const updateAvailability = async (req, res) => {
+    const updatedAvailability = await prisma.post_availability.update({
+        where: { id: req.params.id },
+        data: req.body
+    });
+    res.status(200).json(updatedAvailability)
+}
+
+//delete Availability
+const deleteAvailability = async (req, res) => {
+    const deleteAvailability = await prisma.post_availability.delete({
+        where: { id: req.params.id }
+    });
+    res.status(200).json(deleteAvailability)
+}
+
 //post Application
 const postJobApplication = async (req, res) => {
     const data = await prisma.applications.findUnique({
@@ -175,4 +192,4 @@ const postJobApplication = async (req, res) => {
     }
 }
 
-module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication };
+module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability };

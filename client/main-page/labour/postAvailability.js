@@ -32,10 +32,10 @@ const post_Availability = async (postAvailabilityObject) => {
 }
 
 
-// get Availability
-const get_Availability = async () => {
-    const user = JSON.parse(sessionStorage.getItem('userdetails')).username;
-    const response = await fetch(`${BASE_URL}/post-Availability/${user}`)
-    const data = await response.json();
-    console.log(data);
-}
+// // get Availability
+// const get_Availability = async () => {
+//     const user = JSON.parse(sessionStorage.getItem('userdetails')).username;
+//     const response = await fetch(`${BASE_URL}/post-Availability/${user}`)
+//     const data = await response.json();
+//     console.log(data);
+// }

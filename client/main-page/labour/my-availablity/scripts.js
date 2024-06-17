@@ -1,14 +1,45 @@
-let jobListings = [{
-    email: "goxixa1793@lendfash",
-    experienceYrs: "15",
-    job: "carpenter",
-    jobtype: "Part time",
-    min_pay: "10000000",
-    name: "anish",
-    skills: "cutting",
-    state: "bihar",
-    user: "akash"
-}];
+const BASE_URL = 'http://localhost:5000';
+
+let jobListings;
+
+addEventListener('load', async () => {
+    jobListings = await getAvailability()
+    // console.log(jobListings)
+    displayJobListings()
+})
+
+
+const getAvailability = async () => {
+    const user = JSON.parse(sessionStorage.getItem('userdetails')).username
+    const response = await fetch(`${BASE_URL}/post-Availability/${user}`)
+    const data = await response.json()
+    return data
+}
+
+const updateAvailability = async (id, newdata) => {
+    const response = await fetch(`${BASE_URL}/post-Availability/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': "application/json"
+        },
+        body: JSON.stringify(newdata)
+    })
+    const data = await response.json()
+    return data
+}
+
+
+// let jobListings = [{
+//     email: "goxixa1793@lendfash",
+//     experienceYrs: "15",
+//     job: "carpenter",
+//     jobtype: "Part time",
+//     min_pay: "10000000",
+//     name: "anish",
+//     skills: "cutting",
+//     state: "bihar",
+//     user: "akash"
+// }];
 // console.log(jobListings)
 
 function postAvailability() {
@@ -22,20 +53,18 @@ function postAvailability() {
     const experienceYrs = document.getElementById('experienceYrs').value;
     const skills = document.getElementById('skills').value;
 
-    // const postAvailabilityObj = { email, experienceYrs, job, jobtype, min_pay, name, skills, state }
-    // console.log(postAvailabilityObj)
-
     // Validation
     if (!name || !state || !email || !min_pay || !experienceYrs || !skills) {
         alert("Please fill out all required fields.");
         return;
     }
 
+
     // Create a new job listing object
     const newJob = {
-        // name,
+        name,
         state,
-        // email,
+        email,
         job,
         jobtype,
         min_pay,
@@ -46,14 +75,15 @@ function postAvailability() {
     // Add the new job listing to the array
     jobListings.push(newJob);
 
+    //posting Availability in database
+    const user = JSON.parse(sessionStorage.getItem('userdetails')).username
+    post_Availability({...newJob,user})
+
     // Update the job listings display
     displayJobListings();
 
     // Clear the form
     document.getElementById('availabilityForm').reset();
-
-    // Display success message
-    alert("Availability posted successfully!");
 }
 
 function resetForm() {
@@ -64,13 +94,16 @@ function resetForm() {
 function displayJobListings() {
     const jobListingsContainer = document.getElementById('job-listings');
     jobListingsContainer.innerHTML = '';
-
+    
     jobListings.forEach((job, index) => {
+
+
         const jobCard = document.createElement('div');
         jobCard.classList.add('card', 'mb-3');
         jobCard.id = `c${index}`
         jobCard.innerHTML = `
-    <div class="card-body" id="${index}">
+    <div class="card-body clearfix" id="${index}">
+        <button type="button" class="btn-close float-end" aria-label="Close" onclick="removeAvailability('${jobListings[index].id}',${index})"></button>
         <h5 class="card-title">${job.job}</h5>
 
         <h6 class="card-subtitle mb-2 text-muted">
@@ -101,16 +134,16 @@ function displayJobListings() {
         jobListingsContainer.appendChild(jobCard);
     });
 }
-displayJobListings()
 
-function displaySingleCard(job,index) {
+function displaySingleCard(job, index) {
     const jobListingsContainer = document.getElementById('job-listings');
 
     const jobCard = document.createElement('div');
     jobCard.classList.add('card', 'mb-3');
     jobCard.id = `c${index}`
     jobCard.innerHTML = `
-    <div class="card-body" id="${index}">
+    <div class="card-body clearfix" id="${index}">
+        <button type="button" class="btn-close float-end" aria-label="Close" onclick="removeAvailability('${jobListings[index].id}',${index})"></button>
         <h5 class="card-title">${job.job}</h5>
 
         <h6 class="card-subtitle mb-2 text-muted">
@@ -144,30 +177,6 @@ function displaySingleCard(job,index) {
 
 
 function editJob(index) {
-    // const job = jobListings[index];
-    // document.getElementById('name').value = job.name;
-    // document.getElementById('state').value = job.state;
-    // document.getElementById('email').value = job.email;
-    // document.getElementById('job').value = job.job;
-    // document.getElementById('jobtype').value = job.jobtype;
-    // document.getElementById('min_pay').value = job.min_pay;
-    // document.getElementById('experienceYrs').value = job.experienceYrs;
-    // document.getElementById('skills').value = job.skills;
-    // const togglebtn = document.getElementById('togglebtn')
-    // togglebtn.innerHTML = "Edit";
-
-    // const name = document.getElementById('name').value;
-    // const state = document.getElementById('state').value;
-    // const email = document.getElementById('email').value;
-    // const jobs = document.getElementById('job').value;
-    // const jobtype = document.getElementById('jobtype').value;
-    // const min_pay = document.getElementById('min_pay').value;
-    // const experienceYrs = document.getElementById('experienceYrs').value;
-    // const skills = document.getElementById('skills').value;
-
-    // togglebtn.addEventListener("click",()=>{
-    //     jobListings=
-    // })
 
     const cardwraper = document.getElementById(`c${index}`)
     const jobcard = document.getElementById(`${index}`)
@@ -180,15 +189,15 @@ function editJob(index) {
 
     // console.log(jobcard.children)
     // console.log(jobcard.children[3].children[1])
-    jobcard.children[0].innerHTML = `<input type="text" value="${jobcard.children[0].textContent}">`
-    jobcard.children[1].children[0].innerHTML = `<input type="text" value="${jobcard.children[1].children[0].textContent}">`
-    jobcard.children[1].children[1].innerHTML = `<input type="text" value="${jobcard.children[1].children[1].textContent}">`
-    jobcard.children[2].children[1].innerHTML = `<input type="number" value="${jobcard.children[2].children[1].textContent}">`
+    jobcard.children[1].innerHTML = `<input type="text" value="${jobcard.children[1].textContent}">`
+    jobcard.children[2].children[0].innerHTML = `<input type="text" value="${jobcard.children[2].children[0].textContent}">`
+    jobcard.children[2].children[1].innerHTML = `<input type="text" value="${jobcard.children[2].children[1].textContent}">`
     jobcard.children[3].children[1].innerHTML = `<input type="number" value="${jobcard.children[3].children[1].textContent}">`
-    jobcard.children[4].children[1].innerHTML = `<input type="text" value="${jobcard.children[4].children[1].textContent}">`
+    jobcard.children[4].children[1].innerHTML = `<input type="number" value="${jobcard.children[4].children[1].textContent}">`
+    jobcard.children[5].children[1].innerHTML = `<input type="text" value="${jobcard.children[5].children[1].textContent}">`
 
 
-    postbtn.addEventListener("click", () => {
+    postbtn.addEventListener("click", async () => {
 
         const inputs = Array.from(jobcard.querySelectorAll("input"))
         const inputsvalue = inputs.map((item) => {
@@ -202,9 +211,42 @@ function editJob(index) {
             min_pay: inputsvalue[3],
             experienceYrs: inputsvalue[4],
             skills: inputsvalue[5]
-        }
-        // console.log(editedJob,index)
+        };
+
+        console.log(editedJob, index)
         cardwraper.remove();
-        displaySingleCard(editedJob,index)
+        displaySingleCard(editedJob, index)
+        const data = await updateAvailability(jobListings[index].id, editedJob)
+        console.log(data)
     })
+}
+
+const removeAvailability = async(id,index) => {
+    // console.log(id,index)
+    const cardwraper = document.getElementById(`c${index}`)
+    cardwraper.remove();
+
+    //deleting from database
+    const response = await fetch(`${BASE_URL}/post-Availability/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': "application/json"
+        }
+    })
+    const data = await response.json()
+    // console.log(data)
+}
+
+
+//post Availability
+const post_Availability = async (postAvailabilityObject) => {
+    const response = await fetch(`${BASE_URL}/post-Availability`,{
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(postAvailabilityObject)
+    })
+    const data = await response.json();
+    return data;
 }
