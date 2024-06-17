@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+            <a href="../index.html" class="btn btn-light">
+                <i class="bi bi-arrow-left fs-3"></i>
+            </a>
+    </header>
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <h3>Post Availability</h3>
+                    <form id="availabilityForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="state" class="form-label">State</label>
+                            <input type="text" class="form-control" id="state" placeholder="Enter your state">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="john.doe@company.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="job" class="form-label">Work Specification</label>
+                            <select id="job" class="form-select">
+                                <option>Construction Worker</option>
+                                <option>Plumber</option>
+                                <option>Electrician</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jobtype" class="form-label">Job Type</label>
+                            <select id="jobtype" class="form-select">
+                                <option>Full time</option>
+                                <option>Part time</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="min_pay" class="form-label">Min Pay (in ₹)</label>
+                            <input type="number" class="form-control" id="min_pay" placeholder="Enter minimum pay">
+                        </div>
+                        <div class="mb-3">
+                            <label for="experienceYrs" class="form-label">Years of Experience</label>
+                            <input type="number" class="form-control" id="experienceYrs" placeholder="Enter years of experience">
+                        </div>
+                        <div class="mb-3">
+                            <label for="skills" class="form-label">Skills</label>
+                            <textarea class="form-control" id="skills" rows="3" placeholder="Enter your skills"></textarea>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-danger" onclick="resetForm()">Reset</button>
+                            <button type="button" class="btn btn-success" onclick="postAvailability()" id="togglebtn">Post Availability</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-8">
+
+                <!-- cards -->
+                <div id="job-listings">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+</body>
+</html>

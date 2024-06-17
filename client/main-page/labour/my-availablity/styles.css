@@ -1,0 +1,98 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* header {
+    background-color: #e3f2fd;
+    padding: 20px 0;
+} */
+
+.card h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#job-listings .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body input{
+    /* background-color: red; */
+    border: 1px solid rgba(184, 184, 184, 0.911);
+    outline: none;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+#job-listings .card-body {
+    padding: 20px;
+}
+
+.edit-button {
+    background-color:rgb(40, 185, 81);
+    border: none;
+    color: white;
+}
+
+.edit-button:hover {
+    color: white;
+    background-color: #00e029;
+}
+
+/* modal */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8faf8;
+    color: #333;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    color: #333;
+}
+
+.form-control, .form-select {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+}
+
+.form-select {
+    color: #333;
+}
+
+.btn-success {
+    background-color: rgb(40, 185, 81);
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-success:hover, .btn-danger:hover {
+    opacity: 0.8;
+}
+
