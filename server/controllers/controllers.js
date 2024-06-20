@@ -183,7 +183,7 @@ const postJobApplication = async (req, res) => {
         }
     });
     if (data) {
-        res.status(409).json({ msg: "job already applied" })
+        res.status(409).json({ msg: "Job Already Applied", applicationID: data.id })
         return;
     }
     else {
@@ -192,4 +192,36 @@ const postJobApplication = async (req, res) => {
     }
 }
 
-module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability };
+//get all Application of single user
+const getUserJobApplication = async (req, res) => {
+    try {
+        const applications = await prisma.applications.findMany({
+            where: { applicant: req.params.user },
+            include: { job: true }
+        });
+        res.status(200).json(applications)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ msg: "some error occured" })
+    }
+}
+
+//get Single Job Application
+const getSingleJobApplication = async (req, res) => {
+    try {
+        const singleApplication = await prisma.applications.findUnique({
+            where: {
+                jobid_applicant: {
+                    jobid: req.params.jobid,
+                    applicant: req.params.applicant
+                }
+            }
+        });
+        return res.status(200).json(singleApplication)
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json(singleApplication)
+    }
+}
+
+module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication };

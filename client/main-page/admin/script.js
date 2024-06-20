@@ -1,38 +1,48 @@
-const darkbtn=document.querySelector('#flexSwitchCheckChecked')
-const body=document.getElementsByTagName('body')[0]
-const nav=document.getElementsByTagName('nav')[0]
-const inputs=Array.from(document.getElementsByTagName('input'))
-const jobcards=Array.from(document.querySelectorAll('.jobcard'))
-const jobtitle=Array.from(document.querySelectorAll('.jobtitle'))
-darkbtn.addEventListener('change',(evt)=>{
-    if(evt.target.checked)
-    {
-        body.style.backgroundColor='#121721';
-        nav.style.backgroundColor='rgb(14 41 12)';
-        inputs.forEach(i => {
-            i.style.backgroundColor='rgb(14, 41, 12)'
-            i.style.color='white'
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const rows = document.querySelectorAll('.application-row');
+    const searchInput = document.querySelector('.header input');
+
+    // Add event listener for search input
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        rows.forEach(row => {
+            const nameColumn = row.querySelector('td:nth-child(6)'); // Adjust this based on your table structure
+
+            if (nameColumn) {
+                const name = nameColumn.textContent.trim().toLowerCase();
+
+                // Check if the name includes the search term
+                if (name.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
         });
-        jobcards.forEach(i => {
-            i.style.backgroundColor='rgb(14, 41, 12)'
+    });
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            rows.forEach(row => {
+                const status = row.getAttribute('data-status');
+
+                if (filter === 'all') {
+                    row.style.display = '';
+                } else {
+                    if (status === filter) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
         });
-        jobtitle.forEach(i => {
-            i.style.color="rgb(18 136 51 / 94%)"
-        });
-    }
-    else
-    {
-        nav.style.backgroundColor='white';
-        body.style.backgroundColor='rgb(243, 243, 243)';
-        inputs.forEach(i => {
-            i.style.backgroundColor='white'
-            i.style.color='black'
-        });
-        jobcards.forEach(i => {
-            i.style.backgroundColor='white'
-        });
-        jobtitle.forEach(i => {
-            i.style.color="rgb(106 248 146 / 94%)"
-        });
-    }
-})
+    });
+});

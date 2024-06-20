@@ -35,6 +35,7 @@ model job_post {
   user           String
   postedby       userinfo       @relation("job_Post", fields: [user], references: [username], onDelete: Cascade)
   applications   applications[] @relation("job_Applications")
+  status         String         @default("in progress")
 }
 
 model post_availability {
@@ -58,7 +59,7 @@ model applications {
   job       job_post @relation("job_Applications", fields: [jobid], references: [id], onDelete: Cascade)
   applicant String
   appliedby userinfo @relation("user_Applications", fields: [applicant], references: [username], onDelete: Cascade)
-  approved  String @default("pending") 
+  approved  String   @default("pending")
 
   @@unique([jobid, applicant])
 }
