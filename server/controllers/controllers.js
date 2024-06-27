@@ -86,12 +86,17 @@ const signup = (req, res) => {
                     return res.status(403).json({ signup: false, msg: 'user already exists' })
                 }
                 else {
-                    connectDB.query('insert into userinfo values(?,?,?,?)', [username, email, password, usertype], (err, row) => {
+                    connectDB.query('insert into userinfo values(?,?,?,?)', [username, email, password, usertype], async(err, row) => {
                         if (err) {
                             console.log(err);
                         }
                         else {
                             console.log(row);
+                            //inserting to labour info table if user is a labour
+                            if(usertype=='labour')
+                                {
+                                    const newLabour = await prisma.labourinfo.create({ data: {username} });
+                                }
                             return res.status(200).json({
                                 signup: true, msg: "signed up successfully",
                                 userdetails: { username, email, password, usertype }
@@ -145,6 +150,12 @@ const getsinglejobs = async (req, res) => {
 const postAvailability = async (req, res) => {
     const availability = await prisma.post_availability.create({ data: req.body });
     res.status(200).json(availability)
+}
+
+//get All Availability
+const getAllAvailability = async (req, res) => {
+    const allAvailability = await prisma.post_availability.findMany();
+    res.status(200).json(allAvailability)
 }
 
 //get Availability
@@ -220,8 +231,17 @@ const getSingleJobApplication = async (req, res) => {
         return res.status(200).json(singleApplication)
     } catch (error) {
         console.log(error)
-        return res.status(500).json(singleApplication)
     }
 }
 
-module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication };
+//get single labour info
+const getLabourInfo = async (req, res) => {
+    try {
+        const singleLabour = await prisma.labourinfo.findUnique({where: {username:req.params.username}});
+        return res.status(200).json(singleLabour)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability ,getLabourInfo};

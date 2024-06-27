@@ -15,13 +15,24 @@ model userinfo {
   job_post          job_post[]          @relation("job_Post")
   post_availability post_availability[] @relation("post_availability")
   applications      applications[]      @relation("user_Applications")
+  labourinfo        labourinfo?         @relation("UserLabourInfo")
 
   @@map("userinfo")
 }
 
+model labourinfo {
+  id          String   @id @default(uuid())
+  username    String   @unique
+  rating      Float    @default(0.0)
+  completions Int      @default(0)
+  userinfo    userinfo @relation("UserLabourInfo", fields: [username], references: [username], onDelete: Cascade)
+
+  @@map("labourinfo")
+}
+
 model job_post {
   id             String         @id @default(uuid())
-  joblogo        String
+  // joblogo        String
   jobtitle       String
   jobtype        String
   jobdescription String

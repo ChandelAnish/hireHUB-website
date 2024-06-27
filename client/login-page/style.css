@@ -80,7 +80,7 @@
     margin: 5px;
     background-color: rgb(245, 245, 245);
 }
-.btn
+.loginbtn
 {
     background-color: rgb(63, 234, 111);
     color: white;
@@ -88,6 +88,20 @@
     height: 45px;
     border-radius: 10px;
     margin: 5px;
+    border: none;
+    outline: none;
+}
+.loginbtn:hover
+{
+    background-color: rgb(52 193 91);
+    color: white;
+    transition: all .3s;
+}
+.loginbtn:active
+{
+    background-color: rgb(52 193 91);
+    transform: scale(.95);
+    color: white;
 }
 .warning
 {

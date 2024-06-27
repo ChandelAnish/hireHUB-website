@@ -1,7 +1,7 @@
 const express = require('express')
 const mysql = require('mysql2')
 const connectDB = require('../connectionDB/connectionDB')
-const { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication ,getUserJobApplication} = require('../controllers/controllers')
+const { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability ,getLabourInfo} = require('../controllers/controllers')
 
 const router = express.Router();
 
@@ -21,8 +21,10 @@ router.post('/otpverification', otpverification)
 //job post & get job
 router.route('/post-jobs').post(postjob).get(getjobs)
 
-//post Availability & get Availability
-router.route('/post-Availability').post(postAvailability)
+//post Availability & get all Availability
+router.route('/post-Availability').post(postAvailability).get(getAllAvailability)
+
+//get single user Availability
 router.route('/post-Availability/:user').get(getAvailability)
 
 //update Availability
@@ -39,6 +41,10 @@ router.route('/job-application/:user').get(getUserJobApplication)
 
 //single job application
 router.route('/job-application/:applicant/:jobid').get(getSingleJobApplication)
+
+//labour info
+router.route('/labour-info/:username').get(getLabourInfo)
+
 
 
 module.exports = router;

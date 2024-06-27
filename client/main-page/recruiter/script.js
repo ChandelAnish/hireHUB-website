@@ -14,13 +14,22 @@ const enableDark = () => {
         i.style.backgroundColor = 'rgb(14, 41, 12)'
         i.style.color = 'white'
     });
-    const jobcards = Array.from(document.querySelectorAll('.jobcard'))
+    const jobcards = Array.from(document.querySelectorAll('.availability-card'))
     const jobtitles = Array.from(document.querySelectorAll('.jobtitle'))
+    const container = Array.from(document.querySelectorAll('.container'))
+    const categoryCard = Array.from(document.querySelectorAll('.category-card'))
     jobcards.forEach(i => {
         i.style.backgroundColor = 'rgb(14, 41, 12)'
     });
     jobtitles.forEach(i => {
         i.style.color = "rgb(18 136 51 / 94%)"
+    });
+    container.forEach(i => {
+        i.style.backgroundColor = 'rgb(21 27 38)'
+        i.style.boxShadow = '10px 5px 5px rgb(17 17 17)'
+    });
+    categoryCard.forEach(i => {
+        i.style.backgroundColor = 'rgb(14, 41, 12)'
     });
 }
 
@@ -32,13 +41,22 @@ const enableLight = () => {
         i.style.backgroundColor = 'white'
         i.style.color = 'black'
     });
-    const jobcards = Array.from(document.querySelectorAll('.jobcard'))
+    const jobcards = Array.from(document.querySelectorAll('.availability-card'))
     const jobtitles = Array.from(document.querySelectorAll('.jobtitle'))
+    const container = Array.from(document.querySelectorAll('.container'))
+    const categoryCard = Array.from(document.querySelectorAll('.category-card'))
     jobcards.forEach(i => {
         i.style.backgroundColor = 'white'
     });
     jobtitles.forEach(i => {
         i.style.color = "rgb(106 248 146 / 94%)"
+    });
+    container.forEach(i => {
+        i.style.backgroundColor = 'white'
+        i.style.boxShadow = '10px 5px 5px rgb(226 226 226)'
+    });
+    categoryCard.forEach(i => {
+        i.style.backgroundColor = 'white'
     });
 }
 
@@ -52,63 +70,32 @@ darkbtn.addEventListener('change', (evt) => {
 })
 
 
-const getjobs = async () => {
-    const response = await fetch(`${BASE_URL}/post-jobs`);
+const getAvailability = async () => {
+    const response = await fetch(`${BASE_URL}/post-Availability`);
     const data = await response.json();
     return await data;
 }
 
-const createjobcards = (jobs) => {
-    jobs.forEach((item) => {
-        const jobCard = document.createElement('div');
-        jobCard.className = 'jobcard';
-        jobCard.innerHTML =
-            `<div class="joblogo"><img src="../../assets/plumber-logo.png" alt=""></div>
-        <div class="time">
-            <h3 style="font-weight: 500;">${item.posttime}</h3>
-            <h3 style="font-weight: 500;">${item.jobtype}</h3>
-        </div>
-        <h2 class="jobtitle" style="font-size: 35px; font-weight: 700; margin-bottom:10px;">${item.jobtitle}</h2>
-        <h3 class="company" style="font-weight: 500;">${item.company}</h3>
-        <h4 class="state" style="font-weight: 600;">${item.state}</h4>`;
-
-        jobcontainer.appendChild(jobCard);
-        jobCard.addEventListener('click', () => {
-            window.open('./job-details/index.html', '_parent')
-            sessionStorage.setItem('job_id', item.id)
-        })
-    });
-    //if dark mode already enabled
-    if (darkbtn.checked) {
-        const jobcards = document.querySelectorAll('.jobcard');
-        const jobtitles = document.querySelectorAll('.jobtitle');
-        jobcards.forEach(i => {
-            i.style.backgroundColor = 'rgb(14, 41, 12)';
-        });
-        jobtitles.forEach(i => {
-            i.style.color = 'rgb(18 136 51 / 94%)';
-        });
-    }
+const getLabourInfo = async (username) => {
+    const response = await fetch(`${BASE_URL}/labour-info/${username}`);
+    const data = await response.json();
+    return await data;
 }
 
-addEventListener("load", async () => {
-    const jobs = await getjobs();
-    createjobcards(jobs);
-    if (sessionStorage.getItem('darkmode') === 'true') {
-        darkbtn.checked = true;
-        enableDark()
-    }
-    else {
-        darkbtn.checked = false;
-        enableLight()
-    }
-})
-
-
-const jobs = [
-    { title: 'Construction Worker', location: 'Mumbai, India', type: 'Full Time', salary: '₹20,000 - ₹40,000' },
-    { title: 'Electrician', location: 'Bangalore, India', type: 'Part Time', salary: '₹15,000 - ₹25,000' },
-    { title: 'Home Maid', location: 'Mumbai, India', type: 'Full Time', salary: '₹12,000 - ₹20,000' },
+let availabilityList = [
+    // {
+    //     email: "aditripathi1357@gmail.com",
+    //     experienceYrs: "41",
+    //     id: "20ca63c2-46cd-4017-b5f0-73639202846e",
+    //     job: "Plumber",
+    //     jobtype: "Part time",
+    //     min_pay: "454545",
+    //     name: "anish",
+    //     posttime: "2024-06-17T15:59:09.517Z",
+    //     skills: "irutoi hoiupf gopifsdujg op",
+    //     state: "bihar",
+    //     user: "ram"
+    // }
 ];
 
 const categories = [
@@ -122,23 +109,59 @@ const categories = [
     { icon: `<i class="fa-solid fa-wrench"></i>`, name: 'Mechanic', available: 29 },
 ];
 
-function displayJobs() {
-    const jobCards = document.getElementById('job-cards');
-    jobCards.innerHTML = '';
+addEventListener("load", async () => {
+    const availability = await getAvailability();
 
-    jobs.forEach(job => {
-        const jobCard = document.createElement('div');
-        jobCard.classList.add('job-card');
+    availabilityList = [...availabilityList, ...availability]
 
-        jobCard.innerHTML = `
-            <h3>${job.title}</h3>
-            <p>${job.location}</p>
-            <p>${job.type}</p>
-            <p>${job.salary}</p>
-            <button class="apply-button" style="background-color: rgb(40, 185, 81);">Apply Now</button>
-        `;
+    // console.log(availabilityList)
+    displayJobs(availabilityList);
+    displayCategories();
+    if (sessionStorage.getItem('darkmode') === 'true') {
+        darkbtn.checked = true;
+        enableDark()
+    }
+    else {
+        darkbtn.checked = false;
+        enableLight()
+    }
+})
 
-        jobCards.appendChild(jobCard);
+
+function displayJobs(availabilityList) {
+    const availabilityCards = document.getElementById('availability-cards');
+    availabilityCards.innerHTML = '';
+    // console.log(availabilityList)
+
+    availabilityList.forEach(async (job) => {
+        const availabilityCard = document.createElement('div');
+        availabilityCard.classList.add('availability-card');
+
+        const skills = job.skills.split(/[ ]+/g)
+        const labourinfo = await getLabourInfo(job.user)
+        // console.log(labourinfo)
+        // console.log(skills)
+        availabilityCard.innerHTML = `
+                        <div class="profile row">
+                            <img class="col-3 img-fluid" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                                alt="profile-pic">
+                            <div class="name col-7">
+                                <h3 class="fs-3 fw-medium">${job.name}</h3>
+                                <p>~${job.user}</p>
+                            </div>
+                        </div>
+                        <div class="mt-1 fw-bold">${labourinfo.rating}⭐ | ${labourinfo.completions}</div>
+                        <p class="mb-1 fw-bold">${job.state}</p>
+            <h3 class="fs-5 fw-bold" style="color: rgb(83 232 125);">${job.job}</h3>
+            <p class="fw-bold">₹${job.min_pay} /day</p>`;
+        let i = 4;
+        skills.map((item) => {
+            if (i == 0) return;
+            availabilityCard.innerHTML += `<span class="badge rounded-pill me-2 mt-2" style="background-color: rgb(83 232 125);">${item}</span>`
+            i--;
+        })
+
+        availabilityCards.appendChild(availabilityCard);
     });
 }
 
@@ -162,8 +185,8 @@ function displayCategories() {
 
 document.getElementById('featuredBtn').click();
 function filterByType(type) {
-    const filteredJobs = jobs.filter(job => job.type === type || type === 'Featured');
-    const jobCards = document.getElementById('job-cards');
+    const filteredJobs = availabilityList.filter(job => job.jobtype === type || type === 'Featured');
+    const availabilityCards = document.getElementById('availability-cards');
     if (type == 'Featured') {
         document.getElementById('featuredLine').style.backgroundColor = "rgb(40, 185, 81)"
         document.getElementById('fullTimeLine').style.backgroundColor = "#e2e3e5"
@@ -179,53 +202,35 @@ function filterByType(type) {
         document.getElementById('fullTimeLine').style.backgroundColor = "#e2e3e5"
         document.getElementById('partTimeLine').style.backgroundColor = "rgb(40, 185, 81)"
     }
-    jobCards.innerHTML = '';
+    availabilityCards.innerHTML = '';
 
-    filteredJobs.forEach(job => {
-        const jobCard = document.createElement('div');
-        jobCard.classList.add('job-card');
-
-        jobCard.innerHTML = `
-            <h3>${job.title}</h3>
-            <p>${job.location}</p>
-            <p>${job.type}</p>
-            <p>${job.salary}</p>
-            <button class="apply-button">Apply Now</button>
-        `;
-
-        jobCards.appendChild(jobCard);
-    });
+    displayJobs(filteredJobs)
 }
 
-function filterJobs() {
-    const title = document.getElementById('job-title').value.toLowerCase();
-    const location = document.getElementById('location').value.toLowerCase();
+// function filterJobs() {
+//     const title = document.getElementById('job-title').value.toLowerCase();
+//     const location = document.getElementById('location').value.toLowerCase();
 
-    const filteredJobs = jobs.filter(job =>
-        job.title.toLowerCase().includes(title) &&
-        job.location.toLowerCase().includes(location)
-    );
+//     const filteredJobs = availabilityList.filter(job =>
+//         job.title.toLowerCase().includes(title) &&
+//         job.location.toLowerCase().includes(location)
+//     );
 
-    const jobCards = document.getElementById('job-cards');
-    jobCards.innerHTML = '';
+//     const availabilityCards = document.getElementById('availability-cards');
+//     availabilityCards.innerHTML = '';
 
-    filteredJobs.forEach(job => {
-        const jobCard = document.createElement('div');
-        jobCard.classList.add('job-card');
+//     filteredJobs.forEach(job => {
+//         const availabilityCard = document.createElement('div');
+//         availabilityCard.classList.add('availability-card');
 
-        jobCard.innerHTML = `
-            <h3>${job.title}</h3>
-            <p>${job.location}</p>
-            <p>${job.type}</p>
-            <p>${job.salary}</p>
-            <button class="apply-button">Apply Now</button>
-        `;
+//         availabilityCard.innerHTML = `
+//             <h3>${job.title}</h3>
+//             <p>${job.location}</p>
+//             <p>${job.type}</p>
+//             <p>${job.salary}</p>
+//             <button class="apply-button">Apply Now</button>
+//         `;
 
-        jobCards.appendChild(jobCard);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    displayJobs();
-    displayCategories();
-});
+//         availabilityCards.appendChild(availabilityCard);
+//     });
+// }

@@ -259,14 +259,14 @@ main {
     background: none;
 }
 
-.job-cards, .category-cards {
+.availability-cards, .category-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
-.job-card, .category-card {
+.availability-card, .category-card {
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -275,12 +275,12 @@ main {
     box-sizing: border-box;
 }
 
-.job-card h3, .category-card h3 {
+.availability-card h3, .category-card h3 {
     margin-top: 0;
     color: #333;
 }
 
-.job-card p, .category-card p {
+.availability-card p, .category-card p {
     color: #666;
 }
 
@@ -302,4 +302,6 @@ main {
     padding: 3rem;
     border-radius: 10px;
     margin-bottom: 3rem;
+    box-shadow: 10px 5px 5px rgb(226 226 226);
+    /* box-shadow: 10px 5px 5px rgb(17 17 17); */
 }

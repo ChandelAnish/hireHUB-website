@@ -96,14 +96,31 @@
                 </div>
                 <div class="modal-body">
 
-                    <form id="postAvailabilityForm">
-                        <!-- name -->
+                    <form id="postjobform">
+                        <!-- Job Title -->
                         <div class="mb-3">
-                            <label for="name"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" id="name"
+                            <label for="jobtitle"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Title</label>
+                            <input type="text" id="jobtitle"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required name="name" />
+                                required name="jobtitle" />
+                        </div>
+
+                        <!-- Company -->
+                        <div class="mb-3">
+                            <label for="Company"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
+                            <input type="text" id="Company"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required name="company" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="location"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
+                            <input type="text" id="location"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required name="location" />
                         </div>
 
                         <!-- state -->
@@ -115,58 +132,59 @@
                                 required name="state" />
                         </div>
 
-                        <!-- email -->
-                        <div class="mb-3">
-                            <label for="email"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
-                                address</label>
-                            <input type="email" id="email"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="john.doe@company.com" required name="email" />
-                        </div>
-
                         <!-- select btn -->
                         <label for="job" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work
                             Specification</label>
                         <select class="form-select mb-3" aria-label="Default select example" id="job" name="job">
-                            <option selected value="Construction Worker">Construction Worker</option>
-                            <option value="plumber">plumber</option>
-                            <option value="carpenter">carpenter</option>
-                            <option value="electrician">electrician</option>
+                            <option selected value="Construction">Construction</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Painting">Painting</option>
+                            <option value="Gardening">Gardening</option>
+                            <option value="House Keeping">House Keeping</option>
+                            <option value="Carpentry">Carpentry</option>
+                            <option value="Mechanic">Mechanic</option>
                         </select>
 
-                        <!-- select part time -->
+                        <!-- select job type -->
                         <select class="form-select mb-3" aria-label="Default select example" id="jobtype"
                             name="jobtype">
                             <option selected value="Full time">Full time</option>
                             <option value="Part time">Part time</option>
                         </select>
 
-                        <!-- min pay -->
+                        <!-- salary -->
                         <div class="mb-3">
-                            <label for="min_pay"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">min
-                                pay (in ₹)</label>
-                            <input type="number" id="min_pay"
+                            <label for="salary"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Salary (in
+                                ₹)</label>
+                            <input type="number" id="salary"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="" required name="min_pay" />
+                                placeholder="" required name="salary" />
                         </div>
 
-                        <!-- years of experience -->
+
+                        <!-- jobdescription -->
                         <div class="mb-3">
-                            <label for="years"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">years of
-                                experience</label>
-                            <input type="number" id="years"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required name="experienceYrs" />
+                            <label for="jobdescription"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job
+                                Description</label>
+                            <textarea class="form-control" id="jobdescription" rows="3"
+                                name="jobdescription"></textarea>
                         </div>
 
                         <!-- skills -->
                         <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Skills</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                name="skills"></textarea>
+                            <label for="skills"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Skills</label>
+                            <textarea class="form-control" id="skills" rows="3" name="skills"></textarea>
+                        </div>
+
+                        <!-- tasks -->
+                        <div class="mb-3">
+                            <label for="tasks"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tasks</label>
+                            <textarea class="form-control" id="tasks" rows="3" name="tasks"></textarea>
                         </div>
 
                     </form>
@@ -180,7 +198,7 @@
                     <!-- post btn -->
                     <button type="button"
                         class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                        onclick="postAvailability()">Post
+                        onclick="postJob()">Post
                         Availability</button>
                 </div>
             </div>
@@ -324,12 +342,15 @@
                 </div>
 
                 <div class="row flex justify-content-center mb-4">
-                    <div class="col-4" id="featuredLine" style="width: 93px; height: 5px; background-color: #e2e3e5;"></div>
-                    <div class="col-4" id="fullTimeLine" style="width: 93px; height: 5px; background-color: #e2e3e5;"></div>
-                    <div class="col-4" id="partTimeLine" style="width: 93px; height: 5px; background-color: #e2e3e5;"></div>
+                    <div class="col-4" id="featuredLine" style="width: 93px; height: 5px; background-color: #e2e3e5;">
+                    </div>
+                    <div class="col-4" id="fullTimeLine" style="width: 93px; height: 5px; background-color: #e2e3e5;">
+                    </div>
+                    <div class="col-4" id="partTimeLine" style="width: 93px; height: 5px; background-color: #e2e3e5;">
+                    </div>
                 </div>
 
-                <div class="job-cards" id="job-cards">
+                <div class="availability-cards" id="availability-cards">
                     <!-- Job cards will be dynamically generated here -->
                 </div>
             </section>
@@ -431,7 +452,7 @@
     <script src="filter.js"></script>
     <script src="script.js"></script>
     <script src="sideDrawer.js"></script>
-    <script src="postAvailability.js"></script>
+    <script src="postJob.js"></script>
 </body>
 
 </html>
