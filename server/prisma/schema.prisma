@@ -42,7 +42,8 @@ model job_post {
   location       String
   state          String
   skills         String
-  posttime       DateTime       @default(now())
+  // posttime       DateTime       @default(now())
+  posttime       String
   user           String
   postedby       userinfo       @relation("job_Post", fields: [user], references: [username], onDelete: Cascade)
   applications   applications[] @relation("job_Applications")

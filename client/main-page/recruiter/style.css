@@ -265,6 +265,10 @@ main {
     gap: 20px;
     justify-content: center;
 }
+#availability-cards {
+    overflow-y: auto;
+    max-height: 31rem;
+}
 
 .availability-card, .category-card {
     background-color: white;

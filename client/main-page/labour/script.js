@@ -38,7 +38,7 @@ const enableLight = () => {
         i.style.backgroundColor = 'white'
     });
     jobtitles.forEach(i => {
-        i.style.color = "rgb(106 248 146 / 94%)"
+        i.style.color = "rgb(41 206 88)"
     });
 }
 
@@ -58,24 +58,60 @@ const getjobs = async () => {
     return await data;
 }
 
+const categories = {
+    Construction: `<i class="fa-solid fa-person-digging"></i>`,
+    Electrical: `<i class="fa-solid fa-plug"></i>`,
+    Plumbing: `<i class="fa-solid fa-toilet"></i>`,
+    Painting: `<i class="fa-solid fa-brush"></i>`,
+    Gardening: `<i class="fa-solid fa-tree"></i>`,
+    HouseKeeping: `<i class="fa-solid fa-house-chimney"></i>`,
+    Carpentry: `<i class="fa-solid fa-hammer"></i>`,
+    Mechanic: `<i class="fa-solid fa-wrench"></i>`,
+};
+
+const postTime = (posttime) => {
+    const time = Date.now() - posttime;
+    // console.log(time)
+    let sec = Math.floor((Math.floor(time / 1000)))
+    let min = Math.floor(sec / 60)
+    let hr = Math.floor(min / 60)
+    let day = Math.floor(hr / 24)
+    let months = Math.floor(day / 30)
+    if (sec < 60) {
+        return `${sec} sec ago`
+    }
+    else if (min < 60) {
+        return `${min} min ago`
+    }
+    else if (hr < 24) {
+        return `${hr} hr ago`
+    }
+    else if (day < 30) {
+        return `${day} day ago`
+    }
+    else {
+        return `${months} months ago`
+    }
+}
+
 const createjobcards = (jobs) => {
     jobs.forEach((item) => {
         const jobCard = document.createElement('div');
         jobCard.className = 'jobcard';
         jobCard.innerHTML =
-            `<div class="joblogo"><img src="../../assets/plumber-logo.png" alt=""></div>
+            `<div class="joblogo">${categories[item.jobtitle]}</div>
         <div class="time">
-            <h3 style="font-weight: 500;">${item.posttime}</h3>
-            <h3 style="font-weight: 500;">${item.jobtype}</h3>
+            <h3 style="font-weight: 500;">${postTime(Number(item.posttime))}</h3>
+            <h3 style="font-weight: 500;">| ${item.jobtype}</h3>
         </div>
-        <h2 class="jobtitle" style="font-size: 35px; font-weight: 700; margin-bottom:10px;">${item.jobtitle}</h2>
+        <h2 class="jobtitle" style="font-size: 27px; font-weight: 700; margin-bottom:10px;">${item.jobtitle}</h2>
         <h3 class="company" style="font-weight: 500;">${item.company}</h3>
-        <h4 class="state" style="font-weight: 600;">${item.state}</h4>`;
+        <h4 class="state" style="font-weight: 700;">${item.state}</h4>`;
 
         jobcontainer.appendChild(jobCard);
-        jobCard.addEventListener('click',()=>{
-            window.open('./job-details/index.html','_parent')
-            sessionStorage.setItem('job_id',item.id)
+        jobCard.addEventListener('click', () => {
+            window.open('./job-details/index.html', '_parent')
+            sessionStorage.setItem('job_id', item.id)
         })
     });
     //if dark mode already enabled

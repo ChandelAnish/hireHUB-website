@@ -85,7 +85,7 @@
     <!-- navbar end-->
 
 
-    <!-- post available Modal -->
+    <!-- post job Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -97,14 +97,27 @@
                 <div class="modal-body">
 
                     <form id="postjobform">
-                        <!-- Job Title -->
-                        <div class="mb-3">
+                        <!-- Select Job Title -->
+                        <label for="jobtitle"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job</label>
+                        <select class="form-select mb-3" aria-label="Default select example" id="jobtitle" name="jobtitle">
+                            <option selected value="Construction">Construction</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Painting">Painting</option>
+                            <option value="Gardening">Gardening</option>
+                            <option value="House Keeping">House Keeping</option>
+                            <option value="Carpentry">Carpentry</option>
+                            <option value="Mechanic">Mechanic</option>
+                        </select>
+
+                        <!-- <div class="mb-3">
                             <label for="jobtitle"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Title</label>
                             <input type="text" id="jobtitle"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 required name="jobtitle" />
-                        </div>
+                        </div> -->
 
                         <!-- Company -->
                         <div class="mb-3">
@@ -132,25 +145,13 @@
                                 required name="state" />
                         </div>
 
-                        <!-- select btn -->
-                        <label for="job" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work
-                            Specification</label>
-                        <select class="form-select mb-3" aria-label="Default select example" id="job" name="job">
-                            <option selected value="Construction">Construction</option>
-                            <option value="Electrical">Electrical</option>
-                            <option value="Plumbing">Plumbing</option>
-                            <option value="Painting">Painting</option>
-                            <option value="Gardening">Gardening</option>
-                            <option value="House Keeping">House Keeping</option>
-                            <option value="Carpentry">Carpentry</option>
-                            <option value="Mechanic">Mechanic</option>
-                        </select>
-
                         <!-- select job type -->
+                        <label for="jobtype" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work
+                            Specification</label>
                         <select class="form-select mb-3" aria-label="Default select example" id="jobtype"
                             name="jobtype">
-                            <option selected value="Full time">Full time</option>
-                            <option value="Part time">Part time</option>
+                            <option selected value="Full time">Full Time</option>
+                            <option value="Part time">Part Time</option>
                         </select>
 
                         <!-- salary -->
@@ -198,13 +199,12 @@
                     <!-- post btn -->
                     <button type="button"
                         class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                        onclick="postJob()">Post
-                        Availability</button>
+                        onclick="postJob()">Post Job</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- post available Modal -->
+    <!-- post job Modal -->
 
 
 

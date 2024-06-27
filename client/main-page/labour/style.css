@@ -140,7 +140,7 @@ button {
 }
 
 .time h3 {
-    width: 70px;
+    width: 115px;
     color: rgb(104, 104, 104);
     font-size: 15px;
 }
@@ -170,15 +170,17 @@ button {
 }
 
 .jobcard .jobtitle {
-    color: rgb(106 248 146 / 94%);
+    color: rgb(40, 185, 81);
     font-weight: bolder;
 }
 
-.jobcard .joblogo img {
+.jobcard .joblogo i {
     width: 55px;
     border-radius: 10px;
     position: relative;
     bottom: 26px;
+    font-size: 50px;
+    color: rgb(40, 185, 81);
 }
 
 .jobcontainer {
