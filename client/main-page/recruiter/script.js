@@ -206,31 +206,3 @@ function filterByType(type) {
 
     displayJobs(filteredJobs)
 }
-
-// function filterJobs() {
-//     const title = document.getElementById('job-title').value.toLowerCase();
-//     const location = document.getElementById('location').value.toLowerCase();
-
-//     const filteredJobs = availabilityList.filter(job =>
-//         job.title.toLowerCase().includes(title) &&
-//         job.location.toLowerCase().includes(location)
-//     );
-
-//     const availabilityCards = document.getElementById('availability-cards');
-//     availabilityCards.innerHTML = '';
-
-//     filteredJobs.forEach(job => {
-//         const availabilityCard = document.createElement('div');
-//         availabilityCard.classList.add('availability-card');
-
-//         availabilityCard.innerHTML = `
-//             <h3>${job.title}</h3>
-//             <p>${job.location}</p>
-//             <p>${job.type}</p>
-//             <p>${job.salary}</p>
-//             <button class="apply-button">Apply Now</button>
-//         `;
-
-//         availabilityCards.appendChild(availabilityCard);
-//     });
-// }
