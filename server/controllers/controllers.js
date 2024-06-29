@@ -2,6 +2,7 @@ const connectDB = require("../connectionDB/connectionDB")
 const { sendmail } = require("../smtp/smtp")
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient();
+const { uploadOnCloudinary, deleteFromCloudinary } = require('../upload/upload')
 
 const testing = (req, res) => {
     res.send('test successfull again')
@@ -86,17 +87,16 @@ const signup = (req, res) => {
                     return res.status(403).json({ signup: false, msg: 'user already exists' })
                 }
                 else {
-                    connectDB.query('insert into userinfo values(?,?,?,?)', [username, email, password, usertype], async(err, row) => {
+                    connectDB.query('insert into userinfo values(?,?,?,?)', [username, email, password, usertype], async (err, row) => {
                         if (err) {
                             console.log(err);
                         }
                         else {
                             console.log(row);
                             //inserting to labour info table if user is a labour
-                            if(usertype=='labour')
-                                {
-                                    const newLabour = await prisma.labourinfo.create({ data: {username} });
-                                }
+                            if (usertype == 'labour') {
+                                const newLabour = await prisma.labourinfo.create({ data: { username } });
+                            }
                             return res.status(200).json({
                                 signup: true, msg: "signed up successfully",
                                 userdetails: { username, email, password, usertype }
@@ -107,6 +107,12 @@ const signup = (req, res) => {
             }
         })
     })
+}
+
+//get single user
+const getSingleUser = async (req, res) => {
+    const singleUser = await prisma.userinfo.findUnique({ where: { username: req.params.username } });
+    res.status(200).json(singleUser)
 }
 
 //otp verification
@@ -237,11 +243,43 @@ const getSingleJobApplication = async (req, res) => {
 //get single labour info
 const getLabourInfo = async (req, res) => {
     try {
-        const singleLabour = await prisma.labourinfo.findUnique({where: {username:req.params.username}});
+        const singleLabour = await prisma.labourinfo.findUnique({
+            where: { username: req.params.username },
+            include: { userinfo: true }
+        });
         return res.status(200).json(singleLabour)
     } catch (error) {
         console.log(error)
     }
 }
 
-module.exports = { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability ,getLabourInfo};
+//post profile image
+const postProfileImg = async (req, res) => {
+    try {
+        // console.log(req.file)
+        const imgURL = await uploadOnCloudinary(req.file.path)
+        // console.log(imgURL)
+        const updatedProfileImg = await prisma.userinfo.update({
+            where: { username: req.params.username },
+            data: { profileImgURL: imgURL }
+        });
+        // console.log(updatedProfileImg)
+
+
+        // console.log(req.query)
+        const oldProfileURL = req.query.oldImgURL;
+        if (oldProfileURL) {
+            const imgName = oldProfileURL.split('/')
+            const imgname = imgName[imgName.length - 1].split(".")[0]
+            // console.log(imgname)
+            deleteFromCloudinary(imgname)
+        }
+
+        res.status(200).json(updatedProfileImg);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg };

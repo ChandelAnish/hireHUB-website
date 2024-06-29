@@ -103,7 +103,7 @@
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                             <input type="text" id="name"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required  name="name"/>
+                                required name="name" />
                         </div>
 
                         <!-- state -->
@@ -112,7 +112,7 @@
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State</label>
                             <input type="text" id="state"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required  name="state"/>
+                                required name="state" />
                         </div>
 
                         <!-- email -->
@@ -122,7 +122,7 @@
                                 address</label>
                             <input type="email" id="email"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="john.doe@company.com" required name="email"/>
+                                placeholder="john.doe@company.com" required name="email" />
                         </div>
 
                         <!-- select btn -->
@@ -140,7 +140,8 @@
                         </select>
 
                         <!-- select part time -->
-                        <select class="form-select mb-3" aria-label="Default select example" id="jobtype" name="jobtype">
+                        <select class="form-select mb-3" aria-label="Default select example" id="jobtype"
+                            name="jobtype">
                             <option selected value="Full time">Full Time</option>
                             <option value="Part time">Part Time</option>
                         </select>
@@ -152,7 +153,7 @@
                                 pay (in ₹)</label>
                             <input type="number" id="min_pay"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="" required name="min_pay"/>
+                                placeholder="" required name="min_pay" />
                         </div>
 
                         <!-- years of experience -->
@@ -162,13 +163,14 @@
                                 experience</label>
                             <input type="number" id="years"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required name="experienceYrs"/>
+                                required name="experienceYrs" />
                         </div>
 
                         <!-- skills -->
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Skills</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="skills"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                name="skills"></textarea>
                         </div>
 
                     </form>
@@ -176,11 +178,13 @@
                 <!-- close btn -->
                 <div class="modal-footer">
                     <button type="button"
-                        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" data-bs-dismiss="modal" aria-label="Close" id="closeModelBtn">Close</button>
+                        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        data-bs-dismiss="modal" aria-label="Close" id="closeModelBtn">Close</button>
 
                     <!-- post btn -->
                     <button type="button"
-                        class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="postAvailability()">Post
+                        class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        onclick="postAvailability()">Post
                         Availability</button>
                 </div>
             </div>
@@ -212,9 +216,36 @@
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group d-flex flex-column"
                         id="userProfileContent">
 
-                        <!-- <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="">
-                        <span class="ms-3" >${userdetails.username}</span>
-                        <span class="ms-3">${userdetails.emailsdfgsdfdffffffffffsgdfsdff}</span> -->
+                        <!-- <form action="http://localhost:5000/upload-profile-img" method="POST"
+                            enctype="multipart/form-data" class="d-flex align-content-center p-1">
+                            <i class="fa-regular fa-square-plus float-left fs-4"
+                                style="position: relative; color: rgb(107 114 128); right: 49px;" onclick="openImageUpload()"></i>
+                            <input type="file" placeholder="" style="display: none;" id="imageUpload"
+                                name="profile-img">
+                            <button id="uploadBtn" class="btn btn-secondary btn-sm" style="font-size: 10px; height: 23px;position: relative;right: 45px;">Upload</button>
+                        </form>
+
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                            alt="">
+                        <span class="ms-3 mt-1">ram</span>
+                        <span class="ms-3 mt-1">ram@gmail.com</span>
+                        <span class="ms-3 mt-1 text-uppercase font-bold text-gray-400">LABOUR</span>` -->
+
+                        
+                        <!-- <form action="http://localhost:5000/upload-profile-img" method="POST"
+                            enctype="multipart/form-data" class="d-flex align-content-center p-1">
+                            <i class="fa-regular fa-square-plus float-left fs-4"
+                                style="position: relative; color: rgb(107 114 128); right: 49px;" onclick="openImageUpload()"></i>
+                            <input type="file" placeholder="" style="display: none;" id="imageUpload"
+                                name="profile-img">
+                            <button id="uploadBtn" class="btn btn-secondary btn-sm" style="font-size: 10px; height: 23px;position: relative;right: 45px;">Upload</button>
+                        </form>
+
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                            alt="">
+                        <span class="ms-3 mt-1">ram</span>
+                        <span class="ms-3 mt-1">ram@gmail.com</span>
+                        <span class="ms-3 mt-1 text-uppercase font-bold text-gray-400">LABOUR</span>` -->
 
                     </a>
                 </li>
@@ -235,11 +266,13 @@
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                         <li>
                             <a href="#"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Assigned Jobs</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Assigned
+                                Jobs</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Completed jobs</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Completed
+                                jobs</a>
                         </li>
                     </ul>
                 </li>
@@ -270,7 +303,8 @@
                     <a href="my-applications/index.html"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
-                        <i class="fa-brands fa-wpforms" style="color: rgb(107 114 128); font-size: 20px; font-weight: bolder;"></i>
+                        <i class="fa-brands fa-wpforms"
+                            style="color: rgb(107 114 128); font-size: 20px; font-weight: bolder;"></i>
 
                         <span class="flex-1 ms-3 whitespace-nowrap">My Applications</span>
                     </a>

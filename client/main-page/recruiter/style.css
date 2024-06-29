@@ -309,3 +309,19 @@ main {
     box-shadow: 10px 5px 5px rgb(226 226 226);
     /* box-shadow: 10px 5px 5px rgb(17 17 17); */
 }
+
+#uploadBtn {
+    font-size: 10px;
+    height: 23px;
+    position: relative;
+    right: 46px;
+    margin-bottom: 4px;
+    color: rgb(107 114 128);
+    border: 2px solid rgb(107 114 128);
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+
+#uploadBtn:hover {
+    color: white;
+}

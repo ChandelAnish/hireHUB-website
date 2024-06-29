@@ -1,7 +1,10 @@
 const express = require('express')
 const mysql = require('mysql2')
 const connectDB = require('../connectionDB/connectionDB')
-const { testing, login, signup, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability ,getLabourInfo} = require('../controllers/controllers')
+const upload = require('../multer/multer')
+
+
+const { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg } = require('../controllers/controllers')
 
 const router = express.Router();
 
@@ -14,6 +17,9 @@ router.post('/login', login)
 
 //sign-up
 router.post('/signup', signup)
+
+//get single user
+router.get('/user/:username', getSingleUser)
 
 //otp verification
 router.post('/otpverification', otpverification)
@@ -45,6 +51,7 @@ router.route('/job-application/:applicant/:jobid').get(getSingleJobApplication)
 //labour info
 router.route('/labour-info/:username').get(getLabourInfo)
 
-
+//upload profile image
+router.route('/upload-profile-img/:username').post(upload.single('profile-img'), postProfileImg)
 
 module.exports = router;

@@ -143,7 +143,7 @@ function displayJobs(availabilityList) {
         // console.log(skills)
         availabilityCard.innerHTML = `
                         <div class="profile row">
-                            <img class="col-3 img-fluid" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                            <img class="col-3 img-fluid" src=${labourinfo.userinfo.profileImgURL}
                                 alt="profile-pic">
                             <div class="name col-7">
                                 <h3 class="fs-3 fw-medium">${job.name}</h3>
