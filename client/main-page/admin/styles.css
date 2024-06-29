@@ -6,7 +6,7 @@ body {
     background-color: #f5f5f5;
 }
 
-.container {
+.mainContainer {
     display: flex;
     height: 100vh;
 }
@@ -25,7 +25,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .sidebar .menu ul {
@@ -45,7 +45,7 @@ body {
     display: block;
     padding: 10px 15px;
     border-radius: 8px;
-    transition: background 0.3s;
+    transition: all 0.3s;
 }
 
 .sidebar .menu ul li a:hover {
@@ -165,7 +165,7 @@ body {
     background-color: #FF0000;
 }
 
-.contact-btn {
+.toggle-btn {
     padding: 5px 10px;
     border: none;
     background-color: #53ce72;
@@ -175,12 +175,20 @@ body {
     font-size: 16px;
 }
 
-.contact-btn i {
+.toggle-btn i {
     margin-right: 5px;
 }
 
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
-    .container {
+    .mainContainer {
         flex-direction: column;
     }
 

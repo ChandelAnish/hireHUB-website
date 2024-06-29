@@ -11,43 +11,44 @@ const testing = (req, res) => {
 
 //login
 
-const login = (req, res) => {
-    console.log(req.body)
-    if (!req.body.username || !req.body.password) {
-        return res.status(401).json({ login: false, msg: 'enter all credentials' })
+const login = async (req, res) => {
+    try {
+        console.log(req.body);
+        if (!req.body.username || !req.body.password) {
+            return res.status(401).json({ login: false, msg: 'enter all credentials' });
+        }
+
+        const user = await prisma.userinfo.findUnique({
+            where: { username: req.body.username }
+        });
+
+        if (!user) {
+            return res.status(200).json({ login: false, msg: 'not found' });
+        }
+
+        if (user.password !== req.body.password) {
+            return res.status(401).json({ login: false, msg: 'incorrect user credentials' });
+        }
+
+        if (user.status === 'Suspended') {
+            return res.status(401).json({ login: false, msg: 'account suspended' });
+        }
+
+        if (user.status === 'Unverified') {
+            return res.status(401).json({ login: false, msg: 'email Unverified &nbsp;<a href="../otpverification/index.html" onclick="emailVerification()">verify now</a>' });
+        }
+
+        return res.status(200).json({
+            login: true,
+            userdetails: { ...user },
+            msg: 'login successful'
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ login: false, msg: 'internal server error' });
     }
-    connectDB.query('select * from hirehub_db.userinfo where username=?', [req.body.username], (err, row) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            if (row.length < 1) {
-                return res.status(200).json({ login: false, msg: 'not found' })
-            }
-            else {
-                connectDB.query('select * from hirehub_db.userinfo where username=?', [req.body.username], (err, row) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        if (row[0].password == req.body.password) {
-                            // res.sendFile(path.resolve(__dirname,'./public/main-page/index1.html'))
-                            return res.status(200).json({
-                                login: true,
-                                userdetails: { ...row[0] },
-                                msg: 'login successful'
-                            })
-                            // return res.status(200).redirect('./main-page/index1.html')
-                        }
-                        else {
-                            return res.status(401).json({ login: false, msg: 'incorrect user credentials' })
-                        }
-                    }
-                })
-            }
-        }
-    })
-}
+};
+
 
 //signup
 const signup = async (req, res) => {
@@ -110,8 +111,12 @@ const signup = async (req, res) => {
     }
 };
 
-module.exports = { signup };
 
+//get all users
+const getAllUsers = async (req, res) => {
+    const allUsers = await prisma.userinfo.findMany({});
+    res.status(200).json(allUsers)
+}
 
 //get single user
 const getSingleUser = async (req, res) => {
@@ -285,5 +290,14 @@ const postProfileImg = async (req, res) => {
     }
 }
 
+//update status
+const updateStatus = async (req, res) => {
+    const updatedStatus = await prisma.userinfo.update({
+        where: { username: req.params.username },
+        data: req.body
+    });
+    res.status(200).json(updatedStatus)
+}
 
-module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg };
+
+module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus };

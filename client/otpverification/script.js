@@ -34,8 +34,23 @@ async function verifyotp(userotp) {
     const data = await response.json();
     console.log(data)
     document.getElementById('warning').innerHTML = data.msg;
+
     if (data.success) {
-        return window.open("../login-page/index.html","_parent");
+        try {
+            const userdetails = JSON.parse(sessionStorage.getItem('userdetails'))
+            const response = await fetch(`http://localhost:5000/update-status/${userdetails.username}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({ status: "Active" })
+            })
+            const data = await response.json();
+            console.log(data)
+            return window.open("../login-page/index.html", "_parent");
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 

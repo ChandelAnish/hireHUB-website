@@ -1,3 +1,5 @@
+const BASE_URL = "http://localhost:5000";
+
 const slidebutton = document.querySelector("#slidebutton");
 function changeSlide() {
     setInterval(() => {
@@ -18,7 +20,7 @@ form.addEventListener('submit', async (e) => {
     const formdata = { username, password };
     // try
     // {
-    //     let response=await signup(formdata);//must use await since fetch is used in a the signup function
+    //     let response=await login(formdata);//must use await since fetch is used in a the login function
     //     response=await response.json();
     //     console.log(response);
     //     if(!response.login)
@@ -32,17 +34,18 @@ form.addEventListener('submit', async (e) => {
     //     window.location.href='/index1.html'
     // }
 
-    let response = await signup(formdata);//must use await since fetch is used in a the signup function
+    let response = await login(formdata);//must use await since fetch is used in a the login function
     response = await response.json();
     if (!response.login) {
         return warning.innerHTML = response.msg;
     }
     // console.log(response.userdetails.usertype)
-    sessionStorage.setItem('userdetails', JSON.stringify(response.userdetails));
     if (response.userdetails.usertype === 'recruiter') {
+        sessionStorage.setItem('userdetails', JSON.stringify(response.userdetails));
         return window.open("../main-page/recruiter/index.html", "_parent");
     }
     else if (response.userdetails.usertype === 'labour') {
+        sessionStorage.setItem('userdetails', JSON.stringify(response.userdetails));
         return window.open("../main-page/labour/index.html", "_parent");
     }
     else if (response.userdetails.usertype === 'admin') {
@@ -50,7 +53,7 @@ form.addEventListener('submit', async (e) => {
     }
 })
 
-const signup = async (formdata) => {
+const login = async (formdata) => {
     const response = fetch('http://localhost:5000/login', {
         method: 'post',
         headers: {
@@ -61,4 +64,16 @@ const signup = async (formdata) => {
     // const data =(await response).json();
     // return data;
     return (await response);
+}
+
+const getUserProfile = async (username) => {
+    const response = await fetch(`${BASE_URL}/user/${username}`)
+    const data = await response.json()
+    return data
+}
+
+const emailVerification = async () => {
+    const username = form.elements.username.value;
+    const userdetails = await getUserProfile(username);
+    sessionStorage.setItem('userdetails', JSON.stringify(userdetails));
 }

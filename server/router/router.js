@@ -4,7 +4,7 @@ const connectDB = require('../connectionDB/connectionDB')
 const upload = require('../multer/multer')
 
 
-const { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg } = require('../controllers/controllers')
+const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus} = require('../controllers/controllers')
 
 const router = express.Router();
 
@@ -17,6 +17,9 @@ router.post('/login', login)
 
 //sign-up
 router.post('/signup', signup)
+
+//get all users
+router.get('/users', getAllUsers)
 
 //get single user
 router.get('/user/:username', getSingleUser)
@@ -53,5 +56,8 @@ router.route('/labour-info/:username').get(getLabourInfo)
 
 //upload profile image
 router.route('/upload-profile-img/:username').post(upload.single('profile-img'), postProfileImg)
+
+//update status
+router.route('/update-status/:username').patch(updateStatus)
 
 module.exports = router;
