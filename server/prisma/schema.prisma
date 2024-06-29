@@ -9,10 +9,10 @@ datasource db {
 
 model userinfo {
   username          String              @id
-  email             String
+  email             String              @unique
   password          String
   usertype          String
-  profileImgURL     String @default("https://res.cloudinary.com/dtve737fm/image/upload/v1719608361/vea1jxjrtwv5t7yvydly.png")
+  profileImgURL     String              @default("https://res.cloudinary.com/dtve737fm/image/upload/v1719608361/vea1jxjrtwv5t7yvydly.png")
   job_post          job_post[]          @relation("job_Post")
   post_availability post_availability[] @relation("post_availability")
   applications      applications[]      @relation("user_Applications")

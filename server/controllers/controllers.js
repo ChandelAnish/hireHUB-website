@@ -50,64 +50,68 @@ const login = (req, res) => {
 }
 
 //signup
-const signup = (req, res) => {
-    // console.log(req.body)
+const signup = async (req, res) => {
     const { username, email, password, confirmpassword, usertype } = req.body;
-    //check for all credintials
+
+    // Check for all credentials
     if (!username || !email || !password || !confirmpassword || !usertype) {
-        return res.status(401).json({ login: false, msg: 'enter all credentials' })
+        return res.status(401).json({ login: false, msg: 'Enter all credentials' });
     }
 
-
-    //check for password matches confirm password
-    if (password != confirmpassword) {
-        return res.status(401).json({ signup: false, msg: "password doesn't matched" })
+    // Check for password matches confirm password
+    if (password !== confirmpassword) {
+        return res.status(401).json({ signup: false, msg: "Password doesn't match" });
     }
 
+    try {
+        // Check for already registered email
+        const existingEmail = await prisma.userinfo.findUnique({
+            where: { email },
+        });
 
-    //check for already registered email
-    connectDB.query('select * from hirehub_db.userinfo where email=?', [email], (err, row) => {
-        if (err) {
-            console.log(err);
+        if (existingEmail) {
+            return res.status(403).json({ login: false, msg: 'Email already exists' });
         }
-        else if (row.length > 0) {
-            flag = true;
-            return res.status(403).json({ login: false, msg: 'email already exists' })
+
+        // Check for username already exists
+        const existingUsername = await prisma.userinfo.findUnique({
+            where: { username },
+        });
+
+        if (existingUsername) {
+            return res.status(403).json({ signup: false, msg: 'User already exists' });
         }
 
+        // Insert new user
+        const newUser = await prisma.userinfo.create({
+            data: {
+                username,
+                email,
+                password,
+                usertype,
+            },
+        });
 
-        //check for username already exists
-        connectDB.query('select * from hirehub_db.userinfo where username=?', [username], (err, row) => {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                if (row.length > 0) {
-                    // console.log(row[0].username)
-                    return res.status(403).json({ signup: false, msg: 'user already exists' })
-                }
-                else {
-                    connectDB.query('insert into userinfo values(?,?,?,?)', [username, email, password, usertype], async (err, row) => {
-                        if (err) {
-                            console.log(err);
-                        }
-                        else {
-                            console.log(row);
-                            //inserting to labour info table if user is a labour
-                            if (usertype == 'labour') {
-                                const newLabour = await prisma.labourinfo.create({ data: { username } });
-                            }
-                            return res.status(200).json({
-                                signup: true, msg: "signed up successfully",
-                                userdetails: { username, email, password, usertype }
-                            })
-                        }
-                    })
-                }
-            }
-        })
-    })
-}
+        // Insert to labour info table if user is a labour
+        if (usertype === 'labour') {
+            const newLabour = await prisma.labourinfo.create({
+                data: { username },
+            });
+        }
+
+        return res.status(200).json({
+            signup: true,
+            msg: 'Signed up successfully',
+            userdetails: { username, email, password, usertype },
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ signup: false, msg: 'Internal server error' });
+    }
+};
+
+module.exports = { signup };
+
 
 //get single user
 const getSingleUser = async (req, res) => {
