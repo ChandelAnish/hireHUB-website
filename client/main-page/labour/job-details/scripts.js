@@ -34,7 +34,7 @@ addEventListener('load', async () => {
 
 
     singlejob.tasks.map((item) => {
-        tasklist.innerHTML += `<li class="m-2" style="color: #666;">${item}</li>`
+        tasklist.innerHTML += `<li class="m-2" style="color: #666;">${item.task}</li>`
     })
 
     roleinfo.children[0].innerHTML = `${singlejob.jobtitle} (${singlejob.jobtype})`

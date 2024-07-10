@@ -9,15 +9,64 @@ const getAllUsers = async () => {
         console.log(error)
     }
 }
+const getAllJobPosts = async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/post-jobs`)
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error)
+    }
+}
+const getAllJobAvailabilities = async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/post-Availability`)
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const deletePostedJob = async (tableRowID, id) => {
+    const response = await fetch(`${BASE_URL}/post-jobs/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': "application/json"
+        }
+    })
+    const data = await response.json()
+    console.log(data)
+    document.getElementById(tableRowID).remove();
+}
+
+const deleteAvailability = async (tableRowID, id) => {
+    const response = await fetch(`${BASE_URL}/post-Availability/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': "application/json"
+        }
+    })
+    const data = await response.json()
+    console.log(data)
+    console.log(tableRowID)
+    document.getElementById(tableRowID).remove();
+}
 
 let allUsers = [];
+let allJobPosts = [];
+let allJobAvailabilities = [];
 
 addEventListener("load", async () => {
     allUsers = await getAllUsers();
     // console.log(allUsers)
-    allUsers=allUsers.filter((item)=>{
-        return (item.usertype!="admin");
+    allUsers = allUsers.filter((item) => {
+        return (item.usertype != "admin");
     })
+    allJobPosts = await getAllJobPosts()
+    allJobAvailabilities = await getAllJobAvailabilities()
+    console.log(allJobPosts)
+    console.log(allJobAvailabilities)
 
     displayUsers(allUsers);
 })
@@ -28,7 +77,7 @@ addEventListener("load", async () => {
 
 const displayUsers = (allUsers) => {
     const usersList = document.getElementById('usersList')
-    usersList.innerHTML='';
+    usersList.innerHTML = '';
 
     allUsers.forEach((item, index) => {
         let statusColor;
@@ -99,5 +148,90 @@ const toggleStatus = async (index, username) => {
         }
     } catch (error) {
         console.log(error);
+    }
+}
+
+const manageType = (type) => {
+    const filterbuttons = document.getElementById('filter-buttons')
+    const manageType = document.getElementById('manageType')
+    const tableheader = document.getElementById('tableheader')
+    const usersList = document.getElementById('usersList')
+    usersList.innerHTML = '';
+    if (type == 'Users') {
+        console.log(type)
+        manageType.textContent = 'Users';
+        filterbuttons.innerHTML = '';
+        tableheader.innerHTML = '';
+        tableheader.innerHTML = `                            
+                            <th>Username</th>
+                            <th>Usertype</th>
+                            <th>Profile image</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Change Status</th>`;
+
+        displayUsers(allUsers);
+    }
+    else if (type == 'JobPost') {
+        console.log(type)
+        manageType.textContent = 'Job Posts';
+        filterbuttons.innerHTML = '';
+        tableheader.innerHTML = '';
+        tableheader.innerHTML = `
+                            <th>Username</th>
+                            <th>Job title</th>
+                            <th>Job Type</th>
+                            <th>Job Description</th>
+                            <th>Salary</th>
+                            <th>Location</th>
+                            <th>State</th>
+                            <th>Skills</th>
+                            <th>Job Status</th>
+                            <th>Delete</th>`;
+
+        allJobPosts.forEach((item, index) => {
+            usersList.innerHTML += `
+                            <tr class="application-row" data-status="on-hold" id="tablerow${index}">
+                                <td>${item.user}</td>
+                                <td>${item.jobtitle}</td>
+                                <td>${item.jobtype}</td>
+                                <td>${item.jobdescription}</td>
+                                <td>₹${item.salary}</td>
+                                <td>${item.location}</td>
+                                <td>${item.state}</td>
+                                <td>${item.skills}</td>
+                                <td>${item.status}</td>
+                                <td><button class="toggle-btn" onclick="deletePostedJob('tablerow${index}','${item.id}')" style="background-color: red;">Delete</button></td>
+                            </tr>`
+        })
+    }
+    else if (type == 'JobAvailability') {
+        console.log(type)
+        manageType.textContent = 'Job Availabilities';
+        filterbuttons.innerHTML = '';
+        tableheader.innerHTML = '';
+        tableheader.innerHTML = `                            
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>Job title</th>
+                            <th>Job Type</th>
+                            <th>Min. Pay</th>
+                            <th>State</th>
+                            <th>Skills</th>
+                            <th>Delete</th>`;
+
+        allJobAvailabilities.forEach((item, index) => {
+            usersList.innerHTML += `
+                            <tr class="application-row" data-status="on-hold" id="tablerow${index}">
+                                <td>${item.user}</td>
+                                <td>${item.name}</td>
+                                <td>${item.job}</td>
+                                <td>${item.jobtype}</td>
+                                <td>₹${item.min_pay}</td>
+                                <td>${item.state}</td>
+                                <td>${item.skills}</td>
+                                <td><button class="toggle-btn" onclick="deleteAvailability('tablerow${index}','${item.id}')" style="background-color: red;">Delete</button></td>
+                            </tr>`
+        })
     }
 }

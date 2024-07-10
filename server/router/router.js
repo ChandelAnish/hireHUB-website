@@ -4,7 +4,7 @@ const connectDB = require('../connectionDB/connectionDB')
 const upload = require('../multer/multer')
 
 
-const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus} = require('../controllers/controllers')
+const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob} = require('../controllers/controllers')
 
 const router = express.Router();
 
@@ -29,6 +29,9 @@ router.post('/otpverification', otpverification)
 
 //job post & get job
 router.route('/post-jobs').post(postjob).get(getjobs)
+
+//job delete
+router.route('/post-jobs/:jobid').delete(deletePostedJob)
 
 //post Availability & get all Availability
 router.route('/post-Availability').post(postAvailability).get(getAllAvailability)
@@ -59,5 +62,8 @@ router.route('/upload-profile-img/:username').post(upload.single('profile-img'),
 
 //update status
 router.route('/update-status/:username').patch(updateStatus)
+
+//update status
+router.route('/post-jobs/:jobid').patch(updateTaskStatus)
 
 module.exports = router;

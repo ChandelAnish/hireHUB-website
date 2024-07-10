@@ -155,6 +155,12 @@ const getjobs = async (req, res) => {
     res.status(200).json(jobs)
 }
 
+//delete-job
+const deletePostedJob = async (req, res) => {
+    const deletedjob = await prisma.job_post.delete({ where: { id: req.params.jobid } });
+    res.status(200).json(deletedjob)
+}
+
 //get-single-job
 const getsinglejobs = async (req, res) => {
     const singlejobs = await prisma.job_post.findUnique({ where: { id: req.params.id } });
@@ -299,5 +305,14 @@ const updateStatus = async (req, res) => {
     res.status(200).json(updatedStatus)
 }
 
+//task Update Task Status
+const updateTaskStatus = async (req, res) => {
+    const updatedTask = await prisma.job_post.update({
+        where: { id: req.params.jobid},
+        data: req.body
+    });
+    res.status(200).json(updatedTask)
+}
 
-module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus };
+
+module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus ,updateTaskStatus,deletePostedJob};

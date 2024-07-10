@@ -6,7 +6,7 @@ const closeModel = document.getElementById('closeModelBtn')
 const postJob = async() => {
     const jobtitle = postjobform.jobtitle.value;
     const jobtype = postjobform.jobtype.value;
-    const tasks = postjobform.tasks.value.split(/[,]+/g);
+    let tasks = postjobform.tasks.value.split(/[,]+/g);
     const company = postjobform.company.value;
     const salary = postjobform.salary.value;
     const location = postjobform.location.value;
@@ -15,6 +15,11 @@ const postJob = async() => {
     const state = postjobform.state.value;
     const user = JSON.parse(sessionStorage.getItem('userdetails')).username;
     const posttime = Date.now().toString();
+
+    tasks=tasks.map((item)=>{
+        return {task:item,completed:false}
+    })
+    // console.log(tasks)
 
     const job = { jobtitle, jobtype, tasks, company, salary, location, skills, jobdescription, state, user,posttime };
     const response = await postjob(job)

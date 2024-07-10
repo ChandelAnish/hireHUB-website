@@ -115,7 +115,7 @@ addEventListener("load", async () => {
     availabilityList = [...availabilityList, ...availability]
 
     // console.log(availabilityList)
-    displayJobs(availabilityList);
+    displayAvailability(availabilityList);
     displayCategories();
     if (sessionStorage.getItem('darkmode') === 'true') {
         darkbtn.checked = true;
@@ -128,7 +128,7 @@ addEventListener("load", async () => {
 })
 
 
-function displayJobs(availabilityList) {
+function displayAvailability(availabilityList) {
     const availabilityCards = document.getElementById('availability-cards');
     availabilityCards.innerHTML = '';
     // console.log(availabilityList)
@@ -204,5 +204,5 @@ function filterByType(type) {
     }
     availabilityCards.innerHTML = '';
 
-    displayJobs(filteredJobs)
+    displayAvailability(filteredJobs)
 }

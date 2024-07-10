@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.my-progress-bar {
+    margin-top: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 79%;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 10rem;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.filter-section, .chat-section {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section {
+    width: 30%;
+}
+
+.filter-section h3 {
+    margin-top: 0;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tasks{
+    height: 20rem;
+    overflow-y: auto;
+}
+
+.filter-section .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.filter-section .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.get-started {
+    background-color: #53ce72;
+    color: white;
+}
+
+.chat-section {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chat-header {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    height: 20rem;
+}
+
+.message {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    float: left;
+    clear: both;
+    min-width: 18rem;
+}
+
+.message .user {
+    font-weight: bold;
+}
+
+.message .time {
+    font-size: 0.85em;
+    color: #999;
+}
+
+.message .text {
+    margin-top: 5px;
+}
+
+.reply {
+    background-color: #ccf6d6;
+    /* padding: 10px;
+    border-radius: 5px; */
+    float: right;
+    clear: both;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.chat-input button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #53ce72;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+}

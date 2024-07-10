@@ -27,10 +27,10 @@
             <div class="logo">hireHUB</div>
             <nav class="menu">
                 <ul>
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">Job Post</a></li>
-                    <li><a href="#">Job Availability</a></li>
-                    <li><a href="#">Reports</a></li>
+                    <li><a onclick="manageType('Users')">Users</a></li>
+                    <li><a onclick="manageType('JobPost')">Job Posts</a></li>
+                    <li><a onclick="manageType('JobAvailability')">Job Availabilities</a></li>
+                    <li><a>Reports</a></li>
                 </ul>
             </nav>
         </aside>
@@ -40,8 +40,8 @@
             </header>
             <section class="applications">
                 <div class="applications-header">
-                    <h2>Users</h2>
-                    <div class="filter-buttons">
+                    <h2 id="manageType">Users</h2>
+                    <div class="filter-buttons" id="filter-buttons">
                         <button class="filter-btn active" onclick="displayAllUsers()">All</button>
                         <button class="filter-btn" onclick="filterUnverified()">Unverified</button>
                         <button class="filter-btn" onclick="filterSuspended()">Suspended</button>
@@ -56,8 +56,7 @@
                 </div>
                 <table class="applications-table">
                     <thead>
-                        <tr>
-                            <!-- <th><input type="checkbox"></th> -->
+                        <tr id="tableheader">
                             <th>Username</th>
                             <th>Usertype</th>
                             <th>Profile image</th>
@@ -78,7 +77,6 @@
                             <td><div class="status on-hold" id="status" style="background-color: red; width: 78px; text-align: center;">Suspended</div></td>
                             <td><button class="toggle-btn" id="toggle-btn" onclick="toggleStatus()" style="background-color: red;">Reinstate</button></td>
                         </tr> -->
-
 
                     </tbody>
                 </table>
