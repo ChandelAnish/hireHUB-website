@@ -38,7 +38,7 @@ const markComplete = async(id,index) => {
         completedTask++;
         tasksArray[index].completed = true;
         // console.log(tasksArray)
-        const response = await updateTask("643177de-3676-484e-94bd-9a3952dc2329",{tasks:tasksArray});
+        const response = await updateTask("8cb7adc0-73e6-4368-8abc-cc25f818d281",{tasks:tasksArray});
         console.log(response)
         progressBarUpdate();
     }
@@ -46,7 +46,7 @@ const markComplete = async(id,index) => {
         completedTask--;
         tasksArray[index].completed = false;
         // console.log(tasksArray)
-        const response = await updateTask("643177de-3676-484e-94bd-9a3952dc2329",{tasks:tasksArray});
+        const response = await updateTask("8cb7adc0-73e6-4368-8abc-cc25f818d281",{tasks:tasksArray});
         console.log(response)
         progressBarUpdate();
     }
@@ -54,10 +54,12 @@ const markComplete = async(id,index) => {
 
 
 addEventListener('load', async () => {
-    const data = await getSingleJobs("643177de-3676-484e-94bd-9a3952dc2329");
+    const data = await getSingleJobs("8cb7adc0-73e6-4368-8abc-cc25f818d281");
+    // completions=data.completions;
     // console.log(data)
     // console.log(data.tasks)
     const tasks = document.getElementById('tasks');
+    0
     tasks.innerHTML = '';
     totalTask = 0;
     completedTask = 0;
@@ -74,5 +76,4 @@ addEventListener('load', async () => {
         totalTask++;
     });
     progressBarUpdate()
-    // await updateTask("643177de-3676-484e-94bd-9a3952dc2329",{tasks:[{"task":"cut wall to fit pipe this is updated again","completed":false},{"task":"place pipe in the cut","completed":false}]})
 })

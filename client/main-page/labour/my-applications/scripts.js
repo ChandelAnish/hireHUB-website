@@ -16,7 +16,7 @@ const getApplications = async () => {
         return [];
     }
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
 };
 
@@ -31,6 +31,10 @@ async function displayApplicationList(applicationList) {
 
     applicationList.forEach((application, index) => {
         const job = application.job;
+        // console.log(job.tasks)
+        let tasksArray = job.tasks.map((item)=>{
+            return item.task
+        })
 
         let statusColor = "text-success";
         if (application.approved === "pending") {
@@ -66,7 +70,7 @@ async function displayApplicationList(applicationList) {
                 </p>
                 <p class="card-text">
                     <strong>Tasks:</strong>
-                    <span>${job.tasks.join(', ')}</span>
+                    <span>${tasksArray.join(', ')}</span>
                 </p>
                 <p class="card-text">
                     <strong>Application Status:</strong>

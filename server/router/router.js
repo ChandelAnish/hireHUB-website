@@ -4,7 +4,7 @@ const connectDB = require('../connectionDB/connectionDB')
 const upload = require('../multer/multer')
 
 
-const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob} = require('../controllers/controllers')
+const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob,updateLabourInfo,getAllJobApplication} = require('../controllers/controllers')
 
 const router = express.Router();
 
@@ -51,11 +51,15 @@ router.route('/job-application').post(postJobApplication)
 // get all job applications of a single user
 router.route('/job-application/:user').get(getUserJobApplication)
 
+
+// get all job applications sent to a recruiter
+router.route('/job-application-recruiter/:username').get(getAllJobApplication)
+
 //single job application
 router.route('/job-application/:applicant/:jobid').get(getSingleJobApplication)
 
 //labour info
-router.route('/labour-info/:username').get(getLabourInfo)
+router.route('/labour-info/:username').get(getLabourInfo).patch(updateLabourInfo)
 
 //upload profile image
 router.route('/upload-profile-img/:username').post(upload.single('profile-img'), postProfileImg)

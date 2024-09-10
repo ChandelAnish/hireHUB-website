@@ -12,7 +12,7 @@ model userinfo {
   email             String              @unique
   password          String
   usertype          String
-  profileImgURL     String              @default("https://res.cloudinary.com/dtve737fm/image/upload/v1719608361/vea1jxjrtwv5t7yvydly.png")
+  profileImgURL     String?             @default("../../assets/user-img.png")
   status            String              @default("Unverified")
   job_post          job_post[]          @relation("job_Post")
   post_availability post_availability[] @relation("post_availability")
@@ -68,12 +68,13 @@ model post_availability {
 }
 
 model applications {
-  id        String   @id @default(uuid())
-  jobid     String
-  job       job_post @relation("job_Applications", fields: [jobid], references: [id], onDelete: Cascade)
-  applicant String
-  appliedby userinfo @relation("user_Applications", fields: [applicant], references: [username], onDelete: Cascade)
-  approved  String   @default("pending")
+  id            String   @id @default(uuid())
+  jobid         String
+  job           job_post @relation("job_Applications", fields: [jobid], references: [id], onDelete: Cascade)
+  applicant     String
+  appliedToUser String?
+  appliedby     userinfo @relation("user_Applications", fields: [applicant], references: [username], onDelete: Cascade)
+  approved      String   @default("pending")
 
   @@unique([jobid, applicant])
 }

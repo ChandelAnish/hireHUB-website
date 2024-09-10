@@ -254,6 +254,18 @@ const getSingleJobApplication = async (req, res) => {
         console.log(error)
     }
 }
+//get all Job Applications sent to recruiter
+const getAllJobApplication = async (req, res) => {
+    try {
+        const allApplications = await prisma.applications.findMany({
+            where: {appliedToUser:req.body.username},
+            include: { appliedby: true }
+        });
+        return res.status(200).json(allApplications)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 //get single labour info
 const getLabourInfo = async (req, res) => {
@@ -263,6 +275,19 @@ const getLabourInfo = async (req, res) => {
             include: { userinfo: true }
         });
         return res.status(200).json(singleLabour)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+//get update Labour Info
+const updateLabourInfo = async (req, res) => {
+    try {
+        const updateLabourInfo = await prisma.labourinfo.update({
+            where: { username: req.params.username },
+            data: req.body
+        });
+        return res.status(200).json(updateLabourInfo)
     } catch (error) {
         console.log(error)
     }
@@ -315,4 +340,4 @@ const updateTaskStatus = async (req, res) => {
 }
 
 
-module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus ,updateTaskStatus,deletePostedJob};
+module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus ,updateTaskStatus,deletePostedJob,updateLabourInfo,getAllJobApplication};

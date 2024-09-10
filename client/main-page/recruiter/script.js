@@ -79,6 +79,7 @@ const getAvailability = async () => {
 const getLabourInfo = async (username) => {
     const response = await fetch(`${BASE_URL}/labour-info/${username}`);
     const data = await response.json();
+    // console.log(data)
     return await data;
 }
 
@@ -139,7 +140,7 @@ function displayAvailability(availabilityList) {
 
         const skills = job.skills.split(/[ ]+/g)
         const labourinfo = await getLabourInfo(job.user)
-        // console.log(labourinfo)
+        // console.log(labourinfo.userinfo.profileImgURL)
         // console.log(skills)
         availabilityCard.innerHTML = `
                         <div class="profile row">
@@ -160,7 +161,6 @@ function displayAvailability(availabilityList) {
             availabilityCard.innerHTML += `<span class="badge rounded-pill me-2 mt-2" style="background-color: rgb(83 232 125);">${item}</span>`
             i--;
         })
-
         availabilityCards.appendChild(availabilityCard);
     });
 }
@@ -192,7 +192,7 @@ function filterByType(type) {
         document.getElementById('fullTimeLine').style.backgroundColor = "#e2e3e5"
         document.getElementById('partTimeLine').style.backgroundColor = "#e2e3e5"
     }
-    else if (type == 'Full Time') {
+    else if (type == 'Full time') {
         document.getElementById('featuredLine').style.backgroundColor = "#e2e3e5"
         document.getElementById('fullTimeLine').style.backgroundColor = "rgb(40, 185, 81)"
         document.getElementById('partTimeLine').style.backgroundColor = "#e2e3e5"

@@ -1,4 +1,5 @@
 const BASE_URL = 'http://localhost:5000';
+let appliedToUser;
 
 const jobtitle = document.getElementById('jobtitle')
 const state = document.getElementById('state')
@@ -24,13 +25,15 @@ const getSingleJobs = async (job_id) => {
 addEventListener('load', async () => {
     const job_id = sessionStorage.getItem('job_id')
     const singlejob = await getSingleJobs(job_id)
-    // console.log(singlejob)
+    console.log(singlejob)
     jobtitle.innerHTML = singlejob.jobtitle
     joblocation.innerHTML = `at ${singlejob.location}, ${singlejob.state}`
     jobdescription.innerHTML = singlejob.jobdescription
     state.innerHTML = singlejob.state
     salary.innerHTML = `Salary : ₹ ${singlejob.salary}`
     jobtype.innerHTML = singlejob.jobtype
+    appliedToUser=singlejob.user
+    console.log(appliedToUser)
 
 
     singlejob.tasks.map((item) => {
@@ -77,6 +80,7 @@ const checkApplicationStatus = async (user) => {
     return data
 }
 
+
 // apply for job
 const applyjob = async () => {
     const job_id = sessionStorage.getItem('job_id')
@@ -90,7 +94,8 @@ const applyjob = async () => {
         },
         body: JSON.stringify({
             jobid: job_id,
-            applicant: username
+            applicant: username,
+            appliedToUser:appliedToUser
         })
     })
     const data = await response.json()

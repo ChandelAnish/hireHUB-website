@@ -206,6 +206,127 @@
     </div>
     <!-- post job Modal -->
 
+    <!-- post job Modal -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Post Job</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">⛌</button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="postjobform">
+                        <!-- Select Job Title -->
+                        <label for="jobtitle"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job</label>
+                        <select class="form-select mb-3" aria-label="Default select example" id="jobtitle" name="jobtitle">
+                            <option selected value="Construction">Construction</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Painting">Painting</option>
+                            <option value="Gardening">Gardening</option>
+                            <option value="House Keeping">House Keeping</option>
+                            <option value="Carpentry">Carpentry</option>
+                            <option value="Mechanic">Mechanic</option>
+                        </select>
+
+                        <!-- <div class="mb-3">
+                            <label for="jobtitle"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Title</label>
+                            <input type="text" id="jobtitle"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required name="jobtitle" />
+                        </div> -->
+
+                        <!-- Company -->
+                        <div class="mb-3">
+                            <label for="Company"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
+                            <input type="text" id="Company"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required name="company" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="location"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
+                            <input type="text" id="location"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required name="location" />
+                        </div>
+
+                        <!-- state -->
+                        <div class="mb-3">
+                            <label for="state"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State</label>
+                            <input type="text" id="state"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required name="state" />
+                        </div>
+
+                        <!-- select job type -->
+                        <label for="jobtype" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work
+                            Specification</label>
+                        <select class="form-select mb-3" aria-label="Default select example" id="jobtype"
+                            name="jobtype">
+                            <option selected value="Full time">Full Time</option>
+                            <option value="Part time">Part Time</option>
+                        </select>
+
+                        <!-- salary -->
+                        <div class="mb-3">
+                            <label for="salary"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Salary (in
+                                ₹)</label>
+                            <input type="number" id="salary"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="" required name="salary" />
+                        </div>
+
+
+                        <!-- jobdescription -->
+                        <div class="mb-3">
+                            <label for="jobdescription"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job
+                                Description</label>
+                            <textarea class="form-control" id="jobdescription" rows="3"
+                                name="jobdescription"></textarea>
+                        </div>
+
+                        <!-- skills -->
+                        <div class="mb-3">
+                            <label for="skills"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Skills</label>
+                            <textarea class="form-control" id="skills" rows="3" name="skills"></textarea>
+                        </div>
+
+                        <!-- tasks -->
+                        <div class="mb-3">
+                            <label for="tasks"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tasks</label>
+                            <textarea class="form-control" id="tasks" rows="3" name="tasks"></textarea>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- close btn -->
+                <div class="modal-footer">
+                    <button type="button"
+                        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        data-bs-dismiss="modal" aria-label="Close" id="closeModelBtn">Close</button>
+
+                    <!-- post btn -->
+                    <button type="button"
+                        class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                        onclick="postJob()">Send Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- post job Modal -->
+
 
 
     <!-- drawer component -->
@@ -236,53 +357,14 @@
 
                     </a>
                 </li>
-                <li>
-                    <button type="button"
-                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                        aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
 
-                        <i class="fa-solid fa-briefcase" style="color: rgb(107 114 128); font-size: 21px;"></i>
-
-                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Jobs</span>
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 4 4 4-4" />
-                        </svg>
-                    </button>
-                    <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                        <li onclick="get_Availability()">
-                            <a href="my-availablity/index.html"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Posted Jobs</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Completed
-                                jobs</a>
-                        </li>
-                    </ul>
-                </li>
                 <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                            viewBox="0 0 20 20">
-                            <path
-                                d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Inbox</span>
-                        <span
-                            class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
+                    <a href="./job-request/index.html"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
                         <i class="fa-solid fa-paper-plane" style="color: rgb(107 114 128); font-size: 20px;"></i>
 
-                        <span class="flex-1 ms-3 whitespace-nowrap">Sent Requests</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Job Requests</span>
                     </a>
                 </li>
                 <li>
@@ -327,8 +409,8 @@
             <section class="hiring-listing">
                 <div class="job-filters d-flex justify-content-center mb-2 ms-4">
                     <button onclick="filterByType('Featured')" id="featuredBtn">Featured</button>
-                    <button onclick="filterByType('Full Time')">Full Time</button>
-                    <button onclick="filterByType('Part Time')">Part Time</button>
+                    <button onclick="filterByType('Full time')">Full Time</button>
+                    <button onclick="filterByType('Part time')">Part Time</button>
                 </div>
 
                 <div class="row flex justify-content-center mb-4">
