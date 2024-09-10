@@ -1,0 +1,26 @@
+.friend-request-card {
+    max-width: 80rem;
+    border-radius: 10px;
+}
+
+.view-all-link {
+    font-size: 0.9rem;
+    color: #007bff;
+}
+
+.friend-request-list .d-flex {
+    transition: all 0.2s ease;
+}
+
+.friend-request-list .d-flex:hover {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .friend-request-card {
+        max-width: 100%;
+    }
+}
