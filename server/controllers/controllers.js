@@ -224,6 +224,26 @@ const postJobApplication = async (req, res) => {
     }
 }
 
+//update job Application
+const updateJobApplication = async (req, res) => {
+    console.log(req.params.id)
+    try {
+        const updatedApplication = await prisma.applications.update({
+            where: { id: req.params.id },
+            data: req.body
+        });
+        console.log(updatedApplication)
+        if(!updatedApplication)
+        {
+            return res.status(404).json({ msg: "Job Application not found"})
+        }
+        return res.status(200).json({ msg: "Job Application Updated Successfully",updatedApplication})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ msg: "some error occured" })
+    }
+}
+
 //get all Application of single user
 const getUserJobApplication = async (req, res) => {
     try {
@@ -341,4 +361,4 @@ const updateTaskStatus = async (req, res) => {
 }
 
 
-module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus ,updateTaskStatus,deletePostedJob,updateLabourInfo,getAllJobApplication};
+module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus ,updateTaskStatus,deletePostedJob,updateLabourInfo,getAllJobApplication,updateJobApplication};

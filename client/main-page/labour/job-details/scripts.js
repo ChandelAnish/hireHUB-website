@@ -59,7 +59,7 @@ addEventListener('load', async () => {
         }
         else if (status.approved == "assigned") {
             applicationstatus.style.color = "#75ff26"
-            startWork.innerHTML = `<button class="btn btn-success" style="height: 45px; background-color: #28b951" id="start">Start Work</button>`
+            startWork.innerHTML = `<button class="btn btn-success" style="height: 45px; background-color: #28b951" id="start" onclick="monitorProgress()">Start Work</button>`
         }
         else {
             applicationstatus.style.color = "red"
@@ -129,4 +129,9 @@ const showAlert = (type, msg, time) => {
     setTimeout(() => {
         alert.innerHTML = ''
     }, time);
+}
+
+//open progress page
+const monitorProgress =()=>{
+    window.open("../work-progress/index.html","_parent")
 }

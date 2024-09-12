@@ -4,7 +4,7 @@ const connectDB = require('../connectionDB/connectionDB')
 const upload = require('../multer/multer')
 
 
-const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob,updateLabourInfo,getAllJobApplication} = require('../controllers/controllers')
+const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob,updateLabourInfo,getAllJobApplication,updateJobApplication} = require('../controllers/controllers')
 
 const router = express.Router();
 
@@ -48,9 +48,11 @@ router.route('/post-jobs/:id').get(getsinglejobs)
 //post job application
 router.route('/job-application').post(postJobApplication)
 
+//update job application
+router.route('/job-application/:id').patch(updateJobApplication)
+
 // get all job applications of a single user
 router.route('/job-application/:user').get(getUserJobApplication)
-
 
 // get all job applications sent to a recruiter
 router.route('/job-application-recruiter/:username').get(getAllJobApplication)

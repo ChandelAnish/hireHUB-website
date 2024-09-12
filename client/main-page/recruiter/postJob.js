@@ -22,8 +22,9 @@ const postJob = async() => {
     // console.log(tasks)
 
     const job = { jobtitle, jobtype, tasks, company, salary, location, skills, jobdescription, state, user,posttime };
+    console.log(job)
     const response = await postjob(job)
-    // console.log(response)
+    console.log(response)
     closeModel.click();
 }
 

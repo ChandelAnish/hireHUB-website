@@ -1,5 +1,5 @@
 const BASE_URL = 'http://localhost:5000';
-const ongoingJobId = sessionStorage.getItem("ongoingJobId");
+const ongoingJobId = sessionStorage.getItem("job_id");
 let tasksArray;
 
 // fetch single job details
@@ -72,7 +72,7 @@ addEventListener('load', async () => {
             check = 'checked';
             completedTask++;
         }
-        tasks.innerHTML += `<label><input type="checkbox" onclick="markComplete('task${index}',${index})" id="task${index}" ${check}> ${item.task}</label>`
+        tasks.innerHTML += `<label><input type="checkbox" disabled  onclick="markComplete('task${index}',${index})" id="task${index}" ${check}> ${item.task}</label>`
         totalTask++;
     });
     progressBarUpdate()

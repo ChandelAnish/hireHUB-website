@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../assets/favicon.png">
+    <title>Ongoing Jobs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container my-5">
+    <h1 class="text-center mb-5">Ongoing Jobs</h1>
+
+    <!-- <div class="card-body">
+        <h5 class="card-title">construction</h5>
+        <p class="card-text">Assigned Labourers: Ram</p>
+        <div class="row w-50 gap-3">
+            <div class="col-7 shadow p-3 mb-5 bg-body-tertiary rounded">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quia et accusamus, rem quod nesciunt error rerum quas ratione veniam eligendi quis facere neque voluptates. Temporibus atque inventore nemo sapiente.</div>
+            <div class="col-3 shadow p-3 mb-5 bg-body-tertiary rounded">
+                <ul>
+                    <li>task</li>
+                    <li>task</li>
+                    <li>task</li>
+                </ul>
+            </div>
+        </div>
+        <button onclick="monitorProgress()">Monitor Progress</button>
+    </div> -->
+
+    <div class="row">
+        <!-- Left Block: List of Ongoing Jobs -->
+        <div class="col-md-4">
+            <div class="list-group ongoing-work-list" id="workList">
+
+                <!-- assigned ongoing jobs will be loaded here -->
+                <!-- <a href="#" class="list-group-item list-group-item-action" onclick="loadWorkDetails('Plumbing', 'Labourers: John, Steve')">Plumbing</a> -->
+
+            </div>
+        </div>
+
+        <!-- Right Block: Work Details -->
+        <div class="col-md-8">
+            <div class="card work-details animate__animated" id="workDetails">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Click on a job to get details</h5>
+                    <p class="card-text">Job details will be displayed here when you click on any job from the left panel.</p>
+                    <img src="../../../assets/labour-img10.png" alt="Placeholder Image" class="img-fluid mt-3">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

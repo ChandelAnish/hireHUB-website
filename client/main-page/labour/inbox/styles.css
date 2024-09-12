@@ -1,61 +1,58 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-#inbox, #notifications {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-h1, h2 {
-    color: #333;
-}
-
-#requests-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.card {
-    background-color: #e3e3e3;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.card p {
-    margin: 10px 0;
-}
-
-button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    background-color: #f8f9fa;
+  }
+  .card-hover:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Grey shadow */
+    transform: scale(1.02);
+    transition: all 0.3s ease;
     cursor: pointer;
-}
-
-button.accept {
-    background-color: #4CAF50;
+  }
+  .btn-accept {
+    background-color: #28a745;
     color: white;
-}
-
-button.delete {
-    background-color: #f44336;
+  }
+  .btn-reject {
+    background-color: #dc3545;
     color: white;
-}
-
-.notification-card {
-    background-color: #0d912e;
-    padding: 15px;
+  }
+  .job-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle grey shadow */
+    border: none;
+    padding: 20px;
+    position: relative;
+  }
+  .grid-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  .company-logo {
+    text-align: center;
+  }
+  .logo-placeholder {
+    background-color: #ccc;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+  }
+  .job-description, .job-location, .job-skills, .company-logo {
+    background-color: #f0f0f0;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .job-description:hover, .job-location:hover, .job-skills:hover, .company-logo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  @media (max-width: 768px) {
+    .grid-section {
+      grid-template-columns: 1fr;
+    }
+  }
+  .btn-action {
+    z-index: 1;
+    position: relative;
+  }

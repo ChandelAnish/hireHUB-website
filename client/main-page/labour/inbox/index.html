@@ -1,27 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recruiter Inbox</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiring Requests</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="inbox">
-        <h1>Recruiter Requests</h1>
-        <div id="requests-container">
-            <!-- Job request cards will be appended here -->
-        </div>
-    </div>
 
-    <div id="notifications">
-        <h2>Notifications</h2>
-        <div class="notification-card">
-            <p>You have a video call interview request</p>
-            <button onclick="acceptVideoCall()">Accept Video Call</button>
+<div class="container my-5">
+  <h1 class="text-center text-success mb-4">Job Requests</h1>
+  <div class="row" id="jobRequestsContainer">
+    <!-- Example Job Request Card -->
+    <div class="col-md-12 mb-4">
+      <div class="card job-card card-hover" onclick="showJobDetailsModal()">
+        <div class="card-body">
+          <h5 class="card-title">Construction Worker Needed</h5>
+          <p class="card-text">Company: ABC Constructions</p>
+          <button class="btn btn-accept btn-action" onclick="event.stopPropagation(); acceptRequest(this)">Accept</button>
+          <button class="btn btn-reject btn-action" onclick="event.stopPropagation(); rejectRequest(this)">Reject</button>
         </div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <script src="script.js"></script>
+<!-- Modal for Job Details -->
+<div class="modal fade" id="jobDetailsModal" tabindex="-1" aria-labelledby="jobDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="jobDetailsModalLabel">Job Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- New Generated Model Here -->
+        <div class="job-details-container">
+            <div class="job-header">
+                <div class="job-type">PART TIME</div>
+                <div class="job-title">Construction Worker</div>
+                <div class="job-salary">$400</div>
+            </div>
+            
+            <div class="job-body">
+                <div class="job-description">
+                    <h3>Description:</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at ultricies felis. Donec tincidunt, justo vel elementum eleifend, lectus sem.</p>
+                </div>
+                
+                <div class="job-location">
+                    <p>Downtown, City XYZ</p>
+                </div>
+        
+                <div class="job-skills">
+                    <p>Brick laying, concrete mixing, scaffolding setup. Brick laying, concrete mixing, scaffolding setup.</p>
+                </div>
+        
+                <div class="company-logo">
+                    <div class="logo-placeholder"></div>
+                    <p>Company Name</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

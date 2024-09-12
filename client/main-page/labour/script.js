@@ -96,6 +96,7 @@ const postTime = (posttime) => {
 
 const createjobcards = (jobs) => {
     jobs.forEach((item) => {
+        // console.log(item)
         const jobCard = document.createElement('div');
         jobCard.className = 'jobcard';
         jobCard.innerHTML =
@@ -104,7 +105,7 @@ const createjobcards = (jobs) => {
             <h3 style="font-weight: 500;">${postTime(Number(item.posttime))}</h3>
             <h3 style="font-weight: 500;">| ${item.jobtype}</h3>
         </div>
-        <h2 class="jobtitle" style="font-size: 27px; font-weight: 700; margin-bottom:10px;">${item.jobtitle}</h2>
+        <h2 class="jobtitle" style="font-size: 27px; font-weight: 700; margin-bottom:10px;">${(item.jobtitle=='HouseKeeping')?'House Keeping': item.jobtitle}</h2>
         <h3 class="company" style="font-weight: 500;">${item.company}</h3>
         <h4 class="state" style="font-weight: 700;">${item.state}</h4>`;
 
