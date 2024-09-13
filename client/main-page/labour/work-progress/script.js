@@ -1,5 +1,5 @@
 const BASE_URL = 'http://localhost:5000';
-const ongoingJobId = sessionStorage.getItem("job_id");
+const assignedJobId = sessionStorage.getItem("job_id");
 let tasksArray;
 
 // fetch single job details
@@ -39,7 +39,7 @@ const markComplete = async(id,index) => {
         completedTask++;
         tasksArray[index].completed = true;
         // console.log(tasksArray)
-        const response = await updateTask(ongoingJobId,{tasks:tasksArray});
+        const response = await updateTask(assignedJobId,{tasks:tasksArray});
         console.log(response)
         progressBarUpdate();
     }
@@ -47,7 +47,7 @@ const markComplete = async(id,index) => {
         completedTask--;
         tasksArray[index].completed = false;
         // console.log(tasksArray)
-        const response = await updateTask(ongoingJobId,{tasks:tasksArray});
+        const response = await updateTask(assignedJobId,{tasks:tasksArray});
         console.log(response)
         progressBarUpdate();
     }
@@ -55,7 +55,7 @@ const markComplete = async(id,index) => {
 
 
 addEventListener('load', async () => {
-    const data = await getSingleJobs(ongoingJobId);
+    const data = await getSingleJobs(assignedJobId);
     // completions=data.completions;
     // console.log(data)
     // console.log(data.tasks)

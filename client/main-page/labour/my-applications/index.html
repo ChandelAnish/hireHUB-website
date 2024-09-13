@@ -21,18 +21,24 @@
         </a>
         <h1 class="w-100 text-center fw-bold fs-2 text-dark-emphasis">My Applications</h1>
     </header>
+
+    <!-- Main Grid Layout -->
     <main class="container my-1">
-        <div>
-            <div>
+        <div class="row">
+            <div class="col-md-4" id="job-listing-container">
+                <!-- Application List (Left Column) -->
+                <div id="job-listings"></div>
+            </div>
 
-                <!-- cards -->
-                <div id="job-listings">
-                    
+            <div class="col-md-8">
+                <!-- Job Details (Right Column) -->
+                <div id="job-details" class="job-details-container">
+                    <!-- Job details will load here -->
                 </div>
-
             </div>
         </div>
     </main>
+
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->

@@ -1,8 +1,14 @@
 const BASE_URL = "http://localhost:5000";
 const userdetails = JSON.parse(sessionStorage.getItem("userdetails"));
 
-function loadWorkDetails(jobTitle, labourers,jobDescription,tasks,ongoingJobId) {
-  tasks=JSON.parse(tasks)
+function loadWorkDetails(
+  jobTitle,
+  labourers,
+  jobDescription,
+  tasks,
+  ongoingJobId
+) {
+  tasks = JSON.parse(tasks);
   const workDetails = document.getElementById("workDetails");
 
   workDetails.classList.remove("animate__fadeIn"); // Reset animation
@@ -16,25 +22,23 @@ function loadWorkDetails(jobTitle, labourers,jobDescription,tasks,ongoingJobId) 
                 <div class="col-7 shadow-sm p-3 mb-5 bg-body-tertiary rounded">${jobDescription}</div>
                 <div class="col-3 shadow-sm p-3 mb-5 bg-body-tertiary rounded">
                     <ul id="tasks">
-                        <li>task</li>
-                        <li>task</li>
-                        <li>task</li>
+
                     </ul>
                 </div>
             </div>
-            <button onclick="monitorProgress('${ongoingJobId}')">Monitor Progress</button>
+            <button onclick="monitorProgress('${ongoingJobId}')">Resume Work</button>
         </div>
     `;
   workDetails.classList.add("animate__fadeIn"); // Add animation class
-  document.getElementById("tasks").innerHTML="";
-  tasks.forEach((item)=>{
-    document.getElementById("tasks").innerHTML+=`<li>${item.task}</li>`;
-  })
+  document.getElementById("tasks").innerHTML = "";
+  tasks.forEach((item) => {
+    document.getElementById("tasks").innerHTML += `<li>${item.task}</li>`;
+  });
 }
 
 //open progress page
-function monitorProgress(ongoingJobId) {
-    sessionStorage.setItem("ongoingJobId",ongoingJobId)
+function monitorProgress(assignedJobId) {
+  sessionStorage.setItem("job_id", assignedJobId);
   window.open("../work-progress/index.html", "_parent");
 }
 
@@ -47,9 +51,7 @@ const getLabourInfo = async (username) => {
 
 // Get all the assigned applications sent to this recruiter
 const getApplications = async (username) => {
-  const response = await fetch(
-    `${BASE_URL}/job-application-recruiter/${username}`
-  );
+  const response = await fetch(`${BASE_URL}/job-application/${username}`);
   const data = await response.json();
   return await data;
 };
@@ -59,12 +61,12 @@ addEventListener("load", async () => {
   applications = applications.filter((item) => {
     return item.approved == "assigned";
   });
-  // console.log(applications);
+    // console.log(applications);
   await displayOngoingJobs(applications);
 });
 
-
 const displayOngoingJobs = async (applications) => {
+
   if(applications.length == 0)
     {
       document.getElementById(
@@ -78,18 +80,19 @@ const displayOngoingJobs = async (applications) => {
                   </p>`;
       return
     }
-    for (const item of applications) {
-      // console.log(item);
-      const applicantDetails = await getLabourInfo(item.applicant);
-      // console.log(applicantDetails);
-      const tasks = JSON.stringify(item.job.tasks).replace(/"/g, '&quot;');
+
+  for (const item of applications) {
+    // console.log(item);
+    const applicantDetails = await getLabourInfo(item.applicant);
+    // console.log(applicantDetails);
+    const tasks = JSON.stringify(item.job.tasks).replace(/"/g, "&quot;");
     //   console.log(tasks);
-  
-      document.getElementById(
-        "workList"
-      ).innerHTML += `<a href="#" class="list-group-item list-group-item-action" onclick="loadWorkDetails('${item.job.jobtitle}', '${item.applicant}','${item.job.jobdescription}','${tasks}','${item.job.id}')">${item.job.jobtitle}</a>`;
-    }
-    if (document.querySelector(".ongoing-work-list").firstElementChild) {
-      document.querySelector(".ongoing-work-list").firstElementChild.click();
-    }
-  };
+
+    document.getElementById(
+      "workList"
+    ).innerHTML += `<a href="#" class="list-group-item list-group-item-action" onclick="loadWorkDetails('${item.job.jobtitle}', '${item.applicant}','${item.job.jobdescription}','${tasks}','${item.job.id}')">${item.job.jobtitle}</a>`;
+  }
+  if (document.querySelector(".ongoing-work-list").firstElementChild) {
+    document.querySelector(".ongoing-work-list").firstElementChild.click();
+  }
+};

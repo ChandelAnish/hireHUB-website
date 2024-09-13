@@ -277,9 +277,10 @@ const getSingleJobApplication = async (req, res) => {
 
 //get all Job Applications sent to recruiter
 const getAllJobApplication = async (req, res) => {
+    // console.log(req.params)
     try {
         const allApplications = await prisma.applications.findMany({
-            where: {appliedToUser:req.body.username},
+            where: {appliedToUser:req.params.username},
             include: { appliedby: true ,job:true}
         });
         return res.status(200).json(allApplications)

@@ -18,7 +18,7 @@ const getApplications = async (username) => {
 };
 
 addEventListener("load", async () => {
-  let applications = await getApplications(userdetails.userdetails);
+  let applications = await getApplications(userdetails.username);
   applications = applications.filter((item)=>{
     return item.approved=="pending"
   })
