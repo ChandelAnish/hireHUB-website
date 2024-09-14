@@ -4,7 +4,7 @@ const connectDB = require('../connectionDB/connectionDB')
 const upload = require('../multer/multer')
 
 
-const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob,updateLabourInfo,getAllJobApplication,updateJobApplication} = require('../controllers/controllers')
+const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs,getAllJobsBySingleRecruiter, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob,updatePostedJob,updateLabourInfo,getAllJobApplication,updateJobApplication} = require('../controllers/controllers')
 
 const router = express.Router();
 
@@ -31,7 +31,10 @@ router.post('/otpverification', otpverification)
 router.route('/post-jobs').post(postjob).get(getjobs)
 
 //job delete
-router.route('/post-jobs/:jobid').delete(deletePostedJob)
+router.route('/post-jobs/:jobid').delete(deletePostedJob).patch(updatePostedJob)
+
+//get all jobs posted by single recruiter
+router.route('/recruiter-posted-jobs/:username').get(getAllJobsBySingleRecruiter)
 
 //post Availability & get all Availability
 router.route('/post-Availability').post(postAvailability).get(getAllAvailability)

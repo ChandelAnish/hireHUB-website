@@ -28,7 +28,7 @@ app.get('/mainpage', (req, res) => {//don't use '/main-page' because this will g
 })
 
 
-
-app.listen(5000, () => {
-    console.log("the server is listening at 5000")
+const port = process.env.PORT || 5000
+app.listen(port, () => {
+    console.log("the server is listening at ",port)
 })

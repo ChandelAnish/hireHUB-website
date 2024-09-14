@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const reviewButton = document.getElementById('review-button');
 
 
+    const getLabourInfo = async (username) => {
+        try {            
+            const response = await fetch(`${BASE_URL}/labour-info/${username}`)
+            const data = await response.json()
+            return data
+        } catch (error) {
+            console.log("some error occurred", error)
+        }
+    }
+
     const updateLabourInfo = async (username, newdata) => {
         const response = await fetch(`${BASE_URL}/labour-info/${username}`, {
             method: 'PATCH',

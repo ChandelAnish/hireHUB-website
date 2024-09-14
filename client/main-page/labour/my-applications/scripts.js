@@ -98,7 +98,7 @@ function loadJobDetails(index, application, tasksArray, skillsArray, statusColor
             <p><strong>Skills:</strong> ${skillsArray}</p>
             <p><strong>Tasks:</strong> ${tasksArray.join(', ')}</p>
             <p><strong>Application Status:</strong> <span class="${statusColor}">${application.approved}</span></p>
-            ${application.approved === 'assigned' ? `<a onclick="monitorProgress('${job.id}')" class="btn btn-success">Go to Page</a>` : ''}
+            ${application.approved === 'assigned' ? `<a onclick="monitorProgress('${job.id}')" class="btn btn-success">Resume Work</a>` : ''}
         </div>
     `;
 
