@@ -44,7 +44,7 @@ Switch to dark mode for a visually appealing and comfortable user experience.
 Modern, responsive design using Tailwind CSS to ensure seamless usage on any device.
 
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 **Client:** HTML5, Bootstrap, CSS, TailwindCSS, JS
 
