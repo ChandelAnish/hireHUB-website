@@ -1,6 +1,6 @@
 const express = require('express')
 const mysql = require('mysql2')
-const connectDB = require('../connectionDB/connectionDB')
+// const connectDB = require('../connectionDB/connectionDB')
 const upload = require('../multer/multer')
 
 

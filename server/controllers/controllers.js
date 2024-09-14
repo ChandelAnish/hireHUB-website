@@ -1,4 +1,4 @@
-const connectDB = require("../connectionDB/connectionDB")
+// const connectDB = require("../connectionDB/connectionDB")
 const { sendmail } = require("../smtp/smtp")
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient();
