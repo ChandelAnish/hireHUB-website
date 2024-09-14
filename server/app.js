@@ -7,7 +7,7 @@ const cors=require('cors')
 
 const app = express()
 app.use(cors({
-    origin:'https://asc-hirehub.netlify.app'
+    origin:['https://asc-hirehub.netlify.app','http://127.0.0.1:5502']
 }))
 
 const connectDB = require('./connectionDB/connectionDB')
