@@ -86,7 +86,7 @@ API_SECRET=<cloudinary API_SECRET>
 
 4. Set up Prisma:
 ```bash
-npx prisma migrate dev
+npx prisma db push
 
 ```
 5. Run the server:
