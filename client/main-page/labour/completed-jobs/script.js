@@ -1,5 +1,3 @@
-const BASE_URL = 'http://localhost:5000';
-
 const getjobs = async () => {
     const response = await fetch(`${BASE_URL}/post-jobs`);
     const data = await response.json();

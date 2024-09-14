@@ -1,5 +1,5 @@
 async function sendUserEmailId(email) {
-    let response = await fetch("http://localhost:5000/otpverification", {
+    let response = await fetch(`${BASE_URL}/otpverification`, {
         method: "post",
         headers: {
             'content-type': 'application/json'
@@ -23,7 +23,7 @@ document.getElementById('sendotp').addEventListener('click', async () => {
 
 //verify OTP
 async function verifyotp(userotp) {
-    let response = await fetch('http://localhost:5000/otpverification',
+    let response = await fetch(`${BASE_URL}/otpverification`,
         {
             method: 'post',
             headers: {
@@ -38,7 +38,7 @@ async function verifyotp(userotp) {
     if (data.success) {
         try {
             const userdetails = JSON.parse(sessionStorage.getItem('userdetails'))
-            const response = await fetch(`http://localhost:5000/update-status/${userdetails.username}`, {
+            const response = await fetch(`${BASE_URL}/update-status/${userdetails.username}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-type': 'application/json'

@@ -1,4 +1,3 @@
-const BASE_URL = "http://localhost:5000";
 const userdetails = JSON.parse(sessionStorage.getItem("userdetails"));
 
 // Get the details of the applicants
@@ -68,7 +67,7 @@ const displayApplicants = async (applications) => {
 
 // Function to hire
 const hire = async (button, id) => {
-  const response = await fetch(`http://localhost:5000/job-application/${id}`, {
+  const response = await fetch(`${BASE_URL}/job-application/${id}`, {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
@@ -83,7 +82,7 @@ const hire = async (button, id) => {
 
 // Function to reject application
 const reject = async (button, id) => {
-  const response = await fetch(`http://localhost:5000/job-application/${id}`, {
+  const response = await fetch(`${BASE_URL}/job-application/${id}`, {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",

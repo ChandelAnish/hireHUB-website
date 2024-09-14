@@ -1,5 +1,3 @@
-const BASE_URL = 'http://localhost:5000';
-
 const getAllUsers = async () => {
     try {
         const response = await fetch(`${BASE_URL}/users`)
@@ -125,7 +123,7 @@ const toggleStatus = async (index, username) => {
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/update-status/${username}`, {
+        const response = await fetch(`${BASE_URL}/update-status/${username}`, {
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json'

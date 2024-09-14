@@ -1,5 +1,3 @@
-const BASE_URL = 'http://localhost:5000';
-
 let jobListings;
 
 addEventListener('load', async () => {

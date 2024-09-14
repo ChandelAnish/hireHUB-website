@@ -3,7 +3,6 @@ const body = document.getElementsByTagName('body')[0]
 const nav = document.getElementsByTagName('nav')[0]
 const inputs = Array.from(document.getElementsByTagName('input'))
 const jobcontainer = document.querySelector('.jobcontainer')
-const BASE_URL = 'http://localhost:5000';
 
 
 const enableDark = () => {

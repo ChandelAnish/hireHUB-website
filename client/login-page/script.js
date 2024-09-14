@@ -1,5 +1,3 @@
-const BASE_URL = "http://localhost:5000";
-
 const slidebutton = document.querySelector("#slidebutton");
 function changeSlide() {
     setInterval(() => {
@@ -54,7 +52,7 @@ form.addEventListener('submit', async (e) => {
 })
 
 const login = async (formdata) => {
-    const response = fetch('http://localhost:5000/login', {
+    const response = fetch(`${BASE_URL}/login`, {
         method: 'post',
         headers: {
             'content-type': 'application/json'

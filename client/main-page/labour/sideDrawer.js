@@ -31,7 +31,7 @@ const uploadProfileImage = async (event) => {
     const oldImgURL = document.getElementById('profileImg').src;
 
     try {
-        const response = await fetch(`http://localhost:5000/upload-profile-img/${userdetails.username}?oldImgURL=${oldImgURL}`, {
+        const response = await fetch(`${BASE_URL}/upload-profile-img/${userdetails.username}?oldImgURL=${oldImgURL}`, {
             method: 'POST',
             body: formData
         });

@@ -23,7 +23,7 @@ form.addEventListener('submit', async (e) => {
 })
 
 const signup = async (formdata) => {
-    const response = fetch('http://localhost:5000/signup', {
+    const response = fetch(`${BASE_URL}/signup`, {
         method: 'post',
         headers: {
             'content-type': 'application/json'

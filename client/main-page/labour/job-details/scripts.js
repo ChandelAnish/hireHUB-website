@@ -1,4 +1,3 @@
-const BASE_URL = 'http://localhost:5000';
 let appliedToUser;
 
 const jobtitle = document.getElementById('jobtitle')
