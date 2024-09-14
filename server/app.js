@@ -6,7 +6,9 @@ const router=require('./router/router')
 const cors=require('cors')
 
 const app = express()
-app.use(cors())
+app.use(cors({
+    origin:'https://asc-hirehub.netlify.app'
+}))
 
 const connectDB = require('./connectionDB/connectionDB')
 const { link } = require("fs")
