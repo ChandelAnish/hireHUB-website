@@ -1,5 +1,5 @@
 
-![Logo](https://drive.google.com/file/d/17OoYp2m-gLVwmmrjyDE_yrjzGpyZ1Zul/view?usp=sharing)
+![Logo](https://drive.google.com/uc?id=17OoYp2m-gLVwmmrjyDE_yrjzGpyZ1Zul)
 
 
 # 🌟 HireHub – Connecting Recruiters & Skilled Laborers 🚀
@@ -100,17 +100,17 @@ Launch the live server for the landing page.
 **📋 Job Postings**
 
 Post jobs with detailed descriptions, including salary, skills, and location.
-![Job Postings](https://drive.google.com/file/d/1a8FUokutzHA4Hg-zgbBk1t1V_c6rX8t3/view?usp=sharing)
+![Job Postings](https://drive.google.com/uc?id=1a8FUokutzHA4Hg-zgbBk1t1V_c6rX8t3)
 
 **💬 Real-Time Chat & Video Interviews**
 
 Communicate with laborers via instant messaging or schedule video interviews.
-![Job Postings](https://drive.google.com/file/d/1FpJGGI_QpMnJH9o0BvQcGdJNzc170IiP/view?usp=sharing)
+![Job Postings](https://drive.google.com/uc?id=1FpJGGI_QpMnJH9o0BvQcGdJNzc170IiP)
 
 **📊 Progress Monitoring**
 
 Monitor the progress of laborers on jobs with real-time tracking.
-![Job Postings](https://drive.google.com/file/d/1BrXUfmAxf50yduq6VSQqAo3mibSOmmuE/view?usp=sharing)
+![Job Postings](https://drive.google.com/uc?id=1BrXUfmAxf50yduq6VSQqAo3mibSOmmuE)
 
 
 ## 👨‍💻 Contributing
