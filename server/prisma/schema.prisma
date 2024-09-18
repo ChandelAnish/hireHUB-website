@@ -15,7 +15,7 @@ model userinfo {
   profileImgURL     String?             @default("../../assets/user-img.png")
   status            String              @default("Unverified")
   job_post          job_post[]          @relation("job_Post")
-  post_availability post_availability[] @relation("post_availability")
+  // post_availability post_availability[] @relation("post_availability")
   applications      applications[]      @relation("user_Applications")
   labourinfo        labourinfo?         @relation("UserLabourInfo")
 
@@ -28,6 +28,7 @@ model labourinfo {
   rating      Float    @default(0.0)
   completions Int      @default(0)
   userinfo    userinfo @relation("UserLabourInfo", fields: [username], references: [username], onDelete: Cascade)
+  post_availability post_availability[] @relation("post_availability")
 
   @@map("labourinfo")
 }
@@ -63,7 +64,7 @@ model post_availability {
   experienceYrs String
   skills        String
   posttime      DateTime @default(now())
-  postedby      userinfo @relation("post_availability", fields: [user], references: [username], onDelete: Cascade)
+  postedby      labourinfo @relation("post_availability", fields: [user], references: [username], onDelete: Cascade)
   user          String
 }
 

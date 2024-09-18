@@ -4,18 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Requests</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" rel="stylesheet" />
+    <script defer src="script.js"></script>
 </head>
-<body>
-    <div class="container">
-        <main>
-            <h1>Job Requests</h1>
-            <div class="invitations"></div>
-        </main>
-    </div>
+<body class="bg-gray-100">
+    <div class="flex flex-col items-center min-h-screen">
+        <!-- Main Heading -->
+        <h1 class="text-2xl font-bold text-green-600 mt-10 mb-4">2 NEW JOB REQUESTS</h1>
 
-    <!-- my scripts -->
-    <script src="../../../config.js"></script>
-    <script src="scripts.js"></script>
+        <!-- Job Request Cards Container -->
+        <div class="space-y-4 w-full max-w-3xl" id="job-requests-container">
+            <!-- Job Card 1 -->
+            <div class="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300 relative job-card">
+                <!-- Close Icon -->
+                <button class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition duration-300 close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <!-- User Info and Job Details -->
+                <div class="flex items-center mb-4">
+                    <img class="w-14 h-14 rounded-full mr-4 border border-gray-300" src="../../../assets/Facebook_icon.png" alt="User Image">
+                    <div>
+                        <div class="font-bold text-xl">John Appleseed</div>
+                        <div class="flex items-center text-sm text-yellow-500">
+                            <!-- Star Rating -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 mr-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.883l3.09 6.26 6.91 1.004-5 4.88L17.82 22 12 18.897 6.18 22l1.82-7.974-5-4.88 6.91-1.003L12 6.883z"/>
+                            </svg>
+                            5.0
+                        </div>
+                    </div>
+                </div>
+                <!-- Service Info -->
+                <div class="text-sm text-gray-600 mb-2">
+                    <div><strong>Service:</strong> AC Repair</div>
+                    <div><strong>Price Per Hour:</strong> USD 30</div>
+                    <div class="flex items-center my-2">
+                        <span class="text-green-500 mr-1">ETA:</span> 5-7 Mins
+                    </div>
+                </div>
+                <!-- Location -->
+                <div class="flex items-start text-sm text-gray-600 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 mr-2 text-green-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2c3.866 0 7 3.134 7 7 0 3.866-3.134 7-7 7-3.866 0-7-3.134-7-7 0-3.866 3.134-7 7-7zm0 7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0 9v5M9 15c-3 0-5 2-5 4"/>
+                    </svg>
+                    PX8X+V4 New York, United States<br/>#457, 2nd Floor
+                </div>
+                <!-- Decline Button -->
+                <div class="flex justify-end">
+                    <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300 decline-btn">Decline</button>
+                </div>
+            </div>
+
+            <!-- Job Card 2 (Repeat as Needed) -->
+            <div class="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300 relative job-card">
+                <!-- Close Icon -->
+                <button class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition duration-300 close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+                <!-- User Info and Job Details -->
+                <div class="flex items-center mb-4">
+                    <img class="w-14 h-14 rounded-full mr-4 border border-gray-300" src="https://via.placeholder.com/150" alt="User Image">
+                    <div>
+                        <div class="font-bold text-xl">Jane Doe</div>
+                        <div class="flex items-center text-sm text-yellow-500">
+                            <!-- Star Rating -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 mr-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.883l3.09 6.26 6.91 1.004-5 4.88L17.82 22 12 18.897 6.18 22l1.82-7.974-5-4.88 6.91-1.003L12 6.883z"/>
+                            </svg>
+                            4.8
+                        </div>
+                    </div>
+                </div>
+                <!-- Service Info -->
+                <div class="text-sm text-gray-600 mb-2">
+                    <div><strong>Service:</strong> Plumbing</div>
+                    <div><strong>Price Per Hour:</strong> USD 25</div>
+                    <div class="flex items-center my-2">
+                        <span class="text-green-500 mr-1">ETA:</span> 10-12 Mins
+                    </div>
+                </div>
+                <!-- Location -->
+                <div class="flex items-start text-sm text-gray-600 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 mr-2 text-green-500">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2c3.866 0 7 3.134 7 7 0 3.866-3.134 7-7 7-3.866 0-7-3.134-7-7 0-3.866 3.134-7 7-7zm0 7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0 9v5M9 15c-3 0-5 2-5 4"/>
+                    </svg>
+                    PX8X+V4 New York, United States<br/>#457, 2nd Floor
+                </div>
+                <!-- Decline Button -->
+                <div class="flex justify-end">
+                    <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition duration-300 decline-btn">Decline</button>
+                </div>
+            </div>
+
+            <!-- You can add more job request cards by duplicating this structure -->
+        </div>
+    </div>
+    <!-- my script -->
+    <script src="/client/config.js"></script>
 </body>
 </html>

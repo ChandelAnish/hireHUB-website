@@ -69,7 +69,7 @@ darkbtn.addEventListener('change', (evt) => {
 })
 
 
-const getAvailability = async () => {
+const getAllAvailability = async () => {
     const response = await fetch(`${BASE_URL}/post-Availability`);
     const data = await response.json();
     return await data;
@@ -110,7 +110,7 @@ const categories = [
 ];
 
 addEventListener("load", async () => {
-    const availability = await getAvailability();
+    const availability = await getAllAvailability();
 
     availabilityList = [...availabilityList, ...availability]
 
@@ -134,8 +134,14 @@ function displayAvailability(availabilityList) {
     // console.log(availabilityList)
 
     availabilityList.forEach(async (job) => {
+        console.log(job)
         const availabilityCard = document.createElement('div');
         availabilityCard.classList.add('availability-card');
+        
+        availabilityCard.onclick=()=>{
+            sessionStorage.setItem("availabilityId",job.id)
+            window.open("./labour-profile/index.html", "_self");
+        }
 
         const skills = job.skills.split(/[ ]+/g)
         const labourinfo = await getLabourInfo(job.user)
@@ -153,11 +159,11 @@ function displayAvailability(availabilityList) {
                         <div class="mt-1 fw-bold">${labourinfo.rating}⭐ | ${labourinfo.completions}</div>
                         <p class="mb-1 fw-bold">${job.state}</p>
             <h3 class="fs-5 fw-bold" style="color: rgb(83 232 125);">${job.job}</h3>
-            <p class="fw-bold">₹${job.min_pay} /day</p>`;
+            <p class="fw-bold mb-3">₹${job.min_pay} /day</p>`;
         let i = 4;
         skills.map((item) => {
             if (i == 0) return;
-            availabilityCard.innerHTML += `<span class="badge rounded-pill me-2 mt-2" style="background-color: rgb(83 232 125);">${item}</span>`
+            availabilityCard.innerHTML += `<span class="rounded-pill me-2 mt-2 p-2 text-body-secondary" style="background-color: rgb(83 232 125 / 24%);" >${item}</span>`
             i--;
         })
         availabilityCards.appendChild(availabilityCard);

@@ -4,7 +4,7 @@ const express = require('express')
 const upload = require('../multer/multer')
 
 
-const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs,getAllJobsBySingleRecruiter, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob,updatePostedJob,updateLabourInfo,getAllJobApplication,updateJobApplication} = require('../controllers/controllers')
+const { testing, login, signup, getAllUsers, getSingleUser, otpverification, postjob, getjobs, getsinglejobs,getAllJobsBySingleRecruiter, postAvailability, getAvailability, getSingleAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg ,updateStatus,updateTaskStatus,deletePostedJob,updatePostedJob,updateLabourInfo,getAllJobApplication,updateJobApplication} = require('../controllers/controllers')
 
 const router = express.Router();
 
@@ -41,6 +41,9 @@ router.route('/post-Availability').post(postAvailability).get(getAllAvailability
 
 //get single user Availability
 router.route('/post-Availability/:user').get(getAvailability)
+
+//get single user Availability
+router.route('/single-Availability/:id').get(getSingleAvailability)
 
 //update Availability
 router.route('/post-Availability/:id').patch(updateAvailability).delete(deleteAvailability)

@@ -277,6 +277,14 @@ main {
     padding: 20px;
     width: calc(33% - 40px);
     box-sizing: border-box;
+    cursor: pointer;
+    transition: all .5s;
+}
+.availability-card:hover{
+    transform: scale(1.1);
+}
+.availability-card:active{
+    transform: scale(.99);
 }
 
 .availability-card h3, .category-card h3 {

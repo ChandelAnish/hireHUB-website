@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Profile Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" rel="stylesheet" />
+    <script defer src="script.js"></script>
+</head>
+<body class="bg-gradient-to-b from-green-50 to-blue-50 flex justify-center items-center min-h-screen">
+    <!-- Profile Card Container -->
+    <div class="bg-white shadow-xl rounded-lg overflow-hidden w-80 sm:w-96 md:flex md:w-[700px] lg:w-[1100px] transform transition">
+        <!-- Profile Picture -->
+        <div class="relative md:w-1/3 lg:w-1/2">
+            <img id="profileImg" src="/client/assets/user-img.png" alt="Profile Image" class="w-full h-48 md:h-full object-cover">
+        </div>
+
+        <!-- User Information -->
+        <div class="p-6 md:w-2/3 lg:w-1/2 flex flex-col justify-between">
+            <div class="flex justify-between items-start mb-6">
+                <!-- User Name & Role -->
+                <div>
+                    <h2 class="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-800" id="name"></h2>
+                    <p class="text-xs sm:text-xs lg:text-xs text-gray-500">~<span id="username"></span></p>
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-500" id="job"></p>
+                </div>
+                <!-- Price and Rating -->
+                <div class="text-right">
+                    <p class="text-green-500 font-semibold text-sm sm:text-base lg:text-lg">₹<span id="min_pay"></span><span class="text-gray-500 text-sm sm:text-base"> / hr</span></p>
+                    <div class="flex items-center mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-yellow-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8.748l1.902 3.85a1 1 0 00.75.545l4.25.617-3.078 2.994a1 1 0 00-.287.886l.726 4.237-3.804-1.997a1 1 0 00-.932 0L9.738 21.88l.725-4.237a1 1 0 00-.287-.886l-3.078-2.994 4.25-.617a1 1 0 00.75-.545L12 8.748z"/>
+                        </svg>
+                        <span class="ml-1 text-sm sm:text-base lg:text-lg text-gray-600">5.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats (Projects, Reviews, Proposals) -->
+            <div class="flex justify-between text-center mb-6">
+                <div>
+                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800">37</p>
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-500">Projects</p>
+                </div>
+                <div>
+                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800">33</p>
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-500">Reviews</p>
+                </div>
+                <div>
+                    <p class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800">60</p>
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-500">Proposals</p>
+                </div>
+            </div>
+
+            <!-- Bio/Description -->
+            <p class="text-gray-600 mb-6 text-center md:text-left text-sm sm:text-base lg:text-lg">I love creating beautiful and easy-to-use digital products. Check my portfolio to see my previous work.</p>
+
+            <!-- Skills -->
+            <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
+                <span class="px-3 py-1 bg-gray-100 text-sm sm:text-base lg:text-lg text-gray-600 rounded-full">Photoshop</span>
+                <span class="px-3 py-1 bg-gray-100 text-sm sm:text-base lg:text-lg text-gray-600 rounded-full">Illustrator</span>
+                <span class="px-3 py-1 bg-gray-100 text-sm sm:text-base lg:text-lg text-gray-600 rounded-full">Sketch</span>
+                <span class="px-3 py-1 bg-gray-100 text-sm sm:text-base lg:text-lg text-gray-600 rounded-full">UI</span>
+                <span class="px-3 py-1 bg-gray-100 text-sm sm:text-base lg:text-lg text-gray-600 rounded-full">UX</span>
+                <span class="px-3 py-1 bg-gray-100 text-sm sm:text-base lg:text-lg text-gray-600 rounded-full">+10 More</span>
+            </div>
+
+            <!-- Hire Me Button -->
+            <div class="text-center md:text-left">
+                <button class="bg-green-500 text-white px-5 py-2 sm:px-6 sm:py-3 lg:px-7 lg:py-3 rounded-lg font-semibold shadow-md hover:bg-green-600 transition duration-300 hover:shadow-lg text-sm sm:text-base lg:text-lg">
+                    Hire Me
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flowbite Library for additional UI components if needed -->
+    <script src="/client/config.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

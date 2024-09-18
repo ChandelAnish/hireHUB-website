@@ -172,7 +172,14 @@ const getsinglejobs = async (req, res) => {
     // console.log(req.params.id)
     const singlejobs = await prisma.job_post.findUnique({
         where: { id: req.params.id },
-        include: { applications: true, postedby:true }
+        include: {
+            postedby:true,
+            applications:{
+                include: {
+                    appliedby: true
+                }
+            }
+        }
     });
     res.status(200).json(singlejobs)
 }
@@ -199,6 +206,19 @@ const getAllAvailability = async (req, res) => {
 const getAvailability = async (req, res) => {
     const availability = await prisma.post_availability.findMany({
         where: { user: req.params.user }
+    });
+    res.status(200).json(availability)
+}
+
+//get single Availability
+const getSingleAvailability = async (req, res) => {
+    const availability = await prisma.post_availability.findUnique({
+        where: { id: req.params.id },
+        include:{
+            postedby: {
+                include: {userinfo: true}
+            }
+        }
     });
     res.status(200).json(availability)
 }
@@ -378,4 +398,4 @@ const updateTaskStatus = async (req, res) => {
 }
 
 
-module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs,getAllJobsBySingleRecruiter, getsinglejobs, postAvailability, getAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus ,updateTaskStatus,deletePostedJob,updatePostedJob,updateLabourInfo,getAllJobApplication,updateJobApplication};
+module.exports = { testing, login, signup, getSingleUser, otpverification, postjob, getjobs,getAllJobsBySingleRecruiter, getsinglejobs, postAvailability, getAvailability, getSingleAvailability, postJobApplication, updateAvailability, deleteAvailability, getSingleJobApplication, getUserJobApplication, getAllAvailability, getLabourInfo, postProfileImg, getAllUsers, updateStatus ,updateTaskStatus,deletePostedJob,updatePostedJob,updateLabourInfo,getAllJobApplication,updateJobApplication};
