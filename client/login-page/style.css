@@ -146,3 +146,17 @@
     width: 27rem;
     height: 245px;
 }
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  #togglePassword {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #aaa;
+  }
+  
