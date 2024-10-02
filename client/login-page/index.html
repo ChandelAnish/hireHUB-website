@@ -18,9 +18,6 @@
 
 <body>
   <!-- navbar -->
-
-
-
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a id="logo" class="navbar-brand" href="#"><i class="fa-solid fa-briefcase"></i> hireHUB</a>
@@ -45,21 +42,16 @@
           <li class="nav-item">
             <a class="nav-link" href="../signup-page/index.html">sign up</a>
           </li>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
-
-
   <!-- navbar end -->
 
   <div class="maincontainer">
     <div class="headinglogin">
-
       <div class="heading">
-        <!-- <h1>Welcome back</h1>
-        <h4>"Welcome to our hiring platform! Join us to discover exciting career opportunities. Login now to access your profile, connect with employers, and embark on your professional journey.</h4> -->
+        <!-- Optional heading content -->
       </div>
 
       <!-- login -->
@@ -68,31 +60,23 @@
           <form class="form" id="form">
             <div class="input0">
               <i class="fa-solid fa-user"></i>
-              <input name="username" class="input" type="text">
+              <input name="username" class="input" type="text" placeholder="Enter username">
             </div>
 
-            <div class="input0">
+            <div class="input0 password-container">
               <i class="fa-solid fa-lock"></i>
-              <input name="password" class="input" type="password">
+              <input name="password" id="password" class="input" type="password" placeholder="Enter password">
+              <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer;"></i>
             </div>
 
-            <!-- <select class="input0" name="usertype" id="">
-              <option value="recruiter">recruiter</option>
-              <option value="labour">labour</option>
-              <option value="admin">admin</option>
-            </select> -->
-
-            <div class="warning">
-
-            </div>
+            <div class="warning"></div>
 
             <button class="loginbtn" type="submit">login</button>
           </form>
         </div>
+
         <div class="container2">
-
           <!-- carousel -->
-
           <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -134,17 +118,11 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-
-          <!-- carousel -->
-
+          <!-- carousel end -->
         </div>
       </div>
       <!-- login end -->
-
     </div>
-
-
-
   </div>
 
   <!-- bootstrap script -->
@@ -155,6 +133,22 @@
   <!-- my script -->
   <script src="../config.js"></script>
   <script src="script.js"></script>
+
+  <script>
+    const togglePassword = document.querySelector("#togglePassword");
+    const password = document.querySelector("#password");
+
+    togglePassword.addEventListener("click", function () {
+     
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+
+      
+      this.classList.toggle("fa-eye-slash");
+      this.classList.toggle("fa-eye");
+    });
+
+  </script>
 </body>
 
 </html>
