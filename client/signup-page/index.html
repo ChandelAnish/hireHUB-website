@@ -4,111 +4,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signup</title>
+    <title>Signup</title>
     <link rel="icon" href="../assets/favicon.png">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <!-- my css -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            margin-bottom: 30px;
+        }
+
+        .maincontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 56px); /* Adjust based on navbar height */
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input0 {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input0 i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .signupbtn {
+            background-color: #28a745; /* Original green button color */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .signupbtn:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 576px) {
+            .maincontainer {
+                padding: 20px;
+            }
+        }
+
+        @media (min-width: 577px) and (max-width: 768px) {
+            .container {
+                max-width: 500px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .container {
+                max-width: 600px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <!-- navbar -->
-
-
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a id="logo" class="navbar-brand" href="#"><i class="fa-solid fa-briefcase"></i> hireHUB</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">about</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="contactus" class="nav-link" href="#">contact us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../login-page/index.html">login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">sign up</a>
-                    </li>
-                    </li>
-                </ul>
-            </div>
+          <a id="logo" class="navbar-brand" href="#"><i class="fa-solid fa-briefcase"></i> hireHUB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">about</a>
+              </li>
+              <li class="nav-item">
+                <a id="contactus" class="nav-link" href="#">contact us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../login-page/index.html">login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">sign up</a>
+              </li>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-
-
+      </nav>
     <!-- navbar end -->
 
     <div class="maincontainer">
-        
-
-
-            <!-- login -->
-            <div class="container">
-                <div class="container1">
-                    <form class="form" id="form">
-                        <!-- username -->
-                        <div class="input0">
-                            <i class="fa-solid fa-user"></i>
-                            <input name="username" class="input" type="text" placeholder="username">
-                        </div>
-                        <!-- email -->
-                        <div class="input0">
-                            <i class="fa-solid fa-envelope"></i>
-                            <input name="email" class="input" type="email" placeholder="email">
-                        </div>
-                        <!-- password -->
-                        <div class="input0">
-                            <i class="fa-solid fa-lock"></i>
-                            <input name="password" class="input" type="password" placeholder="password">
-                        </div>
-                        <!-- confirm password -->
-                        <div class="input0">
-                            <i class="fa-solid fa-lock"></i>
-                            <input name="confirmpassword" class="input" type="password" placeholder="confirm password">
-                        </div>
-                        <!-- user type -->
-                        <select class="input0" name="usertype" id="">
-                            <option value="recruiter">recruiter</option>
-                            <option value="labour">labour</option>
-                            <!-- <option value="admin">admin</option> -->
-                        </select>
-                        <!-- display warning -->
-                        <div class="warning">
-
-                        </div>
-
-                        <button class="signupbtn" type="submit">sign up</button>
-                    </form>
+        <!-- signup -->
+        <div class="container">
+            <form class="form" id="form">
+                <!-- username -->
+                <div class="input0">
+                    <i class="fa-solid fa-user icon"></i>
+                    <input name="username" class="input" type="text" placeholder="Username" required>
                 </div>
-                <div class="container2">
-
-
-
+                <!-- email -->
+                <div class="input0">
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <input name="email" class="input" type="email" placeholder="Email" required>
                 </div>
-            </div>
-            <!-- login end -->
-
-        
-
-
-
+                <!-- password -->
+                <div class="input0">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input name="password" class="input" type="password" placeholder="Password" required>
+                </div>
+                <!-- confirm password -->
+                <div class="input0">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input name="confirmpassword" class="input" type="password" placeholder="Confirm Password" required>
+                </div>
+                <!-- user type -->
+                <select class="input0" name="usertype" required>
+                    <option value="recruiter">Recruiter</option>
+                    <option value="labour">Labour</option>
+                </select>
+                <!-- display warning -->
+                <div class="warning"></div>
+                <button class="signupbtn" type="submit">Sign Up</button>
+            </form>
+        </div>
     </div>
+    
+    <style>
+        .input {
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: none; /* Removed border */
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #f8f9fa; /* Optional: Background color for better visibility */
+        }
+    
+        .input0:focus {
+            outline: none; /* Removed outline on focus */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Optional: Shadow on focus */
+        }
+    
+        .icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-weight: bold; /* Made icons bold */
+        }
+    </style>
+    
 
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
