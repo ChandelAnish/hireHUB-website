@@ -258,3 +258,69 @@
 
 /* footer */
 
+
+
+/*nav bar*/
+
+/* Improved Navbar Styles */
+.navbar {
+    background-color: #ffffff; /* Light background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 1rem 2rem;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    color: #007bff; /* Brand color */
+}
+
+.navbar-brand i {
+    color: #007bff; /* Icon color */
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: 500;
+    color: #333; /* Default text color */
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #007bff; /* Hover text color */
+}
+
+.navbar-nav .nav-link.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff; /* Underline for active link */
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    color: #333;
+}
+
+/* Sticky Navbar */
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
+}
+
