@@ -258,3 +258,32 @@
 
 /* footer */
 
+/* Style the Back to Top button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(107, 218, 138, 0.898);
+    color: rgb(242, 244, 242);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50%; /* Make the button circular */
+    width: 40px; 
+    height: 40px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px; 
+  }
+  
+  /* Add an upward arrow to the button */
+  #back-to-top::before {
+    content: "\25B2"; 
+    font-size: 18px; 
+    margin-right: 5px; 
+  }
+  
+  #back-to-top:hover {
+    background-color: #444;
+  }
