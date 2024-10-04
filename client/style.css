@@ -287,3 +287,70 @@
   #back-to-top:hover {
     background-color: #444;
   }
+
+/* Style the mode toggle button */
+#mode-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(107, 218, 138, 0.898);
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s, box-shadow 0.5s;
+  }
+  
+  #mode-icon {
+    font-size: 18px;
+    transition: transform 0.5s;
+  }
+  
+  /* Light mode styles */
+  body.light-mode {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #333;
+    color: #817b7b;
+  }
+  
+  /* Dark mode button styles */
+  body.dark-mode #mode-toggle {
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  body.dark-mode #mode-icon {
+    transform: rotate(180deg);
+  }
+  
+  /* Transition effect for mode toggle */
+  body {
+    transition: background-color 0.5s, color 0.5s;
+  }
+  
+  /* Hover effect for mode toggle button */
+  #mode-toggle:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  body.dark-mode #mode-toggle:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-link{
+    position: relative;
+    top: 0px;
+    right: 40px;
+  }
+  
+  .mode-toggle {
+    position: relative;
+    top: 40px;
+    right: 10px;
+  }
