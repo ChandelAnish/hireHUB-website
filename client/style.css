@@ -194,10 +194,24 @@
 {
     padding: 2rem;
 }
-.containerA :hover
-{
-    transition: all .7s;
-    transform: scale(1.03);
+
+.textbox {
+    transition: 0.5s;
+}
+
+.textbox:hover {
+    transform: scale(1.05);
+    background-color: rgba(110, 247, 149, 0.898);
+    opacity: 0.8;
+    color: white;
+    text-decoration-color: white;
+}
+h1 {
+    transition: color 0.5s, transform 0.5s;
+}
+h1:hover {
+    color: white; /* Change to any color you prefer */
+    transform: scale(1.02);
 }
 
 /* for containerB */
@@ -245,15 +259,25 @@
 {
     background-color: rgba(255, 255, 255, 0.554);
 }
-.containerB0  .containerB1:hover
-{
-    transition: all .7s;
-    transform: scale(1.03);
+.containerB1-1 .textbox {
+    background-color: rgba(255, 255, 255, 0.554);
+    transition: 0.5s;
 }
-.containerB1 :hover
-{
-    transition: all .7s;
-    transform: scale(1.03);
+
+.textbox:hover {
+    transform: scale(1.05);
+    background-color: rgba(110, 247, 149, 0.898);
+    opacity: 0.8;
+    color: white;
+}
+
+h1 {
+    transition: color 0.5s, transform 0.5s;
+}
+
+h1:hover {
+    color: white;
+    transform: scale(1.02);
 }
 
 /* footer */
