@@ -56,6 +56,12 @@
 {
     margin-right: 2rem;
 }
+.text h1:hover ,.maintext2 h1:hover, .subheading1 h1:hover,.headingB0 h1:hover {
+    color: rgba(37, 119, 59, 0.898);
+    text-shadow: 2px 2px 8px rgba(37, 119, 59, 0.898);
+}
+
+
 .text h2
 {
     font-size: 30px;
@@ -149,6 +155,7 @@
 {
     padding-top: 1rem;
 }
+
 .containerA2
 {
     border-radius: 15px;
@@ -171,6 +178,9 @@
 {
     padding: 2rem;
 }
+.subheading2:hover{
+    color: rgba(107, 218, 138, 0.8);
+}
 .catagories
 {
     padding: 2rem;
@@ -187,9 +197,26 @@
     background-color: rgb(242, 244, 242);
     box-shadow: 2px 2px 2px .5px;
     background: url('assets/join_us-removebg-preview.png') no-repeat top/contain;
-    background-size: 21
-    rem;
+    background-size: 21rem;
 }
+.containerA2-1 .categories ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.containerA2 .categories li {
+    background-color: rgba(255, 255, 255, 0.6); /* Default background */
+    padding: 10px; /* Add some padding */
+    margin: 5px 0; /* Space between items */
+    transition: background-color 0.3s, transform 0.3s, color 0.3s; /* Smooth transition for effects */
+}
+
+.containerA2 .categories li:hover {
+    background-color: rgba(107, 218, 138, 0.8); /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
 .subheading3
 {
     padding: 2rem;
@@ -213,6 +240,7 @@ h1:hover {
     color: white; /* Change to any color you prefer */
     transform: scale(1.02);
 }
+
 
 /* for containerB */
 .containerB0
