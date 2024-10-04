@@ -10,6 +10,133 @@
     /* justify-content: center; */
     margin: 4rem 0rem 12rem 0rem;
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#boddy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100vw;
+
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--header-bg);
+}
+
+/* Dark mode */
+
+/* Default light mode colors */
+:root {
+    --background-color: rgb(255, 255, 255);
+    --text-color: black;
+    --header-bg: lightgray;
+  }
+  
+  h2{
+    color: var(--text-color);
+  }
+  /* Dark mode colors */
+  [data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #f1f1f1;
+    --header-bg: #1c1c1c;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  header {
+    background-color: var(--header-bg);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  #mode-label {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Toggle Switch */
+  .theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  .theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.4s;
+    top: 3px;
+    left: 4px;
+  }
+  
+  input:checked + .slider {
+    background-color: #66bb6a;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /*---------------------*/
+  
 .maintext2
 {
     display: flex;
@@ -39,7 +166,7 @@
     height: 15rem;
     margin: 5rem 0rem 0rem 5rem;
     border-radius: 10px;
-    background-color: rgb(242, 244, 242);
+    background-color: var(--background-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,7 +246,7 @@
 {
     border-radius: 15px;
     margin: 1.5rem;
-    background-color: rgb(242, 244, 242);
+    background-color: var(--background-color);
     box-shadow: 2px 2px 2px .5px;
     display: grid;
     grid-template-columns: 50rem auto;
@@ -137,7 +264,7 @@
     width: 20rem;
     height: 15rem;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.776);
+    background-color: var(--background-color);
     margin: 1rem;
     padding: 10px;
 }
@@ -160,7 +287,7 @@
 {
     border-radius: 15px;
     margin-right: 1.5rem;
-    background-color: rgb(242, 244, 242);
+    background-color: var(--background-color);
     box-shadow: 2px 2px 2px .5px;
     display: grid;
     grid-template-columns: 27rem auto;
@@ -184,11 +311,10 @@
 {
     border-radius: 15px;
     margin-left: 1.5rem;
-    background-color: rgb(242, 244, 242);
+    background-color: var(--background-color);
     box-shadow: 2px 2px 2px .5px;
     background: url('assets/join_us-removebg-preview.png') no-repeat top/contain;
-    background-size: 21
-    rem;
+    background-size: 21rem;
 }
 .subheading3
 {
@@ -226,7 +352,7 @@
     display: grid;
     border-radius: 15px;
     margin: 1.5rem;
-    background-color: rgb(242, 244, 242);
+    background-color: var(--background-color);
     box-shadow: 2px 2px 2px .5px;
     display: grid;
     grid-template-columns: 50rem auto;

@@ -3,7 +3,7 @@
     align-items: center;
     /* justify-content: center; */
     min-height: 100vh;
-    background-color: rgb(243, 243, 243);
+    background-color: var(--background-color);
     flex-direction: column;
     padding: 2rem;
 }
@@ -15,6 +15,10 @@
     width: 70rem;
     align-items: center;
     justify-content: center;
+}
+
+.navbarNav{
+    color: var(--text-color);
 }
 .heading
 {
@@ -42,6 +46,104 @@
     width: 30rem;
 } */
 
+/* Dark mode */
+
+/* Default light mode colors */
+:root {
+    --background-color: rgb(255, 255, 255);
+    --text-color: black;
+    --header-bg: lightgray;
+  }
+  
+  h2{
+    color: var(--text-color);
+  }
+  /* Dark mode colors */
+  [data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #f1f1f1;
+    --header-bg: #1c1c1c;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  header {
+    background-color: var(--header-bg);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  #mode-label {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Toggle Switch */
+  .theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+  
+  .theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.4s;
+    top: 3px;
+    left: 4px;
+  }
+  
+  input:checked + .slider {
+    background-color: #66bb6a;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /*---------------------*/
+  
 
 .container {
     display: grid;
@@ -65,7 +167,7 @@
     margin: 5px;
     display: flex;
     align-items: center;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--background-color);
     padding-left: 10px;
     outline: none;
     border: none;
@@ -83,7 +185,7 @@
 .loginbtn
 {
     background-color: rgb(63, 234, 111);
-    color: white;
+    color: var(--text-color);
     width: 17rem;
     height: 45px;
     border-radius: 10px;
@@ -94,14 +196,14 @@
 .loginbtn:hover
 {
     background-color: rgb(52 193 91);
-    color: white;
+    color: var(--text-color);
     transition: all .3s;
 }
 .loginbtn:active
 {
     background-color: rgb(52 193 91);
     transform: scale(.95);
-    color: white;
+    color: var(--text-color);
 }
 .warning
 {
