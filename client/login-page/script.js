@@ -75,3 +75,22 @@ const emailVerification = async () => {
     const userdetails = await getUserProfile(username);
     sessionStorage.setItem('userdetails', JSON.stringify(userdetails));
 }
+
+const passInput = document.querySelector('#password');
+const eyeButton = document.querySelector('.eye');
+const eyeOpenIcon = document.querySelector('.open');
+const eyeCloseIcon = document.querySelector('.close');
+
+
+eyeButton.addEventListener("click",()=> {
+  let type = passInput.getAttribute("type");
+  if(type === 'password') {
+    passInput.setAttribute('type', 'text');
+    eyeCloseIcon.style.display = 'none';
+    eyeOpenIcon.style.display = 'block';
+  } else {
+    passInput.setAttribute('type', 'password');
+    eyeCloseIcon.style.display = 'block';
+    eyeOpenIcon.style.display = 'none';
+  }
+})
