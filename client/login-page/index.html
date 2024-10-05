@@ -46,6 +46,13 @@
             <a class="nav-link" href="../signup-page/index.html">sign up</a>
           </li>
           </li>
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div> 
         </ul>
       </div>
     </div>
@@ -66,14 +73,19 @@
       <div class="container">
         <div class="container1">
           <form class="form" id="form">
-            <div class="input0">
-              <i class="fa-solid fa-user"></i>
-              <input name="username" class="input" type="text">
-            </div>
-
-            <div class="input0">
-              <i class="fa-solid fa-lock"></i>
-              <input name="password" class="input" type="password">
+            <div class="loginn">
+              <div class="loginHeader">
+                <h1>login</h1>
+              </div>
+              <div class="input0">
+                <i class="fa-solid fa-user"></i>
+                <input name="username" class="input" type="text" placeholder="username">
+              </div>
+  
+              <div class="input0">
+                <i class="fa-solid fa-lock"></i>
+                <input name="password" class="input" type="password" placeholder="password">
+              </div>
             </div>
 
             <!-- <select class="input0" name="usertype" id="">
@@ -155,6 +167,7 @@
   <!-- my script -->
   <script src="../config.js"></script>
   <script src="script.js"></script>
+  <script src="../darkMode.js"></script>
 </body>
 
 </html>
