@@ -13,19 +13,30 @@ backToTopButton.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Get the mode toggle button and icon
-const modeToggle = document.getElementById('mode-toggle');
-const modeIcon = document.getElementById('mode-icon');
+// JavaScript to handle Dark Mode Toggle
+// JavaScript to handle Dark Mode Toggle
 
-// Add an event listener to the mode toggle button
-modeToggle.addEventListener('click', () => {
-  // Toggle light and dark modes
-  document.body.classList.toggle('dark-mode');
+const toggleButton = document.getElementById('darkModeToggle');
+const body = document.body;
 
-  // Update the mode icon
-  if (document.body.classList.contains('dark-mode')) {
-    modeIcon.textContent = '\u2600'; // Moon symbol for dark mode
-  } else {
-    modeIcon.textContent = '\u263C'; // Sun symbol for light mode
-  }
+// Check for saved user preference in localStorage and apply the theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    body.setAttribute('data-theme', savedTheme);
+}
+
+// Event listener for toggle button click
+toggleButton.addEventListener('click', function () {
+    let currentTheme = body.getAttribute('data-theme');
+    
+    // Toggle between dark and light modes
+    if (currentTheme === 'dark') {
+        body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        toggleButton.innerHTML = '<i class="fas fa-sun"></i>'; // Change icon to sun
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        toggleButton.innerHTML = '<i class="fas fa-moon"></i>'; // Change icon to moon
+    }
 });
