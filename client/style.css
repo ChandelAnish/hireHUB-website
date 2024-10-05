@@ -2,13 +2,14 @@
 {
     margin: 0rem 65rem 0rem 0rem;
 }
-.mainheading
-{
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+.mainheading {
     display: grid;
-    grid-template-columns: 50rem auto;
-    /* text-align: center; */
-    /* justify-content: center; */
-    margin: 4rem 0rem 12rem 0rem;
+    grid-template-columns: 1fr 1fr; /* Use fractions for responsiveness */
+    max-width: 1200px; /* Optional max-width */
+    margin: 4rem auto; /* Centering the heading */
 }
 .maintext2
 {
@@ -71,6 +72,7 @@
 .img
 {
     width: 40rem;
+    height: auto; /* Maintain aspect ratio */
 }
 .text2
 {
@@ -257,4 +259,70 @@
 }
 
 /* footer */
+
+
+
+/*nav bar*/
+
+/* Improved Navbar Styles */
+.navbar {
+    background-color: #ffffff; /* Light background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 1rem 2rem;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    color: #28a745; /* Green brand color */ 
+}
+
+.navbar-brand i {
+    color: #28a745; /* Icon color */ /* Icon color */
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: 500;
+    color: #333; /* Default text color */
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #28a745; /* Hover text color */
+}
+
+.navbar-nav .nav-link.active {
+    color: #28a745; /* Active link color */
+    border-bottom: 2px solid #28a745; /* Underline for active link */
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #28a745; 
+}
+
+/* Sticky Navbar */
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+
+/* Small screen adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
+}
 
