@@ -256,5 +256,65 @@
     transform: scale(1.03);
 }
 
-/* footer */
+/* footer */* {
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
 
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.testimonial-section {
+    background-color: #f8f9fa; /* Light gray background for the section */
+    padding: 50px 15px; /* Add responsive padding */
+}
+
+.card {
+    border: none; /* Remove default border */
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add box-shadow to transition */
+}
+
+
+.card-body img {
+    border: 3px solid rgba(107, 218, 138, 0.898);
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem; /* Smaller font size on mobile */
+    }
+
+    .section-subtitle {
+        font-size: 1rem; /* Smaller font size on mobile */
+    }
+
+    .card-text {
+        font-size: 0.85rem; /* Slightly smaller text */
+    }
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.card-body img {
+    border: 3px solid rgba(107, 218, 138, 0.898);
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Transition for image on hover */
+}
+
+.card:hover .card-body img {
+    transform: scale(1.05); /* Slight zoom effect on image */
+}
+.testimonial-section .card-body .rounded-circle {
+    border-radius: 80%;
+}
+
+
+  
