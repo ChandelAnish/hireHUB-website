@@ -15,12 +15,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 #boddy{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    
     margin: 0;
     color: var(--text-color);
     background-color: var(--background-color);
@@ -31,12 +32,17 @@
 
 }
 
+.nav-link{
+    color:var(--text-color);
+}
+
 .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: var(--header-bg);
+    background-color: var(--nav-bg);
+    color: var(--text-color);
 }
 
 /* Dark mode */
@@ -46,6 +52,7 @@
     --background-color: rgb(255, 255, 255);
     --text-color: black;
     --header-bg: lightgray;
+    --nav-bg: rgb(244, 239, 239);
   }
   
   h2{
@@ -56,6 +63,7 @@
     --background-color: #121212;
     --text-color: #f1f1f1;
     --header-bg: #1c1c1c;
+    --nav-bg: rgb(61, 58, 58);
   }
   
   body {
@@ -292,6 +300,7 @@
     display: grid;
     grid-template-columns: 27rem auto;
     background: url('assets/labour\ img8.jpeg') no-repeat bottom/contain;
+    background: none;
     background-size: 27rem;
 }
 .subheading2
@@ -331,12 +340,12 @@
 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 .headingB0
 {
-    margin-top: .5rem;
+    margin-top: 6rem;
     padding: 4.5rem;
-    margin-bottom: 4rem;
 }
 .headingB0 h1
 {
