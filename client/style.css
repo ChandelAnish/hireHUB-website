@@ -1,3 +1,8 @@
+body{
+    width: 100%;
+    height: 100vh;
+ 
+}
 #contactus
 {
     margin: 0rem 65rem 0rem 0rem;
@@ -255,6 +260,101 @@
     transition: all .7s;
     transform: scale(1.03);
 }
+footer{
+    width: 100%;
+    margin-left: -2rem;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-color: black; */
+    /* color: white; */
+}
+.main-foot{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-left: 2rem;
+    background-color: black;
+    color: white;
+    padding-top: 1.5rem;
+    height: 100%;
+    /* flex-wrap: wrap; */
+}
 
-/* footer */
+.rights{
+    background-color: black;
+    
+}
+.rights p{
+    color: white;
+    margin-left: 3.5rem;
+    /* margin-top: 1rem; */
+    padding-top: 1rem;
+    width: 100%;
+    height: 100%;
+}
+.about{
+    text-align: center;
+    padding: 0px;
+    /* border-right: 2px solid rgb(255, 255, 255); */
+    width: 16rem;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.nav-item-a a{
+    color: white;
+}
+.about h5{
+    font-size: 2rem;
+}
 
+.terms{
+    /* border-right: 2px solid rgb(255, 255, 255); */
+    margin-left: 10px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+
+}
+.terms h5{
+    font-size: 2rem;
+    text-align: center;
+}
+.office{
+    width: 200px;
+    margin-right: 10px;
+    margin-left: 10px;
+    /* border-right: 2px solid rgb(255, 255, 255); */
+
+}
+.office h5{
+    font-size: 2rem;
+}
+.foot-form h5{
+    font-size: 2rem;
+}
+.hire{
+    margin-left: 1.8rem;
+}
+
+.btnn{
+    height: 3rem;
+    width: 25rem;
+    background-color: rgb(25, 194, 25);
+    border-radius: 10px;
+    border: none;
+    margin-left: 4rem;
+}
+.btnn:hover{
+    background-color: transparent;
+    border: 1px solid rgb(25, 194, 25);
+    color: white;
+}
+
+
+/* footer *
