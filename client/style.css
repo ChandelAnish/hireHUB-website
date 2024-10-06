@@ -2,6 +2,7 @@
 {
     margin: 0rem 65rem 0rem 0rem;
 }
+  
 .mainheading
 {
     display: grid;
@@ -169,7 +170,10 @@
     display: grid;
     grid-template-columns: 27rem auto;
     background: url('assets/labour\ img8.jpeg') no-repeat bottom/contain;
-    background-size: 27rem;
+    background-size: 24rem;
+    background-position: bottom;
+    background-position-x: left;
+    
 }
 .subheading2
 {
@@ -234,7 +238,7 @@
     box-shadow: 2px 2px 2px .5px;
     display: grid;
     grid-template-columns: 50rem auto;
-    background: url('assets/labour\ img9.png') no-repeat right/contain rgb(207, 243, 239);
+    background: url('client\assets\imgg.png') no-repeat right/contain rgb(207, 243, 239);
     /* padding: 1rem; */
     margin: 0rem 5rem 0rem 5rem;
 }
@@ -299,10 +303,13 @@
     --background-color-dark: #121212;
     --text-color-light: #000000;
     --text-color-dark: #ffffff;
-}
+  }
 
 /* Light mode (default) */
 body {
+    nav{
+        height: 40px;
+    }
     background-color: var(--background-color-light);
     color: var(--text-color-light);
     transition: background-color 0.5s, color 0.5s;
@@ -312,9 +319,16 @@ body {
 body[data-theme='dark'] {
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
-
+    nav{
+        height: 40px;
+    div{
+        background-color: #2c2b2b;
+        a{
+            color: #e0e0e0;
+        }
+    }
+  }
 }
-
 /* Styling the toggle button */
 #darkModeToggle {
     position: fixed;
@@ -337,11 +351,10 @@ body[data-theme='dark'] #darkModeToggle {
 
 /* Icon styles */
 #darkModeToggle i {
-    font-size: 10px; /* Adjust icon size */
+    font-size: 15px; /* Adjust icon size */
 }
 
 /* Button hover effect */
 #darkModeToggle:hover {
     background-color: #e0e0e0; /* Lighten on hover */
 }
-
