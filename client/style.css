@@ -114,6 +114,7 @@
     display: grid;
     grid-template-rows: 40rem 30rem;
     padding: 3.5rem;
+    height: fit-content;
 }
 .containerA1
 {
@@ -124,7 +125,17 @@
     display: grid;
     grid-template-columns: 50rem auto;
     background: url('assets/labour\ img7.jpeg') no-repeat right/contain;
+    height: fit-content;
+    
 }
+
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+    .containerA1 {
+        grid-template-columns: 1fr; /* Stack items vertically */
+    }
+}
+
 .textA1
 {
     display: grid;
@@ -156,6 +167,14 @@
     display: grid;
     grid-template-columns: 50rem auto;
 }
+
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+    .containerA2 {
+        grid-template-columns: 1fr; /* Stack items vertically */
+    }
+}
+
 .containerA2-1
 {
     border-radius: 15px;
@@ -256,5 +275,159 @@
     transform: scale(1.03);
 }
 
+/* Add media query for responsiveness */
+
+
+/* Existing media query for responsiveness */
+
+
 /* footer */
+/* For smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .containerA1,
+    .containerA2,
+    .containerB1,
+    .imgtext,
+    .mainheading,
+    .containerA,
+    .textA1 {
+        grid-template-columns: 1fr;
+        /* Stack items vertically */
+    }
+
+    .text {
+        width: 90%;
+        /* Make text container responsive */
+        margin: 2rem auto;
+        /* Center the text container */
+    }
+
+    .maintext2 h1,
+    .maintext2 h2,
+    .text h1,
+    .text h2 {
+        font-size: 30px;
+        /* Reduce font size */
+    }
+
+    .slidesimg,
+    .img {
+        width: 100%;
+        /* Make images responsive */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+
+    .textbox {
+        width: 100%;
+        /* Make text boxes responsive */
+        margin: 1rem auto;
+        /* Center text boxes */
+    }
+
+    .subheading1 h1,
+    .subheading1 h2,
+    .subheading2 h1,
+    .subheading2 h2 {
+        font-size: 40px;
+        /* Reduce font size for subheadings */
+    }
+
+    /* Adjust containerA for mobile */
+    .containerA {
+        padding: 1rem;
+        /* Reduce padding */
+    }
+
+    .containerA1,
+    .containerA2,
+    .containerB1 {
+        margin: 1rem 0;
+        /* Adjust margin */
+    }
+
+    .catagories ul {
+        font-size: 18px;
+        /* Reduce font size for categories list */
+    }
+
+    /* Adjust carousel for smaller screens */
+    .carousel0 {
+        height: auto;
+        /* Allow carousel to shrink */
+    }
+}
+
+/* For very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    #contactus {
+        margin: 0rem 20px;
+        /* Adjust margin for smaller screens */
+    }
+
+    .mainheading {
+        grid-template-columns: 1fr;
+        /* Stack items vertically */
+        margin: 2rem 0rem;
+        /* Adjust margin */
+    }
+
+    .text {
+        width: 90%;
+        /* Ensure the text container is fully responsive */
+    }
+
+    .maintext2 h1,
+    .maintext2 h2 {
+        font-size: 30px;
+        /* Further reduce font size */
+    }
+
+    .text {
+        margin: 2rem auto;
+        /* Adjust margin for mobile */
+    }
+
+    .imgtext {
+        grid-template-columns: 1fr;
+        /* Stack images vertically */
+        margin: 2rem 0;
+        /* Adjust margin */
+    }
+
+    .slidesimg,
+    .img {
+        width: 100%;
+        /* Make carousel images fully responsive */
+        height: auto;
+        /* Maintain aspect ratio */
+    }
+
+    /* Adjusting font sizes */
+    .subheading1 h1,
+    .subheading1 h2,
+    .subheading2 h1,
+    .subheading2 h2,
+    .textbox h1 {
+        font-size: 30px;
+        /* Reduce font size for subheadings */
+    }
+
+    .textbox {
+        width: 90%;
+        /* Make text boxes responsive */
+        margin: 1rem auto;
+        /* Center text boxes */
+    }
+
+    .containerA1,
+    .containerA2,
+    .containerB1 {
+        grid-template-columns: 1fr;
+        /* Stack items vertically */
+        margin: 1rem 0;
+        /* Adjust margin */
+    }
+}
 
