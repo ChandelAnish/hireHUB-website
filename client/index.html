@@ -25,10 +25,10 @@
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about">about</a>
+                <a class="nav-link" href="#about">About</a>
               </li>
               <li class="nav-item">
-                <a id="contactus" class="nav-link" href="#contact-us">contact us</a>
+                <a id="contactus" class="nav-link" href="#contact-us">Contact Us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="login-page/index.html">login</a>
@@ -193,6 +193,118 @@
       </div>
 
     </div>
+
+
+
+    <!-- contact us  -->
+
+
+  <div class="contact-section" id="contact-us">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Your message..." rows="5" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="responseMessage" class="response"></div>
+  </div>
+
+
+  <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      .contact-section {
+        width: 50%;
+        margin: 100px auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .contact-section form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-section label {
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .contact-section input,
+      .contact-section textarea {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .contact-section button {
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .contact-section button:hover {
+        background-color: #218838;
+      }
+
+      .response {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 16px;
+      }
+
+  </style>
+
+
+<script>
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Simple validation (You can extend this)
+      if (name && email && message) {
+        document.getElementById('responseMessage').textContent = 'Thank you, ' + name + '! Your message has been sent.';
+        document.getElementById('responseMessage').style.color = 'green';
+      } else {
+        document.getElementById('responseMessage').textContent = 'Please fill in all the fields.';
+        document.getElementById('responseMessage').style.color = 'red';
+      }
+    });
+
+</script>
 
 
     <!-- footer -->
