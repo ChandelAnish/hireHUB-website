@@ -316,5 +316,40 @@ body {
     border-radius: 80%;
 }
 
-
+.testimonial-section {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 50px 15px; /* Responsive padding */
+  }
+  
+  .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 100%; /* Maintain same size as before */
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .testimonial-img {
+    border: 5px solid rgba(107, 218, 138, 0.898); /* Add a thicker border */
+    width: 120px;  /* Increase width */
+    height: 120px; /* Increase height */
+    border-radius: 100%; /* Fully circular */
+    object-fit: cover; /* Ensure image covers entire circular area */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card img:hover {
+    transform: scale(1.05);
+  }
+  
+  .rounded-full {
+    border-radius: 50%;
+  }
   
