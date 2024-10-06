@@ -14,7 +14,12 @@ form.addEventListener('submit', async (e) => {
     let response = await signup(formdata);//must use await since fetch is used in a the signup function
     response = await response.json();
     if (!response.signup) {
-        return warning.innerHTML = response.msg;
+        const warning = document.querySelector('.warning');
+        warning.innerHTML = response.msg;
+
+        if (response.msg.trim() !== "") {
+            warning.classList.add('show-warning');
+        }
     }
     console.log('sign-up successfull')
     warning.innerHTML = '';

@@ -10,8 +10,8 @@ body {
 .maincontainer {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 56px); /* Adjust based on navbar height */
+  /* align-items: center; */
+  /* min-height: calc(100vh - 56px); Adjust based on navbar height */
 }
 
 .container {
@@ -21,6 +21,8 @@ body {
   padding: 20px;
   max-width: 400px;
   width: 100%;
+  max-height:fit-content;
+  margin-top: 80px;
 }
 
 .form {
@@ -109,4 +111,20 @@ body {
     transform: translateY(-50%);
     color: #6c757d;
     font-weight: bold; /* Made icons bold */
+}
+
+.warning {
+  display: none;
+}
+
+.warning.show-warning{
+  display: block;
+  color: red;          /* Text color red */
+  font-weight: bold;   /* Make the text bold */
+  background-color: #f8d7da;  /* Light red background */
+  border: 1px solid #f5c6cb;  /* Red border */
+  padding: 10px;       /* Add some padding for spacing */
+  border-radius: 4px;  /* Slightly round the corners */
+  margin-bottom: 10px; 
+  
 }
