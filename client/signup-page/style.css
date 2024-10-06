@@ -1,95 +1,131 @@
-.maincontainer{
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    min-height: 100vh;
-    background-color: rgb(243, 243, 243);
-    flex-direction: column;
-    padding: 2rem;
-}
 
-.container {
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    width: 30rem;
-    height: 36rem;
-    align-items: center;
+
+body {
+    background-color: #f8f9fa;
+  }
+  
+  .navbar {
+    margin-bottom: 30px;
+  }
+  
+  .maincontainer {
+    display: flex;
     justify-content: center;
-    border-radius: 20px;
-}
-
-.form {
+    /* align-items: center; */
+    /* min-height: calc(100vh - 56px); Adjust based on navbar height */
+  }
+  
+  .container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    max-height:fit-content;
+    margin-top: 80px;
+  }
+  
+  .form {
     display: flex;
     flex-direction: column;
-}
-
-.input0{
-    width: 17rem;
-    height: 45px;
-    border-radius: 10px;
-    margin: 5px;
-    display: flex;
-    align-items: center;
-    background-color: rgb(245, 245, 245);
-    padding-left: 10px;
-    outline: none;
-    border: none;
-}
-.input
-{
-    outline: none;
-    border: none;
-    width: 235px;
-    height: 35px;
-    padding-left: 5px;
-    margin: 5px;
-    background-color: rgb(245, 245, 245);
-}
-.signupbtn
-{
-    background-color: rgb(63, 234, 111);
+  }
+  
+  .input0 {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .input0 i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .signupbtn {
+    background-color: #28a745; /* Original green button color */
     color: white;
-    width: 17rem;
-    height: 45px;
-    border-radius: 10px;
-    margin: 5px;
     border: none;
-    outline: none;
-}
-.signupbtn:hover
-{
-    background-color: rgb(52 193 91);
-    color: white;
-    transition: all .3s;
-}
-.signupbtn:active
-{
-    background-color: rgb(52 193 91);
-    transform: scale(.95);
-    color: white;
-}
-.warning
-{
-    /* border: 2px solid black; */
-    width: 17rem;
-    height: 25px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: red;
-}
-
-.container1 {
-    width: 21rem;
-    height: 385px;
-    border-radius: 20px;
+    border-radius: 4px;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* background-color: rgb(143, 181, 161); */
-    background-color: rgb(255, 255, 255);
-    box-shadow: 2px 2px 2px;
-}
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .signupbtn:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 576px) {
+    .maincontainer {
+      padding: 20px;
+    }
+  }
+  
+  @media (min-width: 577px) and (max-width: 768px) {
+    .container {
+      max-width: 500px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .container {
+      max-width: 600px;
+    }
+  }
+  
+  
+  .input {
+      width: 100%;
+      padding: 10px 10px 10px 40px;
+      border: none; /* Removed border */
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #f8f9fa; /* Optional: Background color for better visibility */
+  }
+  
+  .input0:focus {
+      outline: none; /* Removed outline on focus */
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Optional: Shadow on focus */
+  }
+  
+  .icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6c757d;
+      font-weight: bold; /* Made icons bold */
+  }
+  
+  .warning {
+    display: none;
+  }
+  
+  .warning.show-warning{
+    display: block;
+    color: red;          /* Text color red */
+    font-weight: bold;   /* Make the text bold */
+    background-color: #f8d7da;  /* Light red background */
+    border: 1px solid #f5c6cb;  /* Red border */
+    padding: 10px;       /* Add some padding for spacing */
+    border-radius: 4px;  /* Slightly round the corners */
+    margin-bottom: 10px; 
+    
+  }

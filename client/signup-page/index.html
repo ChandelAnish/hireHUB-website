@@ -52,62 +52,60 @@
     </nav>
 
 
+
+    
+
+
     <!-- navbar end -->
 
+
     <div class="maincontainer">
-        
-
-
-            <!-- login -->
-            <div class="container">
-                <div class="container1">
-                    <form class="form" id="form">
-                        <!-- username -->
-                        <div class="input0">
-                            <i class="fa-solid fa-user"></i>
-                            <input name="username" class="input" type="text" placeholder="username">
-                        </div>
-                        <!-- email -->
-                        <div class="input0">
-                            <i class="fa-solid fa-envelope"></i>
-                            <input name="email" class="input" type="email" placeholder="email">
-                        </div>
-                        <!-- password -->
-                        <div class="input0">
-                            <i class="fa-solid fa-lock"></i>
-                            <input name="password" class="input" type="password" placeholder="password">
-                        </div>
-                        <!-- confirm password -->
-                        <div class="input0">
-                            <i class="fa-solid fa-lock"></i>
-                            <input name="confirmpassword" class="input" type="password" placeholder="confirm password">
-                        </div>
-                        <!-- user type -->
-                        <select class="input0" name="usertype" id="">
-                            <option value="recruiter">recruiter</option>
-                            <option value="labour">labour</option>
-                            <!-- <option value="admin">admin</option> -->
-                        </select>
-                        <!-- display warning -->
-                        <div class="warning">
-
-                        </div>
-
-                        <button class="signupbtn" type="submit">sign up</button>
-                    </form>
+        <!-- signup -->
+        <div class="container">
+            <form class="form" id="form">
+                <!-- username -->
+                <div class="input0">
+                    <i class="fa-solid fa-user icon"></i>
+                    <input name="username" class="input" type="text" placeholder="Username" required>
                 </div>
-                <div class="container2">
-
-
+                <!-- email -->
+                <div class="input0">
+                    <i class="fa-solid fa-envelope icon"></i>
+                    <input name="email" class="input" type="email" placeholder="Email" required>
+                </div>
+                <!-- password -->
+                <div class="input0 position-relative">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input name="password" class="input" type="password" placeholder="Password" required id="password">
+                    <button type="button" class="btn" id="togglePassword" style="position: absolute; top: 50%; left: 85%; transform: translateY(-50%); border: none; background: none;">
+                        <i class="fa-solid fa-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+                <!-- confirm password -->
+                <div class="input0 position-relative">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input name="confirmpassword" class="input" type="password" placeholder="Confirm Password" required id="confirmPassword">
+                    <button type="button" class="btn" id="toggleConfirmPassword" style="position: absolute; top: 50%; left: 85%; transform: translateY(-50%); border: none; background: none;">
+                        <i class="fa-solid fa-eye" id="confirmEyeIcon"></i>
+                    </button>
+                </div>
+                <!-- user type -->
+                <select class="form-select input0" name="usertype" required>
+                    <option value="recruiter">Recruiter</option>
+                    <option value="labour">Labour</option>
+                  </select>
+                <!-- display warning -->
+                <div class="warning">
 
                 </div>
-            </div>
-            <!-- login end -->
+                <button class="signupbtn" type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="container2">
 
-        
 
 
-
+        </div>
     </div>
 
     <!-- bootstrap script -->
