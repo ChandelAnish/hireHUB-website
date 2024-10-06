@@ -1,5 +1,12 @@
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"] //include the correct binaryTargets so that Prisma can generate the appropriate binaries for both your local environment (Windows) and the Docker environment (Debian with OpenSSL 3.0.x).
+
+  //Prisma generates these binaries during the prisma generate process, and they are essential for Prisma Client to work correctly. These binaries handle database operations such as querying, migration, and data fetching.
+
+  //Since different operating systems (Windows, Linux, macOS) and platforms (e.g., x86, ARM) require different machine code, Prisma needs to generate platform-specific binaries to ensure that it can run correctly in the environment (e.g., your local machine or a Docker container). This is why you need to specify the binaryTargets in the schema.prisma file to generate the right binaries for both development and production environments.
+
+  //After updating the schema.prisma file, you need to regenerate the Prisma client so it includes the correct binaries
 }
 
 datasource db {
