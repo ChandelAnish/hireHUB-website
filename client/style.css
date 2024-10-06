@@ -2,6 +2,7 @@
 {
     margin: 0rem 65rem 0rem 0rem;
 }
+  
 .mainheading
 {
     display: grid;
@@ -9,6 +10,7 @@
     /* text-align: center; */
     /* justify-content: center; */
     margin: 4rem 0rem 12rem 0rem;
+    
 }
 .maintext2
 {
@@ -39,7 +41,8 @@
     height: 15rem;
     margin: 5rem 0rem 0rem 5rem;
     border-radius: 10px;
-    background-color: rgb(242, 244, 242);
+    --background-color-light: #ffffff;
+    --background-color-dark: #121212;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,6 +151,8 @@
 .textbox p
 {
     padding-top: 1rem;
+    color: #121111;
+    
 }
 .containerA2
 {
@@ -165,7 +170,10 @@
     display: grid;
     grid-template-columns: 27rem auto;
     background: url('assets/labour\ img8.jpeg') no-repeat bottom/contain;
-    background-size: 27rem;
+    background-size: 24rem;
+    background-position: bottom;
+    background-position-x: left;
+    
 }
 .subheading2
 {
@@ -230,7 +238,7 @@
     box-shadow: 2px 2px 2px .5px;
     display: grid;
     grid-template-columns: 50rem auto;
-    background: url('assets/labour\ img9.png') no-repeat right/contain rgb(207, 243, 239);
+    background: url('client\assets\imgg.png') no-repeat right/contain rgb(207, 243, 239);
     /* padding: 1rem; */
     margin: 0rem 5rem 0rem 5rem;
 }
@@ -258,3 +266,95 @@
 
 /* footer */
 
+/* Style the Back to Top button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(107, 218, 138, 0.898);
+    color: rgb(242, 244, 242);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50%; /* Make the button circular */
+    width: 40px; 
+    height: 40px; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px; 
+  }
+  
+  /* Add an upward arrow to the button */
+  #back-to-top::before {
+    content: "\25B2"; 
+    font-size: 18px; 
+    margin-right: 5px; 
+  }
+  
+  #back-to-top:hover {
+    background-color: #121111;
+  }
+
+
+
+  :root {
+    --background-color-light: #ffffff;
+    --background-color-dark: #121212;
+    --text-color-light: #000000;
+    --text-color-dark: #ffffff;
+  }
+
+/* Light mode (default) */
+body {
+    nav{
+        height: 40px;
+    }
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Dark mode */
+body[data-theme='dark'] {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    nav{
+        height: 40px;
+    div{
+        background-color: #2c2b2b;
+        a{
+            color: #e0e0e0;
+        }
+    }
+  }
+}
+/* Styling the toggle button */
+#darkModeToggle {
+    position: fixed;
+    top: 5px; /* Position from the top */
+    right: 5px; /* Position from the right */
+    padding: -100px;
+    background-color: #ffffff; /* Light background */
+    border: none;
+    border-radius: 50%; /* Circular button */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode button styles */
+body[data-theme='dark'] #darkModeToggle {
+    background-color: #100f0f; /* Dark background for dark mode */
+    color: #ffffff; /* White color for dark mode */
+}
+
+/* Icon styles */
+#darkModeToggle i {
+    font-size: 15px; /* Adjust icon size */
+}
+
+/* Button hover effect */
+#darkModeToggle:hover {
+    background-color: #e0e0e0; /* Lighten on hover */
+}
