@@ -156,6 +156,14 @@
     display: grid;
     grid-template-columns: 50rem auto;
 }
+@media (max-width : 768px) {
+    .containerA2{
+        display: flex;
+        flex-direction: column;
+
+    }
+    
+}
 .containerA2-1
 {
     border-radius: 15px;
@@ -205,6 +213,11 @@
 {
     display: flex;
     flex-direction: column;
+}
+@media (max-width : 768px) {
+    .containerB0{
+        padding-top: 300px;
+    }
 }
 .headingB0
 {
