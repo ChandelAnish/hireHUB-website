@@ -6,7 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="icon" href="../../assets/favicon.png">
+<style> body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
 
+#root {
+    flex: 1;
+}
+
+.follow-us {
+    background-color: #4ed467;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Keep this at the bottom */
+}
+
+.follow-us h2 {
+    color: grey; /* Grey color for the heading */
+    font-size: 28px; /* Increased size for the heading */
+    margin-bottom: 15px; /* Space between heading and icons */
+}
+
+.follow-us a {
+    margin: 0 15px;
+    color: grey; /* Grey color for icons */
+    text-decoration: none;
+}
+
+.follow-us a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.follow-us a:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.follow-us img {
+    width: 50px; /* Set logo size */
+    height: 50px;
+    filter: grayscale(100%); /* Grey color for icons */
+    transition: filter 0.3s; /* Smooth transition effect */
+}
+
+.follow-us a:hover img {
+    filter: grayscale(0%); /* Color on hover */
+}</style>
     <!-- fontawesome cdn  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -82,6 +131,15 @@
                 </table>
             </section>
         </main>
+    </div>
+    <div class="follow-us">
+        <h2>Follow Us</h2>
+        <a href="https://www.linkedin.com/in/as-chandel/" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
+        </a>
+        <a href="https://github.com/ChandelAnish/hireHUB-website/commits?author=ChandelAnish" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo" />
+        </a>
     </div>
 
     <!-- bootstrap script -->
