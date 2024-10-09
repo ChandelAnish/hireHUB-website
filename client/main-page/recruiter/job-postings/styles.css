@@ -8,6 +8,20 @@ body {
     background-color: #e3f2fd;
     padding: 20px 0;
 } */
+  body, html {
+    height: 100%;
+}
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+}
+.card {
+    width: 100%; /* Full width for smaller screens */
+    max-width: 500px; /* Limit width on larger screens */
+}
+
 
 .card h3 {
     color: #333;
