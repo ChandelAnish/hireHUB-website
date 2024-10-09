@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,119 +14,153 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <!-- fontawesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body>
     <header class="d-flex align-items-center mb-4 mt-2">
-            <a href="../index.html" class="btn btn-light">
-                <i class="bi bi-arrow-left fs-3"></i>
-            </a>
-            <h1 class="fs-3 fw-bolder mx-auto" >My Job Postings</h1>
+        <a href="../index.html" class="btn btn-light">
+            <i class="bi bi-arrow-left fs-3"></i>
+        </a>
+        <h1 class="fs-3 fw-bolder mx-auto">My Job Postings</h1>
     </header>
-    <main class="container my-1">
+
+    <main class="form-container"> <!-- Flex container for centering -->
         <div class="row">
-            <div class="col-md-4">
-                <div class="card p-4">
-                    <h3 class="fs-4 fw-semibold">Post Job</h3>
-                    <form id="postjobform">
-                        <!-- Select Job Title -->
-                        <label for="jobtitle"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job</label>
-                        <select class="form-select mb-3" aria-label="Default select example" id="jobtitle" name="jobtitle">
-                            <option selected value="Construction">Construction</option>
-                            <option value="Electrical">Electrical</option>
-                            <option value="Plumbing">Plumbing</option>
-                            <option value="Painting">Painting</option>
-                            <option value="Gardening">Gardening</option>
-                            <option value="HouseKeeping">House Keeping</option>
-                            <option value="Carpentry">Carpentry</option>
-                            <option value="Mechanic">Mechanic</option>
-                        </select>
-
-                        <!-- <div class="mb-3">
-                            <label for="jobtitle"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Title</label>
-                            <input type="text" id="jobtitle"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required name="jobtitle" />
-                        </div> -->
-
-                        <!-- Company -->
+            <div class="col-md-12">
+                <div class="card p-4 shadow-sm">
+                    <h3 class="fs-4 fw-semibold mb-4">Post a Job</h3>
+                    <form id="postjobform" novalidate>
+                        
+                        <!-- Job Title -->
                         <div class="mb-3">
-                            <label for="Company"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
-                            <input type="text" id="Company"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required name="company" />
+                            <label for="jobtitle" class="form-label">
+                                <i class="bi bi-briefcase"></i> Job Title
+                            </label>
+                            <select class="form-select" id="jobtitle" name="jobtitle" required>
+                                <option selected value="">Select Job Title</option>
+                                <option value="Construction">Construction</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Plumbing">Plumbing</option>
+                                <option value="Painting">Painting</option>
+                                <option value="Gardening">Gardening</option>
+                                <option value="HouseKeeping">House Keeping</option>
+                                <option value="Carpentry">Carpentry</option>
+                                <option value="Mechanic">Mechanic</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a job title.
+                            </div>
                         </div>
 
+                        <!-- Company Information -->
                         <div class="mb-3">
-                            <label for="location"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
-                            <input type="text" id="location"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required name="location" />
+                            <label for="Company" class="form-label">
+                                <i class="bi bi-building"></i> Company Name
+                            </label>
+                            <input type="text" id="Company" class="form-control" placeholder="Enter company name"
+                                required name="company">
+                            <div class="invalid-feedback">
+                                Please enter your company name.
+                            </div>
                         </div>
 
-                        <!-- state -->
-                        <div class="mb-3">
-                            <label for="state"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State</label>
-                            <input type="text" id="state"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required name="state" />
+                        <!-- Location and State -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="location" class="form-label">
+                                    <i class="bi bi-geo-alt"></i> Location
+                                </label>
+                                <input type="text" id="location" class="form-control" placeholder="City or Area"
+                                    required name="location">
+                                <div class="invalid-feedback">
+                                    Please provide a valid location.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="state" class="form-label">
+                                    <i class="bi bi-map"></i> State
+                                </label>
+                                <input type="text" id="state" class="form-control" placeholder="State" required
+                                    name="state">
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- select job type -->
-                        <label for="jobtype" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work
-                            Specification</label>
-                        <select class="form-select mb-3" aria-label="Default select example" id="jobtype"
-                            name="jobtype">
-                            <option selected value="Full time">Full Time</option>
-                            <option value="Part time">Part Time</option>
-                        </select>
-
-                        <!-- salary -->
+                        <!-- Job Type -->
                         <div class="mb-3">
-                            <label for="salary"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Salary (in
-                                ₹)</label>
-                            <input type="number" id="salary"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="" required name="salary" />
+                            <label for="jobtype" class="form-label">
+                                <i class="bi bi-clock"></i> Job Type
+                            </label>
+                            <select class="form-select" id="jobtype" name="jobtype" required>
+                                <option selected value="">Select Work Specification</option>
+                                <option value="Full time">Full Time</option>
+                                <option value="Part time">Part Time</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a job type.
+                            </div>
                         </div>
 
-
-                        <!-- jobdescription -->
+                        <!-- Salary -->
                         <div class="mb-3">
-                            <label for="jobdescription"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job
-                                Description</label>
-                            <textarea class="form-control" id="jobdescription" rows="3"
-                                name="jobdescription"></textarea>
+                            <label for="salary" class="form-label">
+                                <i class="bi bi-currency-rupee"></i> Salary (₹)
+                            </label>
+                            <input type="number" id="salary" class="form-control" placeholder="Enter salary amount"
+                                required name="salary">
+                            <div class="invalid-feedback">
+                                Please provide the salary.
+                            </div>
                         </div>
 
-                        <!-- skills -->
+                        <!-- Job Description -->
                         <div class="mb-3">
-                            <label for="skills"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Skills</label>
-                            <textarea class="form-control" id="skills" rows="3" name="skills"></textarea>
+                            <label for="jobdescription" class="form-label">
+                                <i class="bi bi-file-text"></i> Job Description
+                            </label>
+                            <textarea class="form-control" id="jobdescription" rows="3" placeholder="Describe the job..."
+                                required name="jobdescription"></textarea>
+                            <div class="invalid-feedback">
+                                Please provide a job description.
+                            </div>
                         </div>
 
-                        <!-- tasks -->
+                        <!-- Skills -->
                         <div class="mb-3">
-                            <label for="tasks"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tasks</label>
-                            <textarea class="form-control" id="tasks" rows="3" name="tasks"></textarea>
+                            <label for="skills" class="form-label">
+                                <i class="bi bi-tools"></i> Skills Required
+                            </label>
+                            <textarea class="form-control" id="skills" rows="2"
+                                placeholder="List relevant skills..." required name="skills"></textarea>
+                            <div class="invalid-feedback">
+                                Please provide required skills.
+                            </div>
                         </div>
 
+                        <!-- Tasks -->
+                        <div class="mb-3">
+                            <label for="tasks" class="form-label">
+                                <i class="bi bi-list-task"></i> Job Tasks
+                            </label>
+                            <textarea class="form-control" id="tasks" rows="2"
+                                placeholder="List key tasks..." required name="tasks"></textarea>
+                            <div class="invalid-feedback">
+                                Please provide the tasks for the job.
+                            </div>
+                        </div>
+
+                        <!-- Footer Buttons -->
                         <div class="modal-footer">
-                            <!-- close btn -->
                             <button type="button"
-                                class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onclick="resetForm()">Reset</button>
-        
+                                class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                                data-bs-dismiss="modal" aria-label="Close" id="closeModelBtn">Close</button>
+
                             <!-- post btn -->
                             <button type="button"
                                 class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
@@ -134,19 +169,13 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-8">
-
-                <!-- cards -->
-                <div id="job-listings">
-
-                </div>
-            </div>
         </div>
     </main>
+
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- my script JS -->
     <script src="../../../config.js"></script>
     <script src="scripts.js"></script>
 </body>
+
 </html>
