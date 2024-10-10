@@ -1,14 +1,15 @@
 #contactus
 {
-    margin: 0rem 65rem 0rem 0rem;
+    /* margin: 0rem 45rem 0rem 0rem; */
 }
 .mainheading
 {
-    display: grid;
-    grid-template-columns: 50rem auto;
+   display:flex;
+   gap: 5rem;
+   margin: 4rem 0rem 12rem 0rem;
+    /* grid-template-columns: 50rem auto; */ 
     /* text-align: center; */
     /* justify-content: center; */
-    margin: 4rem 0rem 12rem 0rem;
 }
 .maintext2
 {
@@ -37,7 +38,8 @@
     font-size: 20px;
     width: 35rem;
     height: 15rem;
-    margin: 5rem 0rem 0rem 5rem;
+    padding : 0.5rem;
+    margin: 3rem 0rem 0rem 3rem;
     border-radius: 10px;
     background-color: rgb(242, 244, 242);
     display: flex;
@@ -47,7 +49,7 @@
 }
 .text h1
 {
-    font-size: 80px;
+    font-size: 70px;
     padding: 0;
     margin: 0;
     color: rgba(107, 218, 138, 0.898);
@@ -64,20 +66,17 @@
 }
 .imgtext
 {
-    display: grid;
-    grid-template-columns: 50rem 35rem;
-    margin: 5rem 0rem 0rem 5rem;
-}
-.img
-{
-    width: 40rem;
+    display: flex;
+    width:100%;
+   padding:10px 15px 15px 15px;
 }
 .text2
 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    width: 50%;
+    font-size: 28px;
 }
 .slidesimg
 {
@@ -111,9 +110,8 @@
 }
 .containerA
 {
-    display: grid;
-    grid-template-rows: 40rem 30rem;
     padding: 3.5rem;
+     width: 100%;
 }
 .containerA1
 {
@@ -121,8 +119,10 @@
     margin: 1.5rem;
     background-color: rgb(242, 244, 242);
     box-shadow: 2px 2px 2px .5px;
-    display: grid;
-    grid-template-columns: 50rem auto;
+    display:flex;
+    /* display: grid;
+    grid-template-columns: 50rem auto; */
+    width: 100%;
     background: url('assets/labour\ img7.jpeg') no-repeat right/contain;
 }
 .textA1
@@ -147,14 +147,14 @@
 }
 .textbox p
 {
-    padding-top: 1rem;
+    padding-top: 0rem;
 }
 .containerA2
 {
     border-radius: 15px;
     margin: 1.5rem;
-    display: grid;
-    grid-template-columns: 50rem auto;
+    display:flex;
+    width: 100%;
 }
 .containerA2-1
 {
@@ -162,8 +162,8 @@
     margin-right: 1.5rem;
     background-color: rgb(242, 244, 242);
     box-shadow: 2px 2px 2px .5px;
-    display: grid;
-    grid-template-columns: 27rem auto;
+    display: flex;
+   
     background: url('assets/labour\ img8.jpeg') no-repeat bottom/contain;
     background-size: 27rem;
 }
@@ -223,13 +223,11 @@
 }
 .containerB1
 {
-    display: grid;
+    display: flex;
     border-radius: 15px;
     margin: 1.5rem;
     background-color: rgb(242, 244, 242);
     box-shadow: 2px 2px 2px .5px;
-    display: grid;
-    grid-template-columns: 50rem auto;
     background: url('assets/labour\ img9.png') no-repeat right/contain rgb(207, 243, 239);
     /* padding: 1rem; */
     margin: 0rem 5rem 0rem 5rem;
@@ -255,6 +253,383 @@
     transition: all .7s;
     transform: scale(1.03);
 }
-
 /* footer */
+@media (max-width: 600px) {
+    .img
+    {
+        width: 50%;
+        margin-left: 0.5rem;
+        margin-right: 1rem;
+    }
+    .text2
+    {
+        font-size: 10px;
+    }
+    .slidesimg
+    {
+        width: 15rem;
+        height: 10rem;
+       
+    }
+    .mainheading{
+        gap: 0rem;
+       
+    }
+    .text{
+        padding: 0.5rem 0.5rem
+       
+    }
+    .text h1{
+        font-size:30px;
+    }
+    .text h2{
+        font-size:20px;
+    }
+    .maintext2 h2{
+        font-size:30px;
+    }
+    .maintext2 h1{
+        font-size:20px;
+    }
+    .subheading1 h1
+    {
+        font-size: 30px;
+    }
+    .subheading1 h2
+    {
+        font-size: 20px;
+    }
+    .containerA1
+    {
+        margin: 0.5rem;
+    }
+    .containerA2
+    {
+        margin: 0.5rem;
+    }
+    .textbox
+    {
+        width: 8rem;
+        height: 6rem;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.776);
+        font-size:8px;
+        margin: 0.2rem;
+        padding: 0px;
+    }
+    .textbox h1{
+        font-size: 18px;
+    }
+    .containerA{
+        padding: 1rem;
+    }
+    .textbox p
+    {
+        padding-top: 0.3rem;
+    }
+    .containerB1
+    {
+        display: flex;
+        border-radius: 15px;
+        background-color: rgb(242, 244, 242);
+        box-shadow: 2px 2px 2px .5px;
+        background: url('assets/labour\ img9.png') no-repeat right/contain rgb(207, 243, 239);
+        /* padding: 1rem; */
+        margin: 0rem 1rem 0rem 2rem;
+    }
+    .containerB1-1{
+        padding:10px;
+        height:15rem;
+    }
+    .headingB0 h1
+    {
+        font-size: 30px;
+    }
+    .headingB0 h2
+    {
+        font-size: 30px;
+        color: rgba(107, 218, 138, 0.898);
+    }
+    .headingB0
+    {
+        margin-top: .25rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .subheading2 h1{
+        font-size:18px;
+        /* background-color: red; */
+    }
+    .catagories
+    {
+        padding: .5rem;
+        margin-top:50px;
+    }
+    .catagories li{
+        font-size: 8px;
+        padding: 0px;
+    }
+    .subheading2{
+        padding :.5rem;
+    }
+    .subheading3 h1{
+        font-size: 18px;
+    }
+    .subheading3 h4{
+        font-size: 10px;
+    }
+    .containerA2-1
+    {
+        border-radius: 15px;
+        margin-right: .5rem;
+        background-color: rgb(242, 244, 242);
+        box-shadow: 2px 2px 2px .5px;
+        display: flex;
+    
+        background: url('assets/labour\ img8.jpeg') no-repeat bottom/contain;
+        background-size: 27rem;
+    }
+    
+  }
+  @media (min-width: 600px) and (max-width: 767.98px) {
+    .img
+    {
+        width: 50%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .text2
+    {
+        font-size: 15px;
+    }
+    .slidesimg
+    {
+        width: 20rem;
+        height: 15rem;
+       
+    }
+    .subheading1 h1 {
+        font-size: 50px;
+    }
+
+    .subheading1 h2 {
+        font-size: 30px;
+    }
+    .text h1 {
+        font-size: 40px;
+    }
+
+    .text h2 {
+        font-size: 20px;
+    }
+
+    .maintext2 h2 {
+        font-size: 40px;
+    }
+
+    .maintext2 h1 {
+        font-size: 25px;
+    }
+    .textbox
+    {
+        width: 12rem;
+        height: 8rem;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.776);
+        margin: 1rem;
+        font-size:10px;
+        padding: 5px;
+    }
+    .textbox h1{
+        font-size: 18px;
+    }
+    .subheading2 h1{
+        font-size:22px;
+        /* background-color: red; */
+    }
+    .catagories li{
+        font-size: 12px;
+    }
+    .subheading3 h1{
+        font-size: 22px;
+    }
+    .subheading3 h4{
+        font-size: 10px;
+    }
+    .headingB0 h1
+    {
+        font-size: 35px;
+    }
+    .headingB0 h2
+    {
+        font-size: 50px;
+        color: rgba(107, 218, 138, 0.898);
+    }
+}
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .img
+    {
+        width: 50%;
+        margin-left: 1rem;
+        margin-right: 2rem;
+    }
+    .subheading1 h1
+    {
+        font-size: 60px;
+    }
+    .subheading1 h2
+    {
+        font-size: 40px; 
+    }
+    .text h1 {
+        font-size: 50px; 
+    }
+    .text h2{
+        font-size: 24px;
+    }
+    .maintext2 h2{
+        font-size:60px;
+    }
+    .maintext2 h1{
+        font-size:40px;
+    }
+    .text2
+    {
+        font-size: 16px;
+    }
+    .slidesimg
+    {
+        width: 25rem;
+        height: 15rem;
+       
+    }
+    .textbox
+    {
+        width: 15rem;
+        height: 10rem;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.776);
+        margin: 1rem;
+        font-size:12px;
+        padding: 10px;
+    }
+    .textbox h1{
+        font-size: 25px;
+    }
+    .subheading2 h1{
+        font-size:25px;
+        /* background-color: red; */
+    }
+    .catagories li{
+        font-size: 15px;
+    }
+    .subheading3 h1{
+        font-size: 25px;
+    }
+    .subheading3 h4{
+        font-size: 14px;
+    }
+    .headingB0 h1
+    {
+        font-size: 50px;
+    }
+    .headingB0 h2
+    {
+        font-size: 60px;
+        color: rgba(107, 218, 138, 0.898);
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .subheading1 h1
+    {
+        font-size: 60px;
+    }
+    .subheading1 h2
+    {
+        font-size: 40px;
+    }
+    .text h1{
+        font-size: 50px;  
+    }
+    .text2
+    {
+        font-size: 20px;
+    }
+    .slidesimg
+    {
+        width: 30rem;
+        height: 20rem;
+       
+    }
+    .img
+    {
+        width: 50%;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    .textbox
+    {
+        width: 20rem;
+        height: 15rem;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.776);
+        margin: 1rem;
+        padding: 10px;
+    }
+
+  }
+  @media (min-width: 1200px) and (max-width: 1399.98px) {
+    .subheading1 h1
+    {
+        font-size: 80px;
+    }
+    .subheading1 h2
+    {
+        font-size: 60px;
+    }
+    .img
+    {
+        width: 50%;
+        margin-left: 3rem;
+        margin-right: 5rem;
+    }
+    .textbox
+    {
+        width: 20rem;
+        height: 15rem;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.776);
+        margin: 1rem;
+        padding: 10px;
+    }
+  }
+  
+
+  @media (min-width: 1400px) {
+    .subheading1 h1
+    {
+        font-size: 80px;
+    }
+    .subheading1 h2
+    {
+        font-size: 60px;
+    }
+    .img
+    {
+        width: 50%;
+        margin-left: 3rem;
+        margin-right: 5rem;
+    }
+    .textbox
+    {
+        width: 20rem;
+        height: 15rem;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.776);
+        margin: 1rem;
+        padding: 10px;
+    }
+  }
 
