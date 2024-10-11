@@ -1,4 +1,7 @@
 
+<a id="top"></a>
+
+
 ![Logo](https://drive.google.com/uc?id=17OoYp2m-gLVwmmrjyDE_yrjzGpyZ1Zul)
 
 
@@ -6,6 +9,7 @@
 
 HireHub is a comprehensive labor hiring platform designed to bridge the gap between recruiters and skilled laborers. With advanced features like real-time chat, video interviews, labor availability tracking, and more, HireHub makes the hiring process seamless and efficient.
 
+<hr>
 
 ## 🌐 Live Demo
 
@@ -13,8 +17,9 @@ HireHub is a comprehensive labor hiring platform designed to bridge the gap betw
  
 Note: The server takes approximately 50 seconds to spin up, so please be patient.
 
+<details>
+   <summary><h2>✨ Key Features</h2></summary>
 
-## ✨ Key Features
 
 - 🛠 Admin Dashboard
 Full control over recruiters, laborers, job posts, and user activities to ensure smooth operations.
@@ -42,6 +47,9 @@ Switch to dark mode for a visually appealing and comfortable user experience.
 
 - 📱 Responsive UI
 Modern, responsive design using Tailwind CSS to ensure seamless usage on any device.
+</details>
+
+<hr>
 
 
 ## 🛠️ Tech Stack
@@ -54,6 +62,7 @@ Modern, responsive design using Tailwind CSS to ensure seamless usage on any dev
 
 **Cloud Services:** Cloudinary, Clever Cloud
 
+<hr>
 
 ## 🚀 How to Get Started
 
@@ -97,7 +106,11 @@ npm start
 6. Visit the application:
 Launch the live server for the landing page.
 
-## 🖼️ Highlighted Features with Screenshots
+<hr>
+
+<details>
+   <summary><h2>🖼️ Highlighted Features with Screenshots</h2></summary>
+
 **📋 Job Postings**
 
 Post jobs with detailed descriptions, including salary, skills, and location.
@@ -113,6 +126,8 @@ Communicate with laborers via instant messaging or schedule video interviews.
 Monitor the progress of laborers on jobs with real-time tracking.
 ![Job Postings](https://drive.google.com/uc?id=1BrXUfmAxf50yduq6VSQqAo3mibSOmmuE)
 
+</details>
+<hr>
 
 ## 👨‍💻 Contributing
 
@@ -126,10 +141,35 @@ Feel free to fork this repository and contribute by submitting a pull request. F
 **Please adhere to this project's `code of conduct`.**
 
 
-## 💬 Feedback & Support
+## 💬 Feedback:
 
 If you have any feedback, questions, or issues, feel free to reach out or open a GitHub Issue.
 
 
 For support, feel free to reach out via email at anish8427singh@gmail.com.
+
+
+## Contributors ❤️
+
+<a href="https://github.com/ChandelAnish/hireHUB-website/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ChandelAnish/hireHUB-website" />
+</a>
+<hr>
+
+
+<hr>
+<div>
+  <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f64f_1f3fb/512.webp" width="35" height="35"> Support </h2>
+</div>
+
+<div>
+  Don't forget to leave a star<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.webp" width="35" height="30"> for this project!
+</div> <br>
+
+<hr>
+
+
+
+<a href="#top" style="position: fixed; bottom: 20px; right: 20px; background-color: black ; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; font-family: Arial; font-size: 16px;">Go to Top</a>
+
 
