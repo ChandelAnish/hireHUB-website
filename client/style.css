@@ -258,3 +258,14 @@
 
 /* footer */
 
+        .hover-effect:hover {
+            color: #007bff; /* Change to your desired hover color */
+            text-decoration: underline; /* Optional: add underline effect */
+        }
+        
+        .btn-success.hover-effect:hover {
+            background-color: #50ecfd; /* Darker shade for button hover */
+           color: black;
+            border-color: #0056b3; /* Darker shade for button border */
+        }
+   
