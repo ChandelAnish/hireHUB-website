@@ -256,5 +256,29 @@
     transform: scale(1.03);
 }
 
+body {
+    background-color: #ffffff; /* Default light background */
+    color: #000000; /* Default text color */
+  }
+  
+  .dark-mode {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+  }
+  
+  /* Additional element-specific styles */
+  header, footer {
+    background-color: #1f1f1f;
+  }
+  
+  button {
+    background-color: #333;
+    color: #fff;
+  }
+
+
+
+  
+
 /* footer */
 
