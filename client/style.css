@@ -258,3 +258,92 @@
 
 /* footer */
 
+/* Navbar styles */
+.navbar {
+    background-color: rgba(107, 218, 138, 0.1); /* Light green shade */
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    padding: 1rem 2rem;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 1rem;
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: rgba(87, 198, 118, 1); /* Darker green on hover */
+}
+
+.nav-link.active {
+    color: rgba(87, 198, 118, 1);
+}
+
+#contactus {
+    margin-right: 1rem;
+}
+
+.nav-btn {
+    background-color: rgba(107, 218, 138, 0.898);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: rgba(87, 198, 118, 1);
+    color: white;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.75rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(87, 198, 118, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        margin-top: 1rem;
+    }
+    
+    .nav-item {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-btn {
+        display: block;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+}
