@@ -258,3 +258,47 @@
 
 /* footer */
 
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.dark-mode .navbar {
+  background-color: #2c2c2c !important;
+}
+
+.dark-mode .navbar-brand,
+.dark-mode .nav-link {
+  color: #f0f0f0 !important;
+}
+
+.dark-mode .text,
+.dark-mode .containerA1,
+.dark-mode .containerA2-1,
+.dark-mode .containerA2-2,
+.dark-mode .containerB1,
+.dark-mode .textbox {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+}
+
+.dark-mode .textbox h1,
+.dark-mode .subheading1 h2,
+.dark-mode .subheading2 b,
+.dark-mode .subheading3 b,
+.dark-mode .headingB0 h2 {
+  color: #6bda8a !important;
+}
+
+.dark-mode hr {
+  border-color: #f0f0f0;
+}
+
+.dark-mode footer {
+  color: #f0f0f0;
+}
+
+.dark-mode .nav-link.text-body-secondary {
+  color: #a0a0a0 !important;
+}
