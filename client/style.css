@@ -1,6 +1,7 @@
 #contactus
 {
-    margin: 0rem 65rem 0rem 0rem;
+    /* margins have been changed to make it look for great */
+    margin: 0rem 0rem 0rem 0rem;
 }
 .mainheading
 {
@@ -65,7 +66,7 @@
 .imgtext
 {
     display: grid;
-    grid-template-columns: 50rem 35rem;
+    grid-template-columns: 50rem 0rem;
     margin: 5rem 0rem 0rem 5rem;
 }
 .img
@@ -74,11 +75,19 @@
 }
 .text2
 {
+    font-size: 30px;
+    width: 20rem;
+    height: 25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+    flex-direction: column;
 }
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+    /* font-size: 30px; */
+
 .slidesimg
 {
     width: 40rem;
@@ -208,7 +217,7 @@
 }
 .headingB0
 {
-    margin-top: .5rem;
+    margin-top: 5rem;
     padding: 4.5rem;
     margin-bottom: 4rem;
 }
