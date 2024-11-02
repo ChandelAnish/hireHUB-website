@@ -60,7 +60,7 @@ Modern, responsive design using Tailwind CSS to ensure seamless usage on any dev
 Follow these steps to set up the project locally:
 1. Clone the repository:
 ```bash
-  npm clone https://github.com/ChandelAnish/hireHUB-website.git
+  git clone https://github.com/ChandelAnish/hireHUB-website.git
   cd hireHUB-website
 ```
 

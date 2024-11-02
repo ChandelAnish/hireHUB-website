@@ -255,6 +255,24 @@
     transition: all .7s;
     transform: scale(1.03);
 }
-
+.containerFAQ{
+    margin-top: 80px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;   
+    background-color: aliceblue;
+}
+.headingFAQ{
+    color: rgb(67, 176, 67);
+    padding: 40px 30px;
+    box-shadow: rgb(222, 234, 245) 0px 3px 6px 10px inset, rgba(252, 249, 249, 0.5) 0px -3px 6px 15px inset; 
+}
+.accordion{
+    margin-top: 30px;
+}
+.accordion-collapse{
+    background-color: rgb(226, 250, 215);
+    padding: 5px 10px;
+}
 /* footer */
 
